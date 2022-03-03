@@ -1,4 +1,4 @@
-# Pixul Finance website
+# Pixul Finance dApp
 This project contains the website of Pixul Finance.
 
 ## How to edit
