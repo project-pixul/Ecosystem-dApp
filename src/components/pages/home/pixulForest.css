@@ -1,0 +1,9 @@
+.pixul-forest p {
+	flex: 0 0 50%;
+}
+
+.pixul-forest h2 {
+	flex: 1 1 100%;
+	min-width: 100%;
+	margin-bottom: 20px;
+}

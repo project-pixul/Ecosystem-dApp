@@ -1,0 +1,471 @@
+.farm-container {
+	display: block;
+	padding-top: 8%
+}
+
+.farm-header {
+	padding: 0 4%;
+}
+
+.farm-title {
+	margin-bottom: 32px;
+}
+
+.farm-title span {
+	font-size: 2.6rem;
+	font-weight: bold;
+}
+
+.lp-pair-icon {
+	width: 64px;
+	height: 64px;
+	margin-right: 8px;
+}
+
+.farm-body {
+	padding-top: 20px;
+	padding-left: 4%;
+	padding-right: 4%;
+}
+
+.farm-body h1 {
+	color: var(--primary-alt);
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+
+.farm-body h2 {
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+
+.farm-body h3 {
+	color: var(--white);
+	font-size: 1rem;
+	font-weight: bold;
+}
+
+.lp-input {
+	margin-top: 12px;
+	background-color: #242936;
+	color: var(--gold-alt);
+	border-radius: 8px;
+	border: none;
+	padding: 4px;
+	padding-left: 12px;
+}
+
+.ls-input:focus {
+	outline: none;
+}
+
+.farm-body .pair-header {
+	margin-bottom: 24px;
+}
+
+.pair-header h2 {
+	color: var(--complementary-alt);
+	font-size: 1rem;
+	margin-top: 4px;
+}
+
+.apr h2 {
+	color: var(--gold-alt);
+}
+
+.pool {
+	margin-bottom: 16px;
+}
+
+.pool h2 {
+	color: var(--white);
+}
+
+.pool u {
+	text-decoration-thickness: 2px;
+	text-decoration-color: var(--complementary-alt);
+}
+
+.wd-buttons {
+	margin-top: 16px;
+}
+
+.farm-body .gradient-card {
+	width: 100%;
+	height: 100%;
+	padding-top: 24px;
+	padding-bottom: 24px;
+	border: none;
+	z-index: 2;
+}
+
+.farm-body .col-md-3 {
+	padding: 0 16px;
+}
+
+.farm-card {
+	margin-bottom: 32px;
+}
+
+.farm-card-body {
+	height: 100%;
+	flex-direction: column;
+}
+
+.farm-card-body input {
+	width: 100%;
+}
+
+.rewards-block {
+	margin: 16px 0;
+}
+
+.rewards-block .col-md-2,
+.rewards-block .col-md-10 {
+	padding: 0;
+}
+
+.staked-lp-info {
+	margin-bottom: 16px;
+}
+
+.btn-harvest {
+	background-color: var(--gold);
+	padding: 8px;
+	border: none;
+	border-radius: 50%;
+}
+
+.btn-harvest:hover {
+	background-color: var(--gold-alt);
+}
+
+.btn-harvest img {
+	width: 32px;
+	height: 32px;
+}
+
+.wd-buttons .right {
+	margin-left: 16px;
+}
+
+.glow-div {
+	position: relative;
+	display: flex;
+}
+
+.glow-div::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 50%;
+	height: 100%;
+	-webkit-box-shadow: 0 0 17px 3px #29e267, 0 0 4px 2px #29e267;
+	box-shadow: 0 0 17px 3px #29e267, 0 0 4px 2px #29e267;
+	z-index: 1;
+	-webkit-animation-name: gold-glow;
+	animation-name: gold-glow;
+	-webkit-animation-timing-function: ease;
+	animation-timing-function: ease;
+	-webkit-animation-duration: 4s;
+	animation-duration: 4s;
+	-webkit-animation-iteration-count: infinite;
+	animation-iteration-count: infinite;
+	border-radius: 12px;
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	-ms-border-radius: 12px;
+	-o-border-radius: 12px;
+}
+
+.glow-div::after {
+	content: '';
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	width: 50%;
+	height: 100%;
+	-webkit-box-shadow: 0 0 17px 3px #ff46c1, 0 0 4px 2px #ff46c1;
+	box-shadow: 0 0 17px 3px #ff46c1, 0 0 4px 2px #ff46c1;
+	z-index: 0;
+	-webkit-animation-name: pink-glow;
+	animation-name: pink-glow;
+	-webkit-animation-timing-function: ease;
+	animation-timing-function: ease;
+	-webkit-animation-duration: 4s;
+	animation-duration: 4s;
+	-webkit-animation-iteration-count: infinite;
+	animation-iteration-count: infinite;
+	border-radius: 12px;
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	-ms-border-radius: 12px;
+	-o-border-radius: 12px;
+}
+
+@keyframes gold-glow {
+	0% {
+		top: 0;
+		left: 0;
+		height: 50%;
+		width: 100%;
+	}
+
+	25% {
+		top: 0;
+		left: 50%;
+		height: 100%;
+		width: 50%;
+	}
+
+	50% {
+		top: 50%;
+		left: 0;
+		height: 50%;
+		width: 100%;
+	}
+
+	75% {
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 50%;
+	}
+
+	100% {
+		top: 0;
+		left: 0;
+		height: 50%;
+		width: 100%;
+	}
+}
+
+@-webkit-keyframes gold-glow {
+	0% {
+		top: 0;
+		left: 0;
+		height: 50%;
+		width: 100%;
+	}
+
+	25% {
+		top: 0;
+		left: 50%;
+		height: 100%;
+		width: 50%;
+	}
+
+	50% {
+		top: 50%;
+		left: 0;
+		height: 50%;
+		width: 100%;
+	}
+
+	75% {
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 50%;
+	}
+
+	100% {
+		top: 0;
+		left: 0;
+		height: 50%;
+		width: 100%;
+	}
+}
+
+@keyframes pink-glow {
+	0% {
+		top: 50%;
+		left: 0;
+		height: 50%;
+		width: 100%;
+	}
+
+	25% {
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 50%;
+	}
+
+	50% {
+		top: 0;
+		left: 0;
+		height: 50%;
+		width: 100%;
+	}
+
+	75% {
+		top: 0;
+		left: 50%;
+		height: 100%;
+		width: 50%;
+	}
+
+	100% {
+		top: 50%;
+		left: 0;
+		height: 50%;
+		width: 100%;
+	}
+}
+
+@-webkit-keyframes pink-glow {
+	0% {
+		top: 50%;
+		left: 0;
+		height: 50%;
+		width: 100%;
+	}
+
+	25% {
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 50%;
+	}
+
+	50% {
+		top: 0;
+		left: 0;
+		height: 50%;
+		width: 100%;
+	}
+
+	75% {
+		top: 0;
+		left: 50%;
+		height: 100%;
+		width: 50%;
+	}
+
+	100% {
+		top: 50%;
+		left: 0;
+		height: 50%;
+		width: 100%;
+	}
+}
+
+@media (max-width: 900px) {
+	.farm-container {
+		padding: 40% 10% 0 10%;
+	}
+
+	.farm-container .farm-header a {
+		float: none !important;
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+
+	.glow-div {
+		min-width: 0;
+	}
+
+	.farm-header {
+		padding: 0;
+	}
+
+	.farm-title {
+		margin-bottom: 20px;
+	}
+
+	.farm-title span {
+		font-size: 2.4rem;
+	}
+
+	.lp-pair-icon {
+		width: 40px;
+		height: 40px;
+	}
+
+	.farm-body {
+		display: block !important;
+		padding-top: 20px;
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	.farm-body .col-md-3 {
+		padding: 0;
+		margin-bottom: 32px;
+	}
+
+	.farm-body .glow-div {
+		width: 100%;
+	}
+
+	.farm-body .gradient-card {
+		width: 100%;
+	}
+
+	.farm-body h1 {
+		font-size: 1.4rem;
+	}
+
+	.farm-body h2 {
+		font-size: 1.2rem;
+		font-weight: bold;
+	}
+
+	.farm-body h3 {
+		font-size: 1rem;
+		font-weight: bold;
+		margin-top: 8px;
+	}
+
+	.farm-body button {
+		font-size: 1rem !important;
+	}
+
+	.rewards-block {
+		justify-content: space-between;
+	}
+}
+
+@media (max-width: 1200px) {
+	.wd-buttons {
+		display: block !important;
+	}
+
+	.wd-buttons button {
+		width: 100%;
+	}
+
+	.wd-buttons .right {
+		margin-top: 16px;
+		margin-left: 0px;
+	}
+
+	.apr {
+		display: block !important;
+	}
+	
+	.tvl {
+		display: block !important;
+	}
+
+	.pool {
+		display: block !important;
+	}
+
+	.btn-harvest {
+		height: 40px;
+		width: 40px;
+	}
+
+	.btn-harvest img {
+		height: 24px;
+		width: 24px;
+	}
+
+	.lp-pair-icon {
+		width: 56px;
+		height: 56px;
+	}
+}
