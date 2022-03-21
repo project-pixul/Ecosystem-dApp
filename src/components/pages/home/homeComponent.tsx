@@ -2,7 +2,6 @@ import * as React from 'react';
 
 import { Suspense } from 'react';
 import { BaseComponent } from '../../shellInterfaces';
-import otherApp from './otherApp';
 import { TreasuryWalletAddress } from '../../contracts/pixul';
 import { PixulStatistics } from '../../contracts/statistics';
 import { withTranslation, WithTranslation, TFunction } from 'react-i18next';
@@ -14,6 +13,7 @@ import {
 	faMedium,
 	faTelegram,
 	faTwitter,
+	faGithub,
 } from '@fortawesome/free-brands-svg-icons';
 import { faFacebook } from '@fortawesome/free-brands-svg-icons/faFacebook';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons/faInstagram';
@@ -628,53 +628,60 @@ class HomeComponent extends BaseComponent<
 							<PixulAppDiv />
 						</Suspense>
 					</section> */}
-					<section className='footer'>
-						<div className='pixul'>
-							<img src='/images/pixellogowebsitewhite.png' />
-							<p>
-								Pixul | Developing cryto solutions for everyday business and
-								personal transactions.
-							</p>
-							<div className='social-medias'>
-								<a
-									href='#'
-									rel='noreferrer'
-									className='btn-social'
-									target='_blank'>
-									<FontAwesomeIcon icon={faTwitter} />
-								</a>
-								<a
-									href='#'
-									rel='noreferrer'
-									className='btn-social'
-									target='_blank'>
-									<FontAwesomeIcon icon={faMedium} />
-								</a>
-							</div>
-						</div>
-						<div className='infos'>
-							<div className='info'>
-								<h2>Ecosystem</h2>
-								<a href=''>Marketplace</a>
-								<a href=''>Staking</a>
-								<a href=''>Farms</a>
-								<a href=''>DEX</a>
-							</div>
-							<div className='info'>
-								<h2>Documents</h2>
-								<a href=''>Whitepaper</a>
-								<a href=''>Roadmap</a>
-								<a href=''>Transparency</a>
-								<a href=''>Audits</a>
-							</div>
-							<div className='info'>
-								<h2>Protocol</h2>
-								<a href=''>Vote</a>
-								<a href=''>xPIXUL</a>
-							</div>
-						</div>
-					</section>
 				</div>
+				<section className='footer'>
+					<div className='pixul'>
+						<img src='/images/pixellogowebsitewhite.png' />
+						<p>
+							Pixul | Developing cryto solutions for everyday business and
+							personal transactions.
+						</p>
+						<div className='social-medias'>
+							<a
+								href='#'
+								rel='noreferrer'
+								className='btn-social'
+								target='_blank'>
+								<FontAwesomeIcon icon={faTwitter} />
+							</a>
+							<a
+								href='#'
+								rel='noreferrer'
+								className='btn-social'
+								target='_blank'>
+								<FontAwesomeIcon icon={faMedium} />
+							</a>
+							<a
+								href='#'
+								rel='noreferrer'
+								className='btn-social'
+								target='_blank'>
+								<FontAwesomeIcon icon={faGithub} />
+							</a>
+						</div>
+					</div>
+					<div className='infos'>
+						<div className='info'>
+							<h2>Ecosystem</h2>
+							<a href=''>Marketplace</a>
+							<a href=''>Staking</a>
+							<a href=''>Farms</a>
+							<a href=''>DEX</a>
+						</div>
+						<div className='info'>
+							<h2>Documents</h2>
+							<a href=''>Whitepaper</a>
+							<a href=''>Roadmap</a>
+							<a href=''>Transparency</a>
+							<a href=''>Audits</a>
+						</div>
+						<div className='info'>
+							<h2>Protocol</h2>
+							<a href=''>Vote</a>
+							<a href=''>xPIXUL</a>
+						</div>
+					</div>
+				</section>
 			</div>
 		);
 	}

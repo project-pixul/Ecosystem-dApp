@@ -21,7 +21,7 @@
 }
 
 .home-container h1 {
-	margin-bottom: 15px;
+	font-size: 2.5em;
 }
 
 .home-container .hero-buttons {
@@ -70,6 +70,7 @@
 
 .paragraph1 {
 	text-align: center;
+	font-size: 1.1em;
 }
 
 .home-container .learn {
@@ -94,18 +95,20 @@
 .statContainer {
 	width: 70vw;
 	display: flex;
+	flex-wrap: wrap;
 	flex-direction: row;
-	justify-content: center;
+	justify-content: space-around;
 	align-items: center;
 }
 
 .stats {
-	margin-left: 60px;
-	font-size: 1.7em;
+	/* margin-left: 60px; */
+	font-size: 1.5em;
 	font-weight: 600;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: center;
 }
 
 .statname {
@@ -115,19 +118,18 @@
 .explore,
 .social {
 	margin-top: 50px;
-	width: 95vw;
+	width: 80vw;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: center;
+	justify-content: space-evenly;
 }
 
 .explore h1,
 .social h1 {
 	text-align: center;
-	width: 50vw;
 	font-weight: 700;
-	font-size: 2.5em;
+	font-size: 2.2em;
 }
 
 .exploreCards {
@@ -141,12 +143,12 @@
 .exploreCard,
 .socialCard {
 	position: relative;
-	margin-top: 70px;
-	margin-left: 50px;
+	margin-top: 60px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	margin-right: 20px;
 }
 
 .cardIcon,
@@ -235,17 +237,20 @@
 }
 
 .socialCards {
-	margin-top: 50px;
+	margin-top: 20px;
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: center;
+	justify-content: space-around;
 	align-items: center;
 }
 
 .footer {
-	height: 300px;
+	width: 100%;
+	height: auto;
+	padding: 50px;
 	margin-top: 80px;
 	display: flex;
+	flex-wrap: wrap;
 	align-items: center;
 	justify-content: center;
 	background-color: #232127f6;
@@ -262,6 +267,7 @@
 
 .footer .infos {
 	display: flex;
+	flex-wrap: wrap;
 }
 
 .footer .info {
@@ -314,7 +320,27 @@
 	justify-content: center;
 }
 
+@media screen and (max-width: 1054px) {
+	.footer {
+		justify-content: flex-start;
+	}
+
+	.footer .infos {
+		justify-content: space-between;
+	}
+
+	.footer .info {
+		margin-top: 10px;
+		margin-right: 50px;
+		margin-left: 0;
+	}
+}
+
 @media (max-width: 990px) {
+	.explore h1,
+	.social h1 {
+		font-size: calc(100vw - 96vw);
+	}
 	.token-stats {
 		display: none;
 	}
