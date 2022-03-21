@@ -4,11 +4,11 @@ import {
 	BrowserRouter as Router,
 	Switch,
 	Route,
-	Redirect
+	Redirect,
 } from 'react-router-dom';
 import { ShellHost } from './shellHost';
 import { BaseComponent, IShellPage } from './shellInterfaces';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import ShellNav from './shellNav';
 
@@ -18,43 +18,45 @@ export type ShellProps = {
 	pages: IShellPage[];
 };
 export type ShellState = {
-	currentPage: IShellPage
+	currentPage: IShellPage;
 };
 
 export class Shell extends BaseComponent<ShellProps, ShellState> {
-
 	constructor(props: ShellProps) {
 		super(props);
 	}
 
 	render() {
 		const pages = this.readProps().pages;
-		return <Router>
-			<div className="main-wrapper">
-				<ShellNav pages={pages} />
-				<div className="content-wrapper">
-					<div className="listing-banner d-flex align-items-center shadow">
-						<FontAwesomeIcon icon={faInfoCircle} className="info-icon" />
-						<h1>The Pixul DeFi dApp <strong>BETA</strong> is <strong>finally here</strong>!.</h1>
+		return (
+			<Router>
+				<div className='main-wrapper'>
+					<ShellNav pages={pages} />
+					<div className='content-wrapper'>
+						{/* <div className='listing-banner d-flex align-items-center shadow'>
+							<FontAwesomeIcon icon={faInfoCircle} className='info-icon' />
+							<h1>
+								The Pixul DeFi dApp <strong>BETA</strong> is{' '}
+								<strong>finally here</strong>!.
+							</h1>
+						</div> */}
+						<Switch>
+							{pages.map((page) => (
+								<Route key={`${page.id}`} path={'/' + page.id}>
+									<ShellHost page={page} />
+								</Route>
+							))}
+							<Route
+								exact
+								path='/'
+								render={() => {
+									return <Redirect to='/home' />;
+								}}
+							/>
+						</Switch>
 					</div>
-					<Switch>
-						{pages.map(page => (
-							<Route key={`${page.id}`} path={'/' + page.id}>
-								<ShellHost page={page} />
-							</Route>
-						))}
-						<Route
-							exact
-							path="/"
-							render={() => {
-								return (
-									<Redirect to="/home" />
-								)
-							}}
-						/>
-					</Switch>
 				</div>
-			</div>
-		</Router>
+			</Router>
+		);
 	}
 }
