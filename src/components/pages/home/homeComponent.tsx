@@ -95,26 +95,24 @@ class HomeComponent extends BaseComponent<
 		return (
 			<div className='home-container shadow'>
 				<div className='container'>
-					<section className='intro'>
-						<div className='row d-flex justify-content-center'>
-							<div className='firstSection'>
-								<h1 className='header1'>
-									<strong className='title-white'>{t('home.subtitle1')}</strong>
-									<br />
-								</h1>
-								<p className='paragraph1'>{t('home.paragraph1')}</p>
-								{/* <p>{t('home.paragraph1_end')}</p> */}
-								<div className='learn hero-buttons'>
-									<Slide left>
-										<a
-											className='shadow btn btn-lg'
-											role='button'
-											// href='/whitepaper.pdf'
-											target='_blank'>
-											{t('home.learn')}
-										</a>
-									</Slide>
-								</div>
+					<section className='main flex-column d-flex justify-content-center align-items-center'>
+						<div className='flex-column d-flex justify-content-center firstSection align-items-center'>
+							<h1 className='d-flex justify-content-center align-items-center'>
+								<strong className='title-white'>{t('home.subtitle1')}</strong>
+								<br />
+							</h1>
+							<p className='paragraph1'>{t('home.paragraph1')}</p>
+							{/* <p>{t('home.paragraph1_end')}</p> */}
+							<div className='learn hero-buttons d-flex justify-content-center align-items-center'>
+								<Slide left>
+									<a
+										className='shadow btn btn-lg'
+										role='button'
+										// href='/whitepaper.pdf'
+										target='_blank'>
+										{t('home.learn')}
+									</a>
+								</Slide>
 							</div>
 							{/* <div className='col-md-5'>
 								<Suspense fallback={<PuffLoader color={'#ffffff'} />}>
@@ -123,7 +121,7 @@ class HomeComponent extends BaseComponent<
 							</div> */}
 						</div>
 
-						<div className='statContainer'>
+						<div className='statContainer d-flex flex-wrap flex-row justify-content-around align-items-center'>
 							<p className='stats'>
 								<span>$0.015</span>
 								<span className='statname'>{t('home.stat1')}</span>
@@ -144,7 +142,7 @@ class HomeComponent extends BaseComponent<
 
 						<div className='explore'>
 							<h1>{t('home.explore.explore_header')}</h1>
-							<div className='exploreCards'>
+							<div className='exploreCards d-flex flex-wrap flex-row align-items-center'>
 								<div className='exploreCard'>
 									<svg
 										className='cardIcon'
