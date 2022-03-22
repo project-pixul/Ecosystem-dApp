@@ -85,7 +85,7 @@ class ShellNav extends BaseComponent<
 				<div className='logo-wrapper'>
 					<a href='/home'>
 						<img
-							src='images/updated-logo-title.svg'
+							src='/images/pixellogowebsitewhite.png'
 							className='img-logo'
 							alt='Pixul'
 						/>

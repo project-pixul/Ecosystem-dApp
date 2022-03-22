@@ -97,6 +97,7 @@ class HomeComponent extends BaseComponent<
 				<div className='container'>
 					<section className='main flex-column d-flex justify-content-center align-items-center'>
 						<div className='flex-column d-flex justify-content-center firstSection align-items-center'>
+							<img src='/images/pixulfavicon.png' alt='' />
 							<h1 className='d-flex justify-content-center align-items-center'>
 								<strong className='title-white'>{t('home.subtitle1')}</strong>
 								<br />
@@ -193,9 +194,12 @@ class HomeComponent extends BaseComponent<
 											<h2>{t('home.explore.stake_header')}</h2>
 											<p>{t('home.explore.stake_paragraph')}</p>
 										</div>
-										<button>{t('home.explore.stake_button')}</button>
+										<a href='#' className='btn'>
+											{t('home.explore.stake_button')}
+										</a>
 									</div>
 								</div>
+
 								<div className='exploreCard'>
 									<svg
 										className='cardIcon'
@@ -288,9 +292,12 @@ class HomeComponent extends BaseComponent<
 											<h2>{t('home.explore.farm_header')}</h2>
 											<p>{t('home.explore.farm_paragraph')}</p>
 										</div>
-										<button>{t('home.explore.farm_button')}</button>
+										<a href='#' className='btn'>
+											{t('home.explore.farm_button')}
+										</a>
 									</div>
 								</div>
+
 								<div className='exploreCard'>
 									<svg
 										className='cardIcon'
@@ -345,9 +352,12 @@ class HomeComponent extends BaseComponent<
 											<h2>{t('home.explore.xpixul_header')}</h2>
 											<p>{t('home.explore.xpixul_paragraph')}</p>
 										</div>
-										<button>{t('home.explore.xpixul_button')}</button>
+										<a href='#' className='btn'>
+											{t('home.explore.xpixul_button')}
+										</a>
 									</div>
 								</div>
+
 								<div className='exploreCard'>
 									<svg
 										className='cardIcon'
@@ -373,7 +383,9 @@ class HomeComponent extends BaseComponent<
 											<h2>{t('home.explore.dex_header')}</h2>
 											<p>{t('home.explore.dex_paragraph')}</p>
 										</div>
-										<button>{t('home.explore.dex_button')}</button>
+										<a href='#' className='btn'>
+											{t('home.explore.dex_button')}
+										</a>
 									</div>
 								</div>
 							</div>
@@ -432,9 +444,12 @@ class HomeComponent extends BaseComponent<
 									</svg>
 									<div className='content'>
 										<h2>Discord</h2>
-										<button>Join Discord</button>
+										<a href='#' className='btn'>
+											Join Discord
+										</a>
 									</div>
 								</div>
+
 								<div className='socialCard'>
 									<svg
 										xmlns='http://www.w3.org/2000/svg'
@@ -455,9 +470,12 @@ class HomeComponent extends BaseComponent<
 									</svg>
 									<div className='content'>
 										<h2>Telegram</h2>
-										<button>Join Telegram</button>
+										<a href='#' className='btn'>
+											Join Telegram
+										</a>
 									</div>
 								</div>
+
 								<div className='socialCard'>
 									<svg
 										version='1.1'
@@ -519,9 +537,12 @@ class HomeComponent extends BaseComponent<
 									</svg>
 									<div className='content'>
 										<h2>Reddit</h2>
-										<button>Join Reddit</button>
+										<a href='#' className='btn'>
+											Join Reddit
+										</a>
 									</div>
 								</div>
+
 								<div className='socialCard'>
 									<svg
 										version='1.1'
@@ -558,10 +579,11 @@ class HomeComponent extends BaseComponent<
 											</g>
 										</g>
 									</svg>
-
 									<div className='content'>
 										<h2>Twitter</h2>
-										<button>Follow Twitter</button>
+										<a href='' className='btn'>
+											Join Twitter
+										</a>
 									</div>
 								</div>
 							</div>
@@ -629,7 +651,7 @@ class HomeComponent extends BaseComponent<
 				</div>
 				<section className='footer'>
 					<div className='pixul'>
-						<img src='/images/pixellogowebsitewhite.png' />
+						<img src='/images/pixellogowebsitewhite.png' alt='Pixul Logo' />
 						<p>
 							Pixul | Developing cryto solutions for everyday business and
 							personal transactions.

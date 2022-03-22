@@ -54,9 +54,18 @@
 	width: 400px;
 }
 
+.firstSection img {
+	height: 150px;
+	width: 150px;
+}
+
+.firstSection h1 {
+	font-size: 3.5em;
+}
+
 .paragraph1 {
 	text-align: center;
-	font-size: 1.1em;
+	font-size: 0.7em;
 }
 
 .home-container .learn {
@@ -204,12 +213,26 @@
 	text-align: center;
 }
 
-.exploreCard .content button,
-.socialCard .content button {
+.exploreCard .content a,
+.socialCard .content a {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 12px;
 	border-radius: 5px;
-	border: none;
-	height: 30px;
+	white-space: nowrap;
+	height: 40px;
 	width: 120px;
+	color: #fff;
+	border: none;
+}
+
+.exploreCard .content a {
+	background: linear-gradient(0.35turn, rgb(154, 17, 241), rgb(89, 1, 255));
+}
+
+.socialCard .content a {
+	background: linear-gradient(0.35turn, rgb(218, 0, 134), rgb(83, 3, 134));
 }
 
 .socialCards {

@@ -1,7 +1,7 @@
 .main-wrapper {
 	/* webpackIgnore: true */
-	background: url("https://static.wixstatic.com/media/31aeaa_2e0358ae6dc94a24864f0951d1b32418~mv2.jpg/v1/fill/w_1079,h_914,al_c,q_85/31aeaa_2e0358ae6dc94a24864f0951d1b32418~mv2.webp")
-		no-repeat bottom right transparent;
+	background: url("https://i.ibb.co/mhS3p0s/pixulbavkground2.jpg") no-repeat
+		bottom right transparent;
 	background-size: cover;
 	display: grid;
 	grid-template-rows: 1;
