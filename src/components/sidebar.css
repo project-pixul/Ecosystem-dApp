@@ -1,0 +1,31 @@
+#sidebar-root {
+	position: absolute;
+	right: 0;
+	z-index: 9999;
+}
+.sidebar-wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: flex-end;
+	height: 100vh;
+	width: 20rem;
+	background-color: #1e1e28;
+}
+.sidebar-wrapper svg {
+	margin-right: 1.8em;
+}
+.sidebar-wrapper .sidebar-item {
+	margin-right: 2em;
+	padding: 0.8em 2.2em;
+	border-radius: 6px;
+	font-size: 1.1em;
+}
+
+.sidebar-wrapper .sidebar-item:hover {
+	background-color: #262632;
+}
+
+.highlight {
+	background-color: #262632;
+}
