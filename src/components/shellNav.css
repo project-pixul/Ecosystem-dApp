@@ -1,7 +1,7 @@
 .navbar-toggler {
 	display: none;
 	color: #fff;
-	font-size: 2.5rem;
+	font-size: 2rem;
 }
 
 .navigation-wrapper {
@@ -15,8 +15,9 @@
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
-	padding-left: 30px;
-	padding-right: 30px;
+	margin-top: 15px;
+	padding-left: 80px;
+	padding-right: 90px;
 	z-index: 1000;
 }
 
@@ -35,8 +36,8 @@
 
 .navigation-wrapper .logo-wrapper .img-logo {
 	display: block;
-	width: 119.45;
-	height: 48px;
+	width: 100px;
+	height: 40px;
 	margin-left: 16px;
 }
 
@@ -114,7 +115,7 @@
 
 .navbar-nav li {
 	margin-right: 20px !important;
-	font-size: 1.1rem !important;
+	font-size: 0.8rem !important;
 	display: flex;
 	justify-content: center;
 	align-items: center;

@@ -72,9 +72,20 @@
 			"price_bnb": "Price in ETH:"
 		},
 		"pixul_app": {
-			"title": "Pixul Finance App",
-			"paragraph1": "Get the latest information about the price of the token in multiple currencies, the status of the Pixul Treasury, and any other information you need to know about Pixul.",
-			"paragraph2": "Available soon for both Android and iOS."
+			"title": "Earn more by staking PIXUL",
+			"paragraph": "When your PIXUL is staked in our protocol, you receive xPIXUL in return for voting rights and a fully composable token that can interact with other products in our ecosystem. Your xPIXUL is continuously compoundig, when you unstake you will receive all the originally deposited PIXUL and any additional from fees",
+			"banner": {
+				"banner_name": "PIXUL Staking APR",
+				"banner_stat": "Average APR"
+			},
+			"pixul_cards": {
+				"pixul_card1": "PIXUL Balance",
+				"pixul_card2": "xPIXUL Balance",
+				"pixul_card3": "Total PIXUL Locked"
+			},
+			"stake_pixul": {
+				"title": "Stake PIXUL"
+			}
 		}
 	},
 	"swap": {

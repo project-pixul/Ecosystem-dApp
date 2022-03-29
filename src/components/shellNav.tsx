@@ -148,11 +148,10 @@ class ShellNav extends BaseComponent<
 							const menuMap = {
 								farm: t('nav.farm'),
 								xpixul: t('nav.xpixul'),
-								//	'lottery': t('nav.lottery'),
-								exchange: t('nav.exchange'),
-								bridge: t('nav.bridge'),
+								lottery: t('nav.lottery'),
 							};
 							const menuName = (menuMap as any)[`${page.id}`];
+							console.log(menuName);
 
 							return (
 								<li key={`${page.id}`}>
