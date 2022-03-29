@@ -15,6 +15,7 @@ import { css } from "styled-components";
 
 // now all the components
 import { Shell } from "./components/shell";
+import Sidebar from "./components/sidebar";
 import LotteryComponent from "./components/pages/lottery/lotteryComponent";
 import HomeComponent from "./components/pages/home/homeComponent";
 import AboutComponent from "./components/pages/about/aboutComponent";
@@ -35,6 +36,17 @@ const pagesInNavigator = [
 	// Ignored on nav
 	// { id: "launch", title: "Launch", component: LaunchComponent },
 	{ id: "lottery", title: "Pixul Lottery", component: LotteryComponent },
+];
+
+const sideBarItems = [
+	{ title: "Homepage", extLink: "./" },
+	{ title: "Marketplace", extLink: "./" },
+	{ title: "POS System", extLink: "./" },
+	{ title: "Documents", extLink: "./" },
+	{ title: "Audits", extLink: "./" },
+	{ title: "Github", extLink: "./" },
+	{ title: "Discord", extLink: "./" },
+	{ title: "Twitter", extLink: "./" },
 ];
 
 const overrideCss = css`

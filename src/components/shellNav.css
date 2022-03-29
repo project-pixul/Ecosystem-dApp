@@ -33,7 +33,9 @@
 	display: block;
 	position: relative;
 }
-
+.navigation-wrapper #mainNav ul svg {
+	align-self: center;
+}
 .navigation-wrapper .logo-wrapper .img-logo {
 	display: block;
 	width: 100px;
@@ -82,6 +84,7 @@
 
 .wallet {
 	padding: 10px;
+	margin-right: 20px;
 	background-color: #7800ff;
 	color: white;
 	display: flex;
