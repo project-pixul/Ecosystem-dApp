@@ -3,15 +3,12 @@ import "./sidebar.css";
 import { createPortal } from "react-dom";
 import { MdClose } from "react-icons/md";
 import { Component } from "react";
-import { Slide } from "react-reveal";
 
 type sideBarProps = {
-  sidebarItems: [
-    {
-      title: string;
-      extLink: string;
-    }
-  ];
+  sidebarItems: {
+    title: string;
+    extLink: string;
+  }[];
 };
 
 class Sidebar extends Component<sideBarProps & { toggleMenu: Function }> {
