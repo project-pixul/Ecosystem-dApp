@@ -9,12 +9,6 @@ import { Fade, Slide } from 'react-reveal';
 import { PuffLoader, PropagateLoader } from 'react-spinners';
 import AnimatedNumber from 'animated-number-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-	faMedium,
-	faTelegram,
-	faTwitter,
-	faGithub,
-} from '@fortawesome/free-brands-svg-icons';
 import { faFacebook } from '@fortawesome/free-brands-svg-icons/faFacebook';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons/faInstagram';
 import { faReddit } from '@fortawesome/free-brands-svg-icons/faReddit';
@@ -649,59 +643,6 @@ class HomeComponent extends BaseComponent<
 						</Suspense>
 					</section> */}
 				</div>
-				<section className='footer'>
-					<div className='pixul'>
-						<img src='/images/pixellogowebsitewhite.png' alt='Pixul Logo' />
-						<p>
-							Pixul | Developing cryto solutions for everyday business and
-							personal transactions.
-						</p>
-						<div className='social-medias'>
-							<a
-								href='#'
-								rel='noreferrer'
-								className='btn-social'
-								target='_blank'>
-								<FontAwesomeIcon icon={faTwitter} />
-							</a>
-							<a
-								href='#'
-								rel='noreferrer'
-								className='btn-social'
-								target='_blank'>
-								<FontAwesomeIcon icon={faMedium} />
-							</a>
-							<a
-								href='#'
-								rel='noreferrer'
-								className='btn-social'
-								target='_blank'>
-								<FontAwesomeIcon icon={faGithub} />
-							</a>
-						</div>
-					</div>
-					<div className='infos'>
-						<div className='info'>
-							<h2>Ecosystem</h2>
-							<a href=''>Marketplace</a>
-							<a href=''>Staking</a>
-							<a href=''>Farms</a>
-							<a href=''>DEX</a>
-						</div>
-						<div className='info'>
-							<h2>Documents</h2>
-							<a href=''>Whitepaper</a>
-							<a href=''>Roadmap</a>
-							<a href=''>Transparency</a>
-							<a href=''>Audits</a>
-						</div>
-						<div className='info'>
-							<h2>Protocol</h2>
-							<a href=''>Vote</a>
-							<a href=''>xPIXUL</a>
-						</div>
-					</div>
-				</section>
 			</div>
 		);
 	}

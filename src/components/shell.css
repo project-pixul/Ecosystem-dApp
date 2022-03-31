@@ -3,9 +3,69 @@
 	background: url("https://i.ibb.co/mhS3p0s/pixulbavkground2.jpg") no-repeat
 		bottom right transparent;
 	background-size: cover;
-	display: grid;
-	grid-template-rows: 1;
+	display: flex;
+	flex-direction: column;
 	width: 100%;
+}
+
+.footer {
+	bottom: 0;
+	position: relative;
+	width: 100vw;
+	height: 300px;
+	padding: 50px;
+	margin-top: 80px;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	background-color: #232127f6;
+}
+
+.footer .footer-header {
+	width: 300px;
+}
+
+.footer-header img {
+	height: 60px;
+	width: 150px;
+}
+
+.footer .infos {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.footer .info {
+	margin-left: 70px;
+	display: flex;
+	flex-direction: column;
+}
+
+.footer .info h2 {
+	font-weight: 700;
+}
+
+.footer .info a {
+	margin-bottom: 10px;
+	color: #fffff0;
+}
+
+@media screen and (max-width: 1054px) {
+	.footer {
+		justify-content: flex-start;
+		height: auto;
+	}
+
+	.footer .infos {
+		justify-content: space-between;
+	}
+
+	.footer .info {
+		margin-top: 10px;
+		margin-right: 50px;
+		margin-left: 0;
+	}
 }
 
 @media (max-width: 1600px) {
