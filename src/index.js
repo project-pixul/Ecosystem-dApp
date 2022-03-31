@@ -38,28 +38,20 @@ const pagesInNavigator = [
 	{ id: "lottery", title: "Pixul Lottery", component: LotteryComponent },
 ];
 
-const sideBarItems = [
-	{ title: "Homepage", extLink: "./" },
-	{ title: "Marketplace", extLink: "./" },
-	{ title: "POS System", extLink: "./" },
-	{ title: "Documents", extLink: "./" },
-	{ title: "Audits", extLink: "./" },
-	{ title: "Github", extLink: "./" },
-	{ title: "Discord", extLink: "./" },
-	{ title: "Twitter", extLink: "./" },
-];
-
 const overrideCss = css`
-	margin-left: 50%;
+	margin-left: calc(50vw - 112px);
+	margin-top: calc(50vh - 112px);
+	border-width: 12px;
 `;
 
 // initialize modals
 Modal.setAppElement("#root");
 console.log(HomeComponent);
+
 // and render our app into the "root" element!
 ReactDOM.render(
 	<React.Suspense
-		fallback={<ClipLoader color={"#FFFFFF"} css={overrideCss} />}
+		fallback={<ClipLoader color={"#7800ff"} css={overrideCss} size={100} />}
 	>
 		<Shell pages={pagesInNavigator} />
 	</React.Suspense>,
