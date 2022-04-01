@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { TFunction, withTranslation, WithTranslation } from "react-i18next";
 import { supportedLanguages, languageCodeOnly } from "../i18n";
+import { GiHamburgerMenu } from "react-icons/gi";
 import Collapsible from "react-collapsible";
 import "./shellNav.css";
 import "./shellNav.icons.css";
@@ -35,6 +36,7 @@ class ShellNav extends BaseComponent<
   ShellNavState
 > {
   private collapseRef = React.createRef<HTMLButtonElement>();
+
   constructor(props: ShellNavProps & WithTranslation) {
     super(props);
     this.state = {
@@ -43,53 +45,53 @@ class ShellNav extends BaseComponent<
     this.toggleSideBar = this.toggleSideBar.bind(this);
   }
 
-  toggleMenu = (e) => {
+  toggleMenu = (e: any) => {
     if (window.innerWidth < 990) this.collapseRef.current.click();
   };
 
-  collapsedNavItem(title) {
-    return (
-      <li className="sudo-nav-link">
-        <a
-          href=""
-          className={`d-flex justify-content-between nav-item ${title.toLowerCase()}`}
-        >
-          <p>{title}</p>
-          <p>▼</p>
-        </a>
-      </li>
-    );
-  }
+  // collapsedNavItem(title) {
+  //   return (
+  //     <li className="sudo-nav-link">
+  //       <a
+  //         href=""
+  //         className={`d-flex justify-content-between nav-item ${title.toLowerCase()}`}
+  //       >
+  //         <p>{title}</p>
+  //         <p>▼</p>
+  //       </a>
+  //     </li>
+  //   );
+  // }
 
-  expandedNavItem(title) {
-    return (
-      <li className="sudo-nav-link">
-        <a
-          href=""
-          className={`d-flex justify-content-between nav-item ${title.toLowerCase()}`}
-        >
-          <p>{title}</p>
-          <p>▲</p>
-        </a>
-      </li>
-    );
-  }
+  // expandedNavItem(title) {
+  //   return (
+  //     <li className="sudo-nav-link">
+  //       <a
+  //         href=""
+  //         className={`d-flex justify-content-between nav-item ${title.toLowerCase()}`}
+  //       >
+  //         <p>{title}</p>
+  //         <p>▲</p>
+  //       </a>
+  //     </li>
+  //   );
+  // }
 
-  checkCurrentRoute() {
-    const location = window.location;
+  // checkCurrentRoute() {
+  //   const location = window.location;
 
-    console.log(location);
+  //   console.log(location);
 
-    if (
-      location.pathname == "/launch" ||
-      location.pathname == "/lock" ||
-      location.pathname == "/swap" ||
-      location.pathname == "/liquidity"
-    ) {
-      return true;
-    }
-    return false;
-  }
+  //   if (
+  //     location.pathname == "/launch" ||
+  //     location.pathname == "/lock" ||
+  //     location.pathname == "/swap" ||
+  //     location.pathname == "/liquidity"
+  //   ) {
+  //     return true;
+  //   }
+  //   return false;
+  // }
 
   toggleSideBar() {
     this.setState((prevState) => ({
@@ -118,13 +120,16 @@ class ShellNav extends BaseComponent<
             </a>
             <button
               className="navbar-toggler"
-              type="button"
-              data-bs-target="#mainNav"
-              data-bs-toggle="collapse"
-              aria-controls="navbarSupportedContent"
-              aria-label="Toggle navigation"
+              // type="button"
+              // data-bs-target="#mainNav"
+              // data-bs-toggle="collapse"
+              // aria-controls="navbarSupportedContent"
+              // aria-label="Toggle navigation"
               ref={this.collapseRef}
-            ></button>
+              onClick={this.toggleSideBar}
+            >
+              <GiHamburgerMenu />
+            </button>
           </div>
           <nav id="mainNav">
             <ul className="navbar-nav">
@@ -135,7 +140,6 @@ class ShellNav extends BaseComponent<
                   about: t("nav.about"),
                 };
                 const menuName = (menuMap as any)[`${page.id}`];
-
                 return (
                   <li key={`${page.id}`}>
                     <NavLink
@@ -177,8 +181,6 @@ class ShellNav extends BaseComponent<
                   lottery: t("nav.lottery"),
                 };
                 const menuName = (menuMap as any)[`${page.id}`];
-                console.log(menuName);
-
                 return (
                   <li key={`${page.id}`}>
                     <NavLink

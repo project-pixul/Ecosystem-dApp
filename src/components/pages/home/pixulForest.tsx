@@ -1,12 +1,17 @@
-import * as React from 'react';
+import * as React from "react";
 
-import { BaseComponent } from '../../shellInterfaces';
-import { withTranslation, WithTranslation, TFunction, Trans } from 'react-i18next';
-import { fadeIn } from 'react-animations';
-import styled, { keyframes } from 'styled-components';
-import AnimatedNumber from 'animated-number-react';
+import { BaseComponent } from "../../shellInterfaces";
+import {
+  withTranslation,
+  WithTranslation,
+  TFunction,
+  Trans,
+} from "react-i18next";
+import { fadeIn } from "react-animations";
+import styled, { keyframes } from "styled-components";
+import AnimatedNumber from "animated-number-react";
 
-import './pixulForest.css';
+import "./pixulForest.css";
 
 export type PixulForestProps = {};
 export type PixulForestState = {
@@ -21,8 +26,10 @@ const FadeInDiv = styled.div`
   animation: ease-in 0.4s ${FadeInAnimation};
 `;
 
-class PixulForest extends BaseComponent<PixulForestProps & WithTranslation, PixulForestState> {
-
+class PixulForest extends BaseComponent<
+  PixulForestProps & WithTranslation,
+  PixulForestState
+> {
   private readonly plantDate: Date = new Date("02/28/2022");
   private _timeout = null;
 
@@ -36,7 +43,7 @@ class PixulForest extends BaseComponent<PixulForestProps & WithTranslation, Pixu
   }
 
   componentDidMount() {
-    console.log('mount');
+    console.log("mount");
     this.tick();
   }
 
@@ -64,28 +71,26 @@ class PixulForest extends BaseComponent<PixulForestProps & WithTranslation, Pixu
       treeAge: dayDelta,
     });
 
-    fetch("https://api.perseusoft.tech/pixuladmin/pixulservices/crypto/info/0xf9a3fda781c94942760860fc731c24301c83830a")
-      .then(res => res.json())
+    fetch(
+      "https://api.perseusoft.tech/pixuladmin/pixulservices/crypto/info/0xf9a3fda781c94942760860fc731c24301c83830a"
+    )
+      .then((res) => res.json())
       .then(
         (result) => {
           this.setState({
             treeAmount: result.plantedTree.trees,
-            carbonOffset: result.plantedTree.carbonOffset
+            carbonOffset: result.plantedTree.carbonOffset,
           });
         },
         (err) => {
           console.error("Error fetching data from ecologi API", err);
         }
-      )
+      );
 
     this._timeout = setTimeout(async () => await self.tick.call(self), 60000);
   }
 
-  handleChange = ({ target: {
-    treeAge,
-    treeAmount,
-    carbonOffset,
-  } }) => {
+  handleChange = ({ target: { treeAge, treeAmount, carbonOffset } }) => {
     this.setState({
       treeAge,
       treeAmount,
@@ -96,12 +101,12 @@ class PixulForest extends BaseComponent<PixulForestProps & WithTranslation, Pixu
   render() {
     const t: TFunction<"translation"> = this.readProps().t;
 
-    return <FadeInDiv>
-      <div className="shadow d-flex flex-row align-self-center flex-wrap gradient-card primary pixul-forest">
-
-      </div>
-    </FadeInDiv>
+    return (
+      <FadeInDiv>
+        <div className="shadow d-flex flex-row align-self-center flex-wrap gradient-card primary pixul-forest"></div>
+      </FadeInDiv>
+    );
   }
-};
+}
 
 export default withTranslation()(PixulForest);

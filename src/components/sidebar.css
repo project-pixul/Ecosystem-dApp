@@ -6,14 +6,16 @@
 .sidebar-wrapper {
 	display: flex;
 	flex-direction: column;
-	justify-content: space-evenly;
+	gap: 1.5rem;
 	align-items: flex-end;
 	height: 100vh;
 	width: 20rem;
+	max-width: 90vw;
 	background-color: #1e1e28;
 }
 .sidebar-wrapper svg {
 	margin-right: 1.8em;
+	margin-top: 1.2rem;
 }
 .sidebar-wrapper .sidebar-item {
 	margin-right: 2em;

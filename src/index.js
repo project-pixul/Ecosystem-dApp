@@ -39,8 +39,8 @@ const pagesInNavigator = [
 ];
 
 const overrideCss = css`
-	margin-left: calc(50vw - 112px);
-	margin-top: calc(50vh - 112px);
+	margin-left: calc(50vw - 56px);
+	margin-top: calc(50vh - 56px);
 	border-width: 12px;
 `;
 
