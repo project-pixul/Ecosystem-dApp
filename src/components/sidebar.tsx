@@ -11,7 +11,7 @@ type sideBarProps = {
   }[];
 };
 
-class Sidebar extends Component<sideBarProps & { toggleMenu: Function }> {
+class Sidebar extends Component<sideBarProps & { toggleMenu(): void }> {
   render() {
     return createPortal(
       <aside className="sidebar-wrapper">
