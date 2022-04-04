@@ -560,7 +560,11 @@ class FarmComponent extends BaseComponent<
           <div className="status">
             <div className="promoted">Promoted Farm</div>
             <span className="name">
-              <FaEthereum /> PIXUL-ETH LP
+              <img
+                src="https://res.cloudinary.com/rk03/image/upload/v1649085578/pixulethlogo_gmllax.png"
+                alt=""
+              />
+              PIXUL-ETH LP
             </span>
             <span className="price">
               Liquidity: <span>$20,034,974</span>
@@ -570,7 +574,6 @@ class FarmComponent extends BaseComponent<
               <span>Average APR</span>
             </div>
           </div>
-
           <div className="harvest">
             <span>
               Farm <br />
