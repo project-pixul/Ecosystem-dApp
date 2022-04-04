@@ -1,0 +1,91 @@
+.farm-cards .card {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 18.5em;
+	max-width: 95vw;
+	height: 22em;
+	padding: 1.6em 1.4em;
+	background-color: #1e1e27;
+	border: 2.5px solid #424242;
+	border-radius: 18px;
+}
+
+.farm-cards .card .title {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-weight: 600;
+	font-size: 1.05em;
+}
+
+.farm-cards .card .title img {
+	height: 40px;
+	width: 40px;
+}
+
+.farm-cards .card .apr {
+	display: flex;
+	flex-direction: column;
+	gap: 0.8em;
+}
+
+.farm-cards .card .apr div {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.farm-cards .card .apr div span {
+	font-weight: 600;
+	font-size: 0.88em;
+}
+
+.farm-cards .card .apr div .rate {
+	font-size: 2em;
+}
+
+.farm-cards .card .status {
+	display: flex;
+	flex-direction: column;
+	margin-top: 0.8em;
+	gap: 0.2em;
+}
+
+.farm-cards .card .status span {
+	font-size: 0.88em;
+	font-weight: 600;
+	color: #6a00f0;
+}
+
+.farm-cards .card .status .earned {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.farm-cards .card .status .earned span {
+	font-size: 1.2em;
+	color: #8e8e91;
+}
+
+.farm-cards .card .status .earned button {
+	padding: 0.6em 1.8em;
+	border-radius: 5px;
+	font-size: 0.82em;
+	font-weight: 800;
+	border: 0;
+	color: #8e8e91;
+	background-color: #282834;
+}
+
+.connect-wallet {
+	border: 0;
+	border-radius: 10px;
+	padding: 0.8em 0;
+	font-size: 0.75em;
+	font-weight: 800;
+	color: #d6d0e4;
+	background-color: #5400bd;
+	margin-top: 1em;
+}

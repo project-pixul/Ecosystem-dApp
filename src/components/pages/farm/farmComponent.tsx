@@ -16,6 +16,7 @@ import { BiSearchAlt2 } from "react-icons/bi";
 import { FaEthereum, FaChevronDown } from "react-icons/fa";
 import "./farmComponent.css";
 import { farmsList } from "../../listOfFarms";
+import FarmCardComponent from "./farmCardComponent";
 
 export type FarmProps = {};
 export type FarmState = {
@@ -581,6 +582,11 @@ class FarmComponent extends BaseComponent<
             </span>
             <FaChevronDown />
           </div>
+        </div>
+        <div className="farm-cards">
+          <FarmCardComponent />
+          <FarmCardComponent />
+          <FarmCardComponent />
         </div>
       </div>
     );

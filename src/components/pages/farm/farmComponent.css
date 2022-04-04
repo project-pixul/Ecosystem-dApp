@@ -6,6 +6,7 @@
 	max-width: 88vw;
 	margin: 0 auto;
 	margin-top: 30vh;
+	margin-bottom: 8em;
 }
 
 .farm-header {
@@ -99,7 +100,7 @@
 	align-self: flex-end;
 }
 
-.toggler div {
+.farm-buttons .toggler div {
 	font-size: 0.78em;
 	font-weight: 800;
 	border-radius: 6px;
@@ -108,14 +109,14 @@
 	transition: all 0.28s ease;
 }
 
-.toggler div.toggled-left {
+.farm-buttons .toggler div.toggled-left {
 	background-color: #686868;
 	margin-top: -1px;
 	margin-bottom: -1px;
 	margin-left: -1px;
 }
 
-.toggler div.toggled-right {
+.farm-buttons .toggler div.toggled-right {
 	background-color: #686868;
 	margin-top: -1px;
 	margin-bottom: -1px;
@@ -129,7 +130,7 @@
 	margin-top: 4em;
 }
 
-.status {
+.farm-farms .status {
 	display: flex;
 	position: relative;
 	flex-direction: row;
@@ -142,7 +143,7 @@
 	padding: 0.8em;
 }
 
-.status .promoted {
+.farm-farms .status .promoted {
 	position: absolute;
 	left: 32px;
 	top: -24px;
@@ -153,7 +154,7 @@
 	padding: 0.3em 1em;
 }
 
-.status .name {
+.farm-farms .status .name {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -163,21 +164,21 @@
 	font-weight: 600;
 }
 
-.status .name img {
+.farm-farms .status .name img {
 	height: 56px;
 	width: 56px;
 }
 
-.status .price {
+.farm-farms .status .price {
 	margin-left: 4em;
 	font-size: 1.1em;
 }
 
-.status .price span {
+.farm-farms .status .price span {
 	font-weight: 600;
 }
 
-.status .apr {
+.farm-farms .status .apr {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -185,12 +186,12 @@
 	margin-right: 1em;
 }
 
-.status .apr span:first-child {
+.farm-farms .status .apr span:first-child {
 	font-size: 2.4em;
 	font-weight: 600;
 }
 
-.harvest {
+.farm-farms .harvest {
 	cursor: pointer;
 	display: flex;
 	flex-direction: column;
@@ -204,6 +205,14 @@
 	align-self: center;
 }
 
+.farm-cards {
+	display: flex;
+	gap: 2.5em;
+	align-items: center;
+	flex-wrap: wrap;
+	margin-top: 2em;
+}
+
 @media screen and (max-width: 768px) {
 	.farm-wrapper {
 		margin-top: 15vh;
@@ -213,32 +222,36 @@
 		max-width: fit-content;
 	}
 
-	.status {
+	.farm-farms .status {
 		flex-direction: column;
 		gap: 0.8em;
 	}
 
-	.promoted {
+	.farm-farms .promoted {
 		left: unset;
 	}
 
-	.status .name {
+	.farm-farms .status .name {
 		gap: 0.2em;
 	}
 
-	.status .name,
-	.status .price,
-	.status .apr {
+	.farm-farms .status .name,
+	.farm-farms .status .price,
+	.farm-farms .status .apr {
 		margin-left: unset;
 	}
 
-	.harvest {
+	.farm-farms .harvest {
 		text-align: center;
 		padding: 0.4em 1.4em;
 		margin-left: -1px;
 	}
 
-	.status .apr span:first-child {
+	.farm-farms .status .apr span:first-child {
 		font-size: 2.2em;
+	}
+
+	.farm-cards {
+		justify-content: center;
 	}
 }
