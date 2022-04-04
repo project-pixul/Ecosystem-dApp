@@ -585,8 +585,6 @@ class FarmComponent extends BaseComponent<
         </div>
         <div className="farm-cards">
           <FarmCardComponent />
-          <FarmCardComponent />
-          <FarmCardComponent />
         </div>
       </div>
     );
