@@ -3,10 +3,17 @@
 	flex-direction: column;
 	min-height: 100%;
 	width: 65rem;
-	max-width: 88vw;
+	max-width: 95vw;
 	margin: 0 auto;
 	margin-top: 30vh;
 	margin-bottom: 8em;
+}
+
+.farm-content {
+	width: fit-content;
+	border-radius: 10px;
+	background-color: rgb(30, 30, 40, 0.6);
+	padding: 2.4em;
 }
 
 .farm-header {
@@ -218,6 +225,11 @@
 		margin-top: 15vh;
 	}
 
+	.farm-content {
+		width: unset;
+		padding: 1.2em 1em;
+	}
+
 	.farm-header .input-wrapper input {
 		max-width: fit-content;
 	}
@@ -253,5 +265,11 @@
 
 	.farm-cards {
 		justify-content: center;
+	}
+}
+
+@media screen and (max-width: 990px) {
+	.farm-content {
+		width: unset;
 	}
 }

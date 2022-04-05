@@ -1,0 +1,148 @@
+.farm-modal {
+	position: fixed;
+	top: 0;
+	width: 100vw;
+	height: 100vh;
+	backdrop-filter: blur(5px);
+	z-index: 14000;
+	overflow: hidden;
+}
+
+.farm-modal .modal-card {
+	margin: 0 auto;
+	margin-top: calc(50vh - 14em);
+	display: flex;
+	flex-direction: column;
+	padding: 1.6em 1em;
+	background-color: #1e1e27;
+	border: 8px solid #424242;
+	border-radius: 12px;
+	width: 45em;
+	height: 28em;
+	max-width: 96vw;
+	overflow: hidden;
+}
+
+.farm-modal .modal-title {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.6em;
+	justify-content: space-around;
+	align-items: center;
+	font-size: 1.18em;
+}
+
+.farm-modal .modal-title img {
+	height: 50px;
+	width: 50px;
+	margin-right: 0.2em;
+}
+
+.farm-modal .modal-title .rate,
+.farm-modal .modal-title .name {
+	font-weight: 600;
+}
+
+.farm-modal .modal-title .name {
+	display: flex;
+	align-items: center;
+}
+
+.farm-modal .divider {
+	width: 100em;
+	margin-top: 0.9em;
+	margin-bottom: 1.2em;
+	margin-left: calc(-1em + -12px);
+	border: 1.2px solid #353438;
+	background-color: #353438;
+}
+
+.farm-modal .modal-action {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: space-around;
+	margin-top: 1em;
+}
+
+.farm-modal .action {
+	width: 14em;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	font-weight: 600;
+	font-size: 1.2em;
+	gap: 1.6em;
+}
+
+.farm-modal .action span {
+	font-weight: 400;
+	font-size: 0.7em;
+}
+
+.farm-modal .token-bar-wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 0.2em;
+}
+
+.farm-modal .token-bar {
+	display: flex;
+	padding: 0.01em;
+	height: 2.2em;
+	border: 3px solid #353438;
+	border-radius: 10px;
+}
+
+.farm-modal .fill {
+	height: 100%;
+	margin-left: 0.01em;
+	width: 50%;
+	transition: width 0.5s ease-out;
+	border-radius: 7px 10px 10px 8px;
+	background-color: #353438;
+}
+
+.farm-modal .bar-stat {
+	display: flex;
+	justify-content: space-around;
+}
+
+.farm-modal .bar-stat span {
+	font-size: 0.68em;
+	color: #555555;
+	font-weight: 800;
+}
+
+.farm-modal .action button {
+	border: 0;
+	border-radius: 10px;
+	padding: 0.8em 0;
+	font-size: 0.75em;
+	font-weight: 800;
+	color: #d6d0e4;
+	background-color: #5400bd;
+}
+
+@media screen and (max-width: 610px) {
+	.farm-modal .modal-card {
+		margin-top: calc(50vh - 44vh);
+		height: 88vh;
+	}
+
+	.farm-modal .modal-action::-webkit-scrollbar {
+		width: 0px;
+	}
+
+	.farm-modal .modal-action {
+		overflow-y: scroll;
+	}
+
+	.farm-modal .action {
+		gap: 1.2em;
+	}
+
+	.farm-modal .action.withdraw {
+		margin-top: 2.2em;
+	}
+}

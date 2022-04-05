@@ -17,6 +17,7 @@ import { FaEthereum, FaChevronDown } from "react-icons/fa";
 import "./farmComponent.css";
 import { farmsList } from "../../listOfFarms";
 import FarmCardComponent from "./farmCardComponent";
+import FarmModalComponent from "./farmModalComponent";
 
 export type FarmProps = {};
 export type FarmState = {
@@ -34,6 +35,7 @@ export type FarmState = {
   pending?: boolean;
   tvl?: number;
   toggler?: boolean;
+  showModal?: boolean;
 };
 
 class FarmComponent extends BaseComponent<
@@ -49,6 +51,7 @@ class FarmComponent extends BaseComponent<
     this.stakingValueChanged = this.stakingValueChanged.bind(this);
     this.renderTooltip = this.renderTooltip.bind(this);
     this.toggle = this.toggle.bind(this);
+    this.setModalState = this.setModalState.bind(this);
 
     this.state = {};
   }
@@ -523,70 +526,87 @@ class FarmComponent extends BaseComponent<
   toggle() {
     this.updateState({ toggler: !this.readState().toggler });
   }
+
+  setModalState() {
+    this.updateState({ showModal: !this.readState().showModal });
+  }
+
   render() {
     const state = this.readState();
     const t: TFunction<"translation"> = this.readProps().t;
 
     return (
-      <div className="farm-wrapper">
-        <div className="farm-header">
-          <h1>Farms</h1>
-          <div className="input-wrapper">
-            <BiSearchAlt2 size={20} />
-            <input type="text" placeholder="Search Pair or Token" />
-          </div>
-        </div>
-        <div className="farm-buttons">
-          <div className="primary-buttons">
-            <button className="toggled">All Farms</button>
-            <button>Standard</button>
-            <button>Boosted</button>
-          </div>
-          <div className="toggler">
-            <div
-              className={this.readState().toggler ? "toggled-left" : ""}
-              onClick={this.toggle}
-            >
-              Live
+      <React.Fragment>
+        <div
+          className="farm-wrapper"
+          style={{ overflow: state.showModal ? "hidden" : "unset" }}
+        >
+          <div className="farm-content">
+            <div className="farm-header">
+              <h1>Farms</h1>
+              <div className="input-wrapper">
+                <BiSearchAlt2 size={20} />
+                <input type="text" placeholder="Search Pair or Token" />
+              </div>
             </div>
-            <div
-              className={!this.readState().toggler ? "toggled-right" : ""}
-              onClick={this.toggle}
-            >
-              Finished
+            <div className="farm-buttons">
+              <div className="primary-buttons">
+                <button className="toggled">All Farms</button>
+                <button>Standard</button>
+                <button>Boosted</button>
+              </div>
+              <div className="toggler">
+                <div
+                  className={this.readState().toggler ? "toggled-left" : ""}
+                  onClick={this.toggle}
+                >
+                  Live
+                </div>
+                <div
+                  className={!this.readState().toggler ? "toggled-right" : ""}
+                  onClick={this.toggle}
+                >
+                  Finished
+                </div>
+              </div>
+            </div>
+            <div className="farm-farms">
+              <div className="status">
+                <div className="promoted">Promoted Farm</div>
+                <span className="name">
+                  <img
+                    src="https://res.cloudinary.com/rk03/image/upload/v1649085578/pixulethlogo_gmllax.png"
+                    alt=""
+                  />
+                  PIXUL-ETH LP
+                </span>
+                <span className="price">
+                  Liquidity: <span>$20,034,974</span>
+                </span>
+                <div className="apr">
+                  <span>4.15%</span>
+                  <span>Average APR</span>
+                </div>
+              </div>
+              <div className="harvest" onClick={this.setModalState}>
+                <span>
+                  Farm <br />
+                  or <br /> Harvest
+                </span>
+                <FaChevronDown />
+              </div>
             </div>
           </div>
-        </div>
-        <div className="farm-farms">
-          <div className="status">
-            <div className="promoted">Promoted Farm</div>
-            <span className="name">
-              <img
-                src="https://res.cloudinary.com/rk03/image/upload/v1649085578/pixulethlogo_gmllax.png"
-                alt=""
-              />
-              PIXUL-ETH LP
-            </span>
-            <span className="price">
-              Liquidity: <span>$20,034,974</span>
-            </span>
-            <div className="apr">
-              <span>4.15%</span>
-              <span>Average APR</span>
-            </div>
-          </div>
-          <div className="harvest">
-            <span>
-              Farm <br />
-              or <br /> Harvest
-            </span>
-            <FaChevronDown />
+          <div className="farm-cards">
+            <FarmCardComponent />
           </div>
         </div>
-        <div className="farm-cards">
-          <FarmCardComponent />
-        </div>
-      </div>
+        {state.showModal ? (
+          <FarmModalComponent setModalState={this.setModalState} />
+        ) : (
+          ""
+        )}
+      </React.Fragment>
     );
   }
 }
