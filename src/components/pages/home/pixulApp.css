@@ -10,12 +10,22 @@ p {
 }
 
 .pixul-container {
-	margin: 15%;
-	width: 100vw;
+	width: 65rem;
+	max-width: 92vw;
+	margin: 0 auto;
+	margin-top: 32vh;
+	margin-bottom: 8em;
 }
 
 .pixul {
 	width: 70vw;
+}
+
+.staking-content {
+	width: fit-content;
+	border-radius: 10px;
+	background-color: rgb(30, 30, 40);
+	padding: 2.4em;
 }
 
 .pixul-header {
@@ -25,7 +35,7 @@ p {
 .pixul-header svg {
 	height: 180px;
 	width: 180px;
-	margin-top: -50px;
+	margin-top: -110px;
 	margin-left: 60px;
 }
 
@@ -92,7 +102,7 @@ p {
 	align-items: center;
 	height: 110px;
 	width: 145px;
-	background-color: #1e1e28;
+	background-color: #262734;
 }
 
 .pixul-card img,
@@ -352,9 +362,13 @@ input[type="radio"]:checked:before {
 		align-items: center;
 	}
 
+	.staking-content {
+		padding: 2.4em 1em;
+	}
+
 	.pixul-container {
-		margin: 10%;
-		margin-top: 160px;
+		margin-top: 16vh;
+		margin-bottom: 0em;
 	}
 
 	.pixul-header {
@@ -376,10 +390,14 @@ input[type="radio"]:checked:before {
 		margin-left: 0;
 	}
 
+	.pixul-stake-container {
+		justify-content: center;
+	}
+
 	.pixul-card-container,
 	.pixul-stake,
 	.banner {
-		width: 80vw;
+		width: 84vw;
 	}
 
 	.banner,
@@ -389,10 +407,6 @@ input[type="radio"]:checked:before {
 		flex-wrap: wrap;
 	}
 
-	.banner {
-		margin-left: auto;
-	}
-
 	.banner-name {
 		font-size: calc(var(--general-width) / 18);
 	}
@@ -400,6 +414,7 @@ input[type="radio"]:checked:before {
 	.banner-stat {
 		align-items: flex-start;
 		font-size: calc(var(--general-width) / 25);
+		gap: 0.5em;
 	}
 
 	.pixul-card-container {
@@ -418,6 +433,9 @@ input[type="radio"]:checked:before {
 }
 
 @media (max-width: 990px) {
+	.staking-content {
+		width: unset;
+	}
 	.pixul-app-container {
 		display: block;
 	}

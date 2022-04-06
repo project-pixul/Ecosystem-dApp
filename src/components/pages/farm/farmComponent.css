@@ -223,6 +223,7 @@
 @media screen and (max-width: 768px) {
 	.farm-wrapper {
 		margin-top: 15vh;
+		margin-bottom: 0em;
 	}
 
 	.farm-content {
