@@ -8,6 +8,7 @@ import "./pixulApp.css";
 const PixulApp: React.FC = ({}) => {
   const { t } = useTranslation();
 
+  //changing background image
   React.useEffect(() => {
     document.querySelector(".main-wrapper").className = "main-wrapper xpixul";
     return () => {
