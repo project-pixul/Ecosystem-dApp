@@ -301,7 +301,7 @@ input[type="radio"]:checked:before {
 	display: flex;
 	flex-direction: row;
 	font-weight: 800;
-	top: -2.36em;
+	top: -38.2px;
 	left: 0;
 }
 
@@ -383,6 +383,18 @@ input[type="radio"]:checked:before {
 
 	.btn-wallet {
 		margin-top: 10px;
+	}
+}
+
+@media screen and (max-width: 640px) {
+	.pixul-migrate {
+		width: unset;
+		padding: 1.4em;
+	}
+
+	.pixul-migrate .to-xpixul,
+	.pixul-migrate .to-pixul {
+		padding: 0.68em;
 	}
 }
 

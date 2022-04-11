@@ -251,6 +251,7 @@ const PixulApp: React.FC = ({}) => {
           </div>
           <PixulConvert
             tokenBalance={12}
+            key="from"
             convertType={true}
             convertToken={!tabState ? true : false}
           />
@@ -265,6 +266,7 @@ const PixulApp: React.FC = ({}) => {
           />
           <PixulConvert
             tokenBalance={12}
+            key="to"
             convertType={false}
             convertToken={tabState ? true : false}
             tokenValue={4000}
