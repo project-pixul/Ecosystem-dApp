@@ -1,0 +1,70 @@
+.pixul-migrate .conv-card {
+	display: flex;
+	flex-direction: row;
+	border-radius: 5px;
+	justify-content: space-between;
+	background-color: #272634;
+	width: 100%;
+	padding: 0.8em 1em;
+}
+
+.conv-card .amount {
+	display: flex;
+	flex-direction: column;
+	gap: 0.4em;
+}
+
+.conv-card .amount span {
+	font-size: 0.96em;
+	color: #7e7f84;
+	font-weight: 600;
+}
+
+.conv-card .amount input {
+	background-color: transparent;
+	width: 45%;
+	color: white;
+	border: 0;
+	outline: none;
+	font-size: 1.85em;
+	font-weight: 600;
+}
+
+.conv-card .status {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	font-size: 1em;
+	font-weight: 600;
+}
+
+.conv-card .status .title {
+	font-size: 1.2em;
+	align-self: flex-end;
+	margin-top: 0.2em;
+}
+
+.conv-card .status .title img {
+	width: 35px;
+	height: 35px;
+}
+
+.conv-card .status .balance {
+	display: flex;
+	align-items: center;
+	gap: 1.5em;
+	font-size: 0.82rem;
+	color: #7e7f84;
+}
+
+.conv-card .status .balance button {
+	font-size: 0.95em;
+	font-weight: 600;
+	border: 0;
+	background-color: #7901fe;
+	color: white;
+	border-radius: 5px;
+}
+
+@media screen and (max-width: 640px) {
+}

@@ -9,3 +9,11 @@ body {
 	/* background-color: #0a0a14 !important; */
 	background-color: #0c0b18 !important;
 }
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	margin: 0;
+}

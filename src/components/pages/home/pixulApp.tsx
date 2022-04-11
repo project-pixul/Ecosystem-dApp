@@ -3,10 +3,14 @@ import * as React from "react";
 import { withTranslation, useTranslation } from "react-i18next";
 import { Slide } from "react-reveal";
 
+import { BiDownArrow } from "react-icons/bi";
+
 import "./pixulApp.css";
+import PixulConvert from "./pixulConvert";
 
 const PixulApp: React.FC = ({}) => {
   const { t } = useTranslation();
+  const [tabState, setTabState] = React.useState(true);
 
   //changing background image
   React.useEffect(() => {
@@ -15,6 +19,12 @@ const PixulApp: React.FC = ({}) => {
       document.querySelector(".main-wrapper").className = "main-wrapper";
     };
   }, []);
+
+  const switchTab = (): void => {
+    setTabState((prevState): boolean => {
+      return !prevState;
+    });
+  };
 
   return (
     <div className="pixul-container">
@@ -222,6 +232,47 @@ const PixulApp: React.FC = ({}) => {
           </div>
         </div>
       </div>
+      <span className="pixul-conv-title">Migrate PIXUL for xPIXUL</span>
+      <div className="pixul-conv-container">
+        <div className="pixul-migrate">
+          <div className="switcher" onClick={switchTab}>
+            <div
+              className="to-pixul"
+              style={{ backgroundColor: tabState ? "#1e1e28" : "#272634" }}
+            >
+              Migrate to PIXUL
+            </div>
+            <div
+              className="to-xpixul"
+              style={{ backgroundColor: !tabState ? "#1e1e28" : "#272634" }}
+            >
+              Migrate to xPIXUL
+            </div>
+          </div>
+          <PixulConvert
+            tokenBalance={12}
+            convertType={true}
+            convertToken={!tabState ? true : false}
+          />
+          <BiDownArrow
+            style={{
+              alignSelf: "center",
+              marginTop: "1em",
+              marginBottom: "1em",
+              fill: "gray",
+            }}
+            size={20}
+          />
+          <PixulConvert
+            tokenBalance={12}
+            convertType={false}
+            convertToken={tabState ? true : false}
+            tokenValue={4000}
+          />
+        </div>
+        <div className="instructions"></div>
+      </div>
+      <span className="pixul-stake-title">Stake Your xPIXUL</span>
       <div className="pixul-stake-container">
         <div className="pixul-stake">
           <div className="pixul-stake-header">

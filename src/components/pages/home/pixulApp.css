@@ -1,6 +1,6 @@
 :root {
 	--pixul-stake-height: 400px;
-	--general-width: 600px;
+	--general-width: 650px;
 	--pixul-stake-header-width: calc(var(--general-width) - 90px);
 	--pixul-stake-header-height: 60px;
 }
@@ -10,6 +10,8 @@ p {
 }
 
 .pixul-container {
+	display: flex;
+	flex-direction: column;
 	width: 65rem;
 	max-width: 92vw;
 	margin: 0 auto;
@@ -118,9 +120,15 @@ p {
 	flex-direction: column;
 	align-items: center;
 }
+.pixul-conv-title,
+.pixul-stake-title {
+	font-size: 1.8em;
+	font-weight: 600;
+	margin-top: 40px;
+	margin-bottom: 10px;
+}
 
 .pixul-stake-container {
-	margin-top: 20px;
 	display: flex;
 	flex-wrap: wrap;
 }
@@ -130,12 +138,10 @@ p {
 	background-color: #1e1e28;
 	height: var(--pixul-stake-height);
 	width: var(--general-width);
-
 	padding: 40px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
-	margin-top: 20px;
 }
 
 .pixul-stake-header {
@@ -251,9 +257,8 @@ input[type="radio"]:checked:before {
 
 .pixul-stat {
 	border-radius: 5px;
-	width: calc(var(--pixul-stake-header-width) - 200px);
+	width: calc(var(--pixul-stake-header-width) - 250px);
 	padding-top: 30px;
-	margin-top: 20px;
 	margin-left: 20px;
 	background-color: #1e1e28;
 }
@@ -272,6 +277,39 @@ input[type="radio"]:checked:before {
 .value h2 {
 	font-weight: 700;
 	font-size: 12px;
+}
+
+.pixul-conv-container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	margin-top: 2.28em;
+}
+
+.pixul-migrate {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	padding: 2.2em;
+	border-radius: 0px 5px 5px 5px;
+	width: var(--general-width);
+	background-color: #1e1e28;
+}
+.pixul-migrate .switcher {
+	cursor: pointer;
+	position: absolute;
+	display: flex;
+	flex-direction: row;
+	font-weight: 800;
+	top: -2.36em;
+	left: 0;
+}
+
+.pixul-migrate .to-xpixul,
+.pixul-migrate .to-pixul {
+	padding: 0.65em 1.8em;
+	font-size: 0.85em;
+	border-radius: 10px 10px 0px 0px;
 }
 
 @media screen and (max-width: 500px) {
