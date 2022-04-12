@@ -280,13 +280,14 @@ input[type="radio"]:checked:before {
 }
 
 .pixul-conv-container {
+	position: relative;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 	margin-top: 2.28em;
 }
 
-.pixul-migrate {
+.pixul-conv-container .pixul-migrate {
 	position: relative;
 	display: flex;
 	flex-direction: column;
@@ -310,6 +311,48 @@ input[type="radio"]:checked:before {
 	padding: 0.65em 1.8em;
 	font-size: 0.85em;
 	border-radius: 10px 10px 0px 0px;
+}
+
+.pixul-migrate .connect-wallet {
+	width: 100%;
+	background-color: #7901fe;
+	margin-top: 2em;
+	border: 0;
+	border-radius: 4px;
+	color: white;
+	align-self: center;
+	font-size: 0.9em;
+	font-weight: 800;
+	padding: 1.5em 2em;
+}
+
+.pixul-migrate .info {
+	display: none;
+	position: absolute;
+	right: 4px;
+	top: 3px;
+	fill: #7e7f84;
+}
+
+.pixul-conv-container .instructions {
+	display: block;
+	background-color: #1e1e28;
+	align-self: flex-start;
+	width: 22em;
+	padding: 1.5em 1.25em;
+	padding-bottom: 2.6em;
+	font-size: 0.8em;
+	font-weight: 600;
+	margin-left: 1.25em;
+	border-radius: 5px;
+}
+
+.pixul-conv-container .instructions h4 {
+	text-align: center;
+	margin-bottom: 1em;
+}
+.pixul-conv-container .instructions p {
+	margin: 1.25em 0;
 }
 
 @media screen and (max-width: 500px) {
@@ -387,7 +430,7 @@ input[type="radio"]:checked:before {
 }
 
 @media screen and (max-width: 640px) {
-	.pixul-migrate {
+	.pixul-conv-container .pixul-migrate {
 		width: unset;
 		padding: 1.4em;
 	}
@@ -395,6 +438,17 @@ input[type="radio"]:checked:before {
 	.pixul-migrate .to-xpixul,
 	.pixul-migrate .to-pixul {
 		padding: 0.68em;
+	}
+
+	.pixul-conv-title,
+	.pixul-stake-title {
+		font-size: 1.5em;
+	}
+
+	.pixul-migrate .info {
+		display: block;
+		right: 2.2px;
+		top: 2.2px;
 	}
 }
 
@@ -487,5 +541,20 @@ input[type="radio"]:checked:before {
 	}
 	.pixul-app-container {
 		display: block;
+	}
+}
+
+@media screen and (max-width: 1030px) {
+	.pixul-conv-container .pixul-migrate {
+		width: -webkit-fill-available;
+		padding: 1.4em;
+	}
+
+	.pixul-migrate .info {
+		display: block;
+	}
+
+	.pixul-conv-container .instructions {
+		position: absolute;
 	}
 }

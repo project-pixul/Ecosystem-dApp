@@ -3,14 +3,19 @@ import * as React from "react";
 import { withTranslation, useTranslation } from "react-i18next";
 import { Slide } from "react-reveal";
 
-import { BiDownArrow } from "react-icons/bi";
+import { BiDownArrow, BiInfoCircle } from "react-icons/bi";
 
 import "./pixulApp.css";
 import PixulConvert from "./pixulConvert";
+import useOnClickOutside from "../../../hooks/useOnClickOutSide";
 
 const PixulApp: React.FC = ({}) => {
   const { t } = useTranslation();
   const [tabState, setTabState] = React.useState(true);
+  const [showInfo, setInfoState] = React.useState(false);
+  const migrateRef = React.useRef<HTMLDivElement>();
+  const infoRef = React.useRef<HTMLDivElement>();
+  useOnClickOutside(infoRef, setInfoState, "info");
 
   //changing background image
   React.useEffect(() => {
@@ -22,6 +27,12 @@ const PixulApp: React.FC = ({}) => {
 
   const switchTab = (): void => {
     setTabState((prevState): boolean => {
+      return !prevState;
+    });
+  };
+
+  const toggleInfo = (): void => {
+    setInfoState((prevState): boolean => {
       return !prevState;
     });
   };
@@ -234,7 +245,8 @@ const PixulApp: React.FC = ({}) => {
       </div>
       <span className="pixul-conv-title">Migrate PIXUL for xPIXUL</span>
       <div className="pixul-conv-container">
-        <div className="pixul-migrate">
+        <div className="pixul-migrate" ref={migrateRef}>
+          <BiInfoCircle size={20} className="info" onClick={toggleInfo} />
           <div className="switcher" onClick={switchTab}>
             <div
               className="to-pixul"
@@ -271,8 +283,33 @@ const PixulApp: React.FC = ({}) => {
             convertToken={tabState ? true : false}
             tokenValue={4000}
           />
+          <button className="connect-wallet">Connect Wallet</button>
         </div>
-        <div className="instructions"></div>
+        <div
+          className="instructions"
+          style={{
+            visibility:
+              window.innerWidth < 1030
+                ? showInfo
+                  ? "visible"
+                  : "hidden"
+                : "visible",
+            top: "25px",
+            left: `${
+              showInfo
+                ? migrateRef.current.clientWidth -
+                  (infoRef.current.clientWidth + 25)
+                : 0
+            }px`,
+            backgroundColor: showInfo ? "#232329" : "",
+          }}
+          ref={infoRef}
+        >
+          <h4>Instructions</h4>
+          <p>Step 1: Connect your wallet </p>
+          <p>Step 2: Choose the amount of xPIXUL tokens you want to unstake</p>
+          <p>Step 3: Migrate your xPIXUL to PIXUL on our migration swap </p>
+        </div>
       </div>
       <span className="pixul-stake-title">Stake Your xPIXUL</span>
       <div className="pixul-stake-container">

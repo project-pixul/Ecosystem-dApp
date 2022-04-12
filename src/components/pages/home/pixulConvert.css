@@ -66,5 +66,17 @@
 	border-radius: 5px;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 480px) {
+	.pixul-migrate .conv-card {
+		flex-direction: column;
+		gap: 1em;
+	}
+
+	.conv-card .amount {
+		gap: 0em;
+	}
+
+	.conv-card .status .title {
+		align-self: unset;
+	}
 }
