@@ -31,10 +31,6 @@ const pagesInNavigator = [
 	{ id: "about", title: "About", component: AboutComponent },
 	{ id: "farm", title: "Farm", component: FarmComponent },
 	{ id: "xpixul", title: "xpixul", component: PixulComponent },
-	// { id: "staking", title: "Staking", component: StakingComponent },
-	// { id: "faq", title: "FAQ", component: FaqComponent },
-	// Ignored on nav
-	// { id: "launch", title: "Launch", component: LaunchComponent },
 	{ id: "lottery", title: "Pixul Lottery", component: LotteryComponent },
 ];
 
