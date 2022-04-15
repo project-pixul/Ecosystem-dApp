@@ -1,4 +1,4 @@
-package com.pixul.app;
+package com.pixulpro.app;
 
 import com.getcapacitor.BridgeActivity;
 

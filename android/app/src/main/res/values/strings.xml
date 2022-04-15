@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">pixulPro</string>
-    <string name="title_activity_main">pixulPro</string>
-    <string name="package_name">com.pixul.app</string>
-    <string name="custom_url_scheme">com.pixul.app</string>
+    <string name="app_name">PixulProtocol</string>
+    <string name="title_activity_main">PixulProtocol</string>
+    <string name="package_name">com.pixulpro.app</string>
+    <string name="custom_url_scheme">com.pixulpro.app</string>
 </resources>
