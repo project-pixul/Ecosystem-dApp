@@ -5,6 +5,10 @@
 		"build": "webpack --config webpack.prod.js"
 	},
 	"dependencies": {
+		"@capacitor/android": "^3.4.3",
+		"@capacitor/cli": "^3.4.3",
+		"@capacitor/core": "^3.4.3",
+		"@capacitor/ios": "^3.4.3",
 		"@emotion/react": "^11.4.0",
 		"@fortawesome/fontawesome-svg-core": "^1.2.35",
 		"@fortawesome/free-brands-svg-icons": "^5.15.3",

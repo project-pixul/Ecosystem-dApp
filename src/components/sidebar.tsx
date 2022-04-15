@@ -3,6 +3,7 @@ import "./sidebar.css";
 import { createPortal } from "react-dom";
 import { MdClose } from "react-icons/md";
 import { Component } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 
 type sideBarProps = {
   sidebarItems: {
@@ -22,14 +23,16 @@ class Sidebar extends Component<sideBarProps & { toggleMenu(): void }> {
         {this.props.sidebarItems.map((item, index) => {
           if (index === 0) {
             return (
-              <div
-                className={`sidebar-item ${
-                  window.location.pathname === "/home" ? "highlight" : ""
-                }`}
-                key={index}
-              >
-                {item.title}
-              </div>
+              <NavLink to="/xpixul">
+                <div
+                  className={`sidebar-item ${
+                    window.location.pathname === "/home" ? "highlight" : ""
+                  }`}
+                  key={index}
+                >
+                  {item.title}
+                </div>
+              </NavLink>
             );
           }
           return (

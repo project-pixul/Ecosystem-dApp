@@ -1,0 +1,6 @@
+{
+  "appId": "com.pixul.app",
+  "appName": "pixulPro",
+  "webDir": "build",
+  "bundledWebRuntime": false
+}
