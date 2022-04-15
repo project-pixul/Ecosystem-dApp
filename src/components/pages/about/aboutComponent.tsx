@@ -13,61 +13,100 @@ export type AboutState = {};
 
 const PulseAnimation = keyframes`${pulse}`;
 const PulseDiv = styled.div`
-  animation: infinite 8s ${PulseAnimation};
+	animation: infinite 8s ${PulseAnimation};
 `;
 
 const ProductsOverviewDiv = React.lazy(() => import('./productsOverview'));
 const TeamDiv = React.lazy(() => import('./team'));
 
-class aboutComponent extends BaseComponent<AboutProps & WithTranslation, AboutState> {
+class aboutComponent extends BaseComponent<
+	AboutProps & WithTranslation,
+	AboutState
+> {
+	constructor(props) {
+		super(props);
+	}
 
-  constructor(props) {
-    super(props);
-  }
+	render() {
+		const t: TFunction<'translation'> = this.readProps().t;
 
-  render() {
-    const t: TFunction<"translation"> = this.readProps().t;
-
-    return <div className="about-container">
-      <div className="d-flex flex-row container" style={{ padding: "0px" }}>
-        <div style={{ marginRight: "4%" }}>
-          <section id="mission">
-            <div className="container">
-              <div className="row">
-                <div className="col-md-12">
-                  <h1><strong>{t('about.pixul_finance.title')}</strong></h1>
-                  <p>{t('about.pixul_finance.paragraph1')}</p>
-                  <p>{t('about.pixul_finance.paragraph2')}</p>
-                  <p>{t('about.pixul_finance.paragraph3')}</p>
-                  <p>{t('about.pixul_finance.our_plan.title')}</p>
-                  <ul>
-                    <li>{t('about.pixul_finance.our_plan.line1')}</li>
-                    <li>{t('about.pixul_finance.our_plan.line2')}</li>
-                    <li>{t('about.pixul_finance.our_plan.line3')}</li>
-                    <li>{t('about.pixul_finance.our_plan.line4')}</li>
-                    <li>{t('about.pixul_finance.our_plan.line5')}</li>
-                  </ul>
-                  <ProductsOverviewDiv />
-                </div>
-              </div>
-            </div>
-          </section>
-        </div>
-        <Slide right>
-          <div className="d-none d-lg-flex sticky-top col-3" id="sidebar">
-            <PulseDiv className="align-self-start gradient-card primary">
-              <div className="background"><img src="images/logo-rp-u.svg" alt="pixul-logo-svg" /></div>
-              <h1><strong>{t('about.card_right.title')}</strong></h1>
-              <p>{t('about.card_right.desc')}</p>
-              <a className="link-dark" href="#mission">{t('about.card_right.mission')}</a>
-              <a className="link-dark" href="#products-overview">{t('about.card_right.products')}</a>
-              <a className="link-dark" href="#team">{t('about.card_right.team')}</a>
-            </PulseDiv>
-          </div>
-        </Slide>
-      </div>
-    </div>
-  }
+		return (
+			<div className='about-container'>
+				<div className='d-flex flex-row container' style={{ padding: '0px' }}>
+					<div style={{ marginRight: '4%' }}>
+						<h1>{t('about.title')}</h1>
+						<p className='desc'>{t('about.desc')}</p>
+						<div className='staking_gov'>
+							<h2>{t('about.staking_gov.title')}</h2>
+							<p>{t('about.staking_gov.paragraph1')}</p>
+							<p>{t('about.staking_gov.paragraph2')}</p>
+						</div>
+						<div className='staking'>
+							<h2>{t('about.staking.title')}</h2>
+							<p>{t('about.staking.paragraph1')}</p>
+							<p>{t('about.staking.paragraph2')}</p>
+						</div>
+						<div className='staking_eco'>
+							<h2>{t('about.staking_eco.title')}</h2>
+							<p>{t('about.staking_eco.line1')}</p>
+							<p>{t('about.staking_eco.line2')}</p>
+							<p>{t('about.staking_eco.line3')}</p>
+							<p>{t('about.staking_eco.line4')}</p>
+						</div>
+						<div className='receive'>
+							<h2>{t('about.recieving_pixul.title')}</h2>
+							<ul>
+								<li>{t('about.recieving_pixul.point1')}</li>
+								<li>{t('about.recieving_pixul.point2')}</li>
+								<li>{t('about.recieving_pixul.point3')}</li>
+								<li>{t('about.recieving_pixul.point4')}</li>
+								<li>{t('about.recieving_pixul.point5')}</li>
+							</ul>
+						</div>
+						<div className='rewards'>
+							<h2>{t('about.protocol_rewards.title')}</h2>
+							<ul>
+								<li>{t('about.protocol_rewards.point1')}</li>
+								<li>{t('about.protocol_rewards.point2')}</li>
+								<li>{t('about.protocol_rewards.point3')}</li>
+							</ul>
+						</div>
+						<div className='power'>
+							<h2>{t('about.power.title')}</h2>
+							<ul>
+								<li>{t('about.power.point1')}</li>
+								<li>{t('about.power.point2')}</li>
+								<li>{t('about.power.point3')}</li>
+							</ul>
+						</div>
+						<div className='exchange'>
+							<h2>{t('about.exchange.title')}</h2>
+							<p>{t('about.exchange.desc')}</p>
+							<div>
+								<h3>{t('about.exchange.breakdown.title')}</h3>
+								<p>{t('about.exchange.breakdown.desc')}</p>
+							</div>
+						</div>
+						<div className='farming'>
+							<h2>{t('about.farming.title')}</h2>
+							<div>
+								<h3>{t('about.farming.liquidity.title')}</h3>
+								<p>{t('about.farming.liquidity.desc')}</p>
+							</div>
+							<div>
+								<h3>{t('about.farming.earn.title')}</h3>
+								<p>{t('about.farming.earn.desc')}</p>
+							</div>
+							<div>
+								<h3>{t('about.farming.motive.title')}</h3>
+								<p>{t('about.farming.motive.desc')}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		);
+	}
 }
 
 export default withTranslation()(aboutComponent);
