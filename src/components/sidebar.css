@@ -22,6 +22,7 @@
 	text-decoration: none;
 	margin-right: 2em;
 	border-radius: 6px;
+	margin-top: 4em;
 }
 .sidebar-wrapper a.active {
 	background-color: #262632;
@@ -31,7 +32,7 @@
 .sidebar-wrapper .sidebar-item {
 	padding: 0.8em 2.2em;
 	font-weight: 400;
-	margin-top: 4em;
+
 	font-size: 1.2em;
 }
 
