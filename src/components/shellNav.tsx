@@ -13,14 +13,11 @@ import "./shellNav.icons.css";
 import Sidebar from "./sidebar";
 
 const sideBarItems = [
-  { title: "Homepage", extLink: "./" },
-  { title: "Marketplace", extLink: "./" },
-  { title: "POS System", extLink: "./" },
-  { title: "Documents", extLink: "./" },
-  { title: "Audits", extLink: "./" },
-  { title: "Github", extLink: "./" },
-  { title: "Discord", extLink: "./" },
-  { title: "Twitter", extLink: "./" },
+  { title: "Home", id: "home" },
+  { title: "About", id: "about" },
+  { title: "Farm", id: "farm" },
+  { title: "XPixul", id: "xpixul" },
+  { title: "Lottery", id: "lottery" },
 ];
 
 export type ShellNavProps = {

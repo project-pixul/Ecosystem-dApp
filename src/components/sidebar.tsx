@@ -1,47 +1,68 @@
 import * as React from "react";
 import "./sidebar.css";
+import { NavLink } from "react-router-dom";
+import Slide from "react-reveal/Slide";
 import { createPortal } from "react-dom";
 import { MdClose } from "react-icons/md";
 import { Component } from "react";
-import { NavLink, useLocation } from "react-router-dom";
 
 type sideBarProps = {
   sidebarItems: {
     title: string;
-    extLink: string;
+    id: string;
   }[];
+  toggleMenu(): void;
 };
 
-class Sidebar extends Component<sideBarProps & { toggleMenu(): void }> {
+type sideBarState = {};
+
+class Sidebar extends Component<sideBarProps, sideBarState> {
+  constructor(props: sideBarProps) {
+    super(props);
+    this.listener = this.listener.bind(this);
+  }
+
+  sideBarRef = React.createRef<any>();
+
+  listener(event: any) {
+    if (!this.sideBarRef || this.sideBarRef.current.contains(event.target)) {
+      return;
+    }
+
+    this.props.toggleMenu();
+  }
+
+  showCloseAnim() {}
+
+  componentDidMount(): void {
+    document.addEventListener("mousedown", this.listener);
+    document.addEventListener("touchstart", this.listener);
+  }
+
+  componentWillUnmount(): void {
+    document.removeEventListener("mousedown", this.listener);
+    document.removeEventListener("touchstart", this.listener);
+  }
+
   render() {
     return createPortal(
-      <aside className="sidebar-wrapper">
-        <MdClose
-          size="35px"
-          onClick={this.props.toggleMenu as React.MouseEventHandler}
-        />
-        {this.props.sidebarItems.map((item, index) => {
-          if (index === 0) {
+      <Slide right duration={500}>
+        <aside className="sidebar-wrapper" ref={this.sideBarRef}>
+          <MdClose
+            size="35px"
+            onClick={this.props.toggleMenu as React.MouseEventHandler}
+          />
+          {this.props.sidebarItems.map((item, index) => {
             return (
-              <NavLink to="/xpixul">
-                <div
-                  className={`sidebar-item ${
-                    window.location.pathname === "/home" ? "highlight" : ""
-                  }`}
-                  key={index}
-                >
+              <NavLink to={item.id} onClick={this.props.toggleMenu}>
+                <div className="sidebar-item" key={index}>
                   {item.title}
                 </div>
               </NavLink>
             );
-          }
-          return (
-            <div className="sidebar-item" key={index}>
-              {item.title}
-            </div>
-          );
-        })}
-      </aside>,
+          })}
+        </aside>
+      </Slide>,
       document.querySelector("#sidebar-root") as Element
     );
   }

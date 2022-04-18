@@ -6,7 +6,7 @@
 .sidebar-wrapper {
 	display: flex;
 	flex-direction: column;
-	justify-content: space-evenly;
+	gap: 4em;
 	align-items: flex-end;
 	height: 100vh;
 	width: 20rem;
@@ -14,14 +14,25 @@
 	background-color: #1e1e28;
 }
 .sidebar-wrapper svg {
-	margin-right: 1.8em;
-	margin-top: 1.2rem;
+	margin-right: 1.85em;
+	margin-top: 1.4rem;
 }
-.sidebar-wrapper .sidebar-item {
+
+.sidebar-wrapper a {
+	color: white;
+	text-decoration: none;
 	margin-right: 2em;
-	padding: 0.8em 2.2em;
 	border-radius: 6px;
-	font-size: 1.1em;
+}
+.sidebar-wrapper a.active {
+	background-color: #262632;
+	border-radius: 6px;
+}
+
+.sidebar-wrapper .sidebar-item {
+	padding: 0.8em 2.2em;
+	font-weight: 400;
+	font-size: 1.2em;
 }
 
 .sidebar-wrapper .sidebar-item:hover {
