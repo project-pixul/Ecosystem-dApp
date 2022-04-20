@@ -130,19 +130,36 @@
 	position: relative;
 	margin-top: 80px;
 	display: flex;
-	flex-direction: column;
-	justify-content: center;
 	align-items: center;
 	margin-right: 20px;
+}
+
+.exploreCard {
+	flex-direction: row;
+}
+
+.socialCard {
+	justify-content: center;
+
+	flex-direction: column;
 }
 
 .cardIcon,
 .socialIcon {
 	position: absolute;
-	top: -65px;
-	height: 100px;
-	width: 100px;
 	enable-background: new 0 0 200 200;
+}
+
+.cardIcon {
+	height: 200px;
+	width: 200px;
+	left: -120px;
+}
+
+.circleIcon {
+	height: 150px;
+	width: 150px;
+	left: -100px;
 }
 
 .socialIcon {
@@ -151,70 +168,50 @@
 	width: 125px;
 }
 
-.telegram {
-	top: -55px;
-	height: 90px;
-	width: 90px;
-}
-
-.st0 {
-	fill: white;
-}
-
-.st1 {
-	fill: url(#SVGID_1_);
-}
-
-.line0 {
-	stop-color: #00aeef;
-}
-
-.line1 {
-	stop-color: #623691;
-}
-
-.line2 {
-	stop-color: #ef569f;
-}
-
 .exploreCard .content,
 .socialCard .content {
-	height: 200px;
-	width: 200px;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-	align-items: center;
 	background-color: #232127f6;
 	border-radius: 20px;
 	padding: 15px;
 	padding-top: 40px;
 }
 
+.exploreCard .content {
+	height: 200px;
+	font-size: 3em;
+	width: 700px;
+}
+
 .socialCard .content {
-	height: 150px !important;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	width: 200px;
+	height: 150px;
 }
 
 .exploreCard .contentBody {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	align-items: center;
+	margin-left: 50px;
 }
 
 .exploreCard .contentBody h2,
 .socialCard .content h2 {
-	font-size: 20px;
+	font-size: 0.5em;
 	font-weight: 600;
 }
 
 .exploreCard .contentBody p {
-	font-size: 10px;
-	text-align: center;
+	font-size: 0.4em;
+	line-height: 25px;
 }
 
 .exploreCard .content a,
 .socialCard .content a {
+	position: absolute;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -225,6 +222,13 @@
 	width: 120px;
 	color: #fff;
 	border: none;
+}
+
+.exploreCard .content a {
+	position: absolute;
+	top: 90%;
+	right: 15%;
+	width: 16em;
 }
 
 .exploreCard .content a {
@@ -253,7 +257,6 @@
 	font-size: 56px;
 	color: var(--white);
 	text-align: center;
-	/* padding-top: 20px; */
 	margin-bottom: 50px;
 }
 
@@ -278,6 +281,65 @@
 	justify-content: center;
 }
 
+.telegram {
+	top: -55px;
+	height: 90px;
+	width: 90px;
+}
+
+.st0 {
+	fill: white;
+}
+
+.st1 {
+	fill: url(#SVGID_1_);
+}
+
+.line0 {
+	stop-color: #00aeef;
+}
+
+.line1 {
+	stop-color: #623691;
+}
+
+.line2 {
+	stop-color: #ef569f;
+}
+
+@media screen and (max-width: 330px) {
+	.cardIcon {
+		height: 80px !important;
+		width: 80px !important;
+		left: -18px !important;
+	}
+
+	.circleIcon {
+		height: 50px !important;
+		width: 50px !important;
+		left: -8px !important;
+	}
+
+	.exploreCard .content {
+		height: 125px !important;
+	}
+
+	.exploreCard .contentBody h2 {
+		font-size: 18px;
+	}
+
+	.exploreCard .contentBody p {
+		font-size: 10px !important;
+		line-height: 12px;
+	}
+
+	.exploreCard .content a {
+		width: 25vw;
+		font-size: 10px;
+		right: 10%;
+	}
+}
+
 @media screen and (max-width: 385px) {
 	.firstSection h1 {
 		font-size: calc(100vw / 20);
@@ -288,9 +350,70 @@
 	}
 }
 
+@media screen and (max-width: 560px) and (min-width: 329px) {
+	.cardIcon {
+		height: 100px;
+		width: 100px;
+		left: -35px;
+	}
+
+	.circleIcon {
+		height: 70px;
+		width: 70px;
+	}
+
+	.exploreCard .content {
+		height: 150px;
+		width: 85vw !important;
+	}
+
+	.exploreCard .contentBody h2 {
+		font-size: 20px;
+	}
+
+	.exploreCard .contentBody p {
+		font-size: 12px !important;
+		line-height: 14px;
+	}
+
+	.exploreCard .content a {
+		width: 25vw;
+		right: 10%;
+	}
+}
+
 @media screen and (max-width: 500px) {
 	.stats {
 		width: 100px;
+	}
+}
+
+@media screen and (max-width: 804px) and (min-width: 559px) {
+	.cardIcon {
+		height: 150px;
+		width: 150px;
+		left: -80px;
+	}
+
+	.circleIcon {
+		height: 100px;
+		width: 100px;
+		left: -60px;
+	}
+
+	.exploreCard .contentBody p {
+		font-size: 0.3em;
+		line-height: 18px;
+	}
+
+	.exploreCard .content {
+		height: 150px;
+	}
+}
+
+@media screen and (max-width: 960px) {
+	.exploreCard .content {
+		width: 70vw;
 	}
 }
 
