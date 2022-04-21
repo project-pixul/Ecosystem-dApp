@@ -302,7 +302,7 @@ input[type="radio"]:checked:before {
 	display: flex;
 	flex-direction: row;
 	font-weight: 800;
-	top: -38.2px;
+	top: -2.38em;
 	left: 0;
 }
 
@@ -355,15 +355,19 @@ input[type="radio"]:checked:before {
 	margin: 1.25em 0;
 }
 
-@media screen and (max-width: 500px) {
-	.pixul {
-		width: 100vw;
+@media screen and (max-width: 425px) {
+	.pixul-container {
+		font-size: 0.9em;
 	}
 }
 
 @media screen and (max-width: 355px) {
 	:root {
 		--pixul-stake-header-width: 100%;
+	}
+
+	.pixul-container {
+		font-size: 0.78em;
 	}
 
 	.banner {
@@ -426,6 +430,12 @@ input[type="radio"]:checked:before {
 
 	.btn-wallet {
 		margin-top: 10px;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.pixul {
+		width: 100vw;
 	}
 }
 

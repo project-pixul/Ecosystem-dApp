@@ -49,7 +49,7 @@
 
 .farm-header .input-wrapper input::placeholder {
 	color: #686868;
-	font-weight: 600;
+	font-weight: 700;
 }
 
 .farm-header .input-wrapper input:focus {
@@ -82,7 +82,7 @@
 	border: 2px solid #5400bd;
 	color: #5400bd;
 	font-size: 0.98em;
-	font-weight: 600;
+	font-weight: 700;
 	padding: 0.45em 1.8em;
 	border-radius: 6px;
 }
@@ -155,7 +155,7 @@
 	left: 32px;
 	top: -24px;
 	background-color: #ffbb00;
-	font-weight: 600;
+	font-weight: 700;
 	color: black;
 	border-radius: 8px;
 	padding: 0.3em 1em;
@@ -168,12 +168,12 @@
 	margin-left: 0.5em;
 	gap: 0.5em;
 	font-size: 1.5em;
-	font-weight: 600;
+	font-weight: 700;
 }
 
 .farm-farms .status .name img {
-	height: 56px;
-	width: 56px;
+	height: 2.1em;
+	width: 2.1em;
 }
 
 .farm-farms .status .price {
@@ -182,7 +182,7 @@
 }
 
 .farm-farms .status .price span {
-	font-weight: 600;
+	font-weight: 700;
 }
 
 .farm-farms .status .apr {
@@ -195,7 +195,7 @@
 
 .farm-farms .status .apr span:first-child {
 	font-size: 2.4em;
-	font-weight: 600;
+	font-weight: 700;
 }
 
 .farm-farms .harvest {
@@ -207,7 +207,7 @@
 	background-color: #7200ff;
 	padding: 0.4em 1.5em;
 	border-radius: 0 8px 8px 0;
-	font-weight: 600;
+	font-weight: 700;
 	text-align: center;
 	align-self: center;
 }
@@ -218,6 +218,12 @@
 	align-items: center;
 	flex-wrap: wrap;
 	margin-top: 2em;
+}
+
+@media screen and (max-width: 990px) {
+	.farm-content {
+		width: unset;
+	}
 }
 
 @media screen and (max-width: 768px) {
@@ -269,8 +275,14 @@
 	}
 }
 
-@media screen and (max-width: 990px) {
-	.farm-content {
-		width: unset;
+@media screen and (max-width: 425px) {
+	.farm-wrapper {
+		font-size: 0.8em;
+	}
+}
+
+@media screen and (max-width: 320px) {
+	.farm-wrapper {
+		font-size: 0.6em;
 	}
 }

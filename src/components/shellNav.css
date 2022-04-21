@@ -1,6 +1,6 @@
 .navigation-wrapper {
 	background-color: transparent;
-	height: 5.2rem !important;
+	height: 5.2em !important;
 	width: 100vw;
 	background-color: #15151d;
 	border-bottom: #58485f 1.6px solid;
@@ -102,6 +102,6 @@
 	}
 
 	.navigation-wrapper {
-		font-size: 0.9em;
+		font-size: 0.84em;
 	}
 }
