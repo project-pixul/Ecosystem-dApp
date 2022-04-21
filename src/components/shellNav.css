@@ -1,295 +1,107 @@
-.navbar-toggler {
-	display: none;
-	color: #fff;
-	font-size: 2rem;
-}
-
 .navigation-wrapper {
 	background-color: transparent;
-	height: 10vh !important;
+	height: 5.2rem !important;
 	width: 100vw;
-	border-right: 1px solid #27303d;
+	background-color: #15151d;
+	border-bottom: #58485f 1.6px solid;
 	position: absolute;
-	overflow: auto;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
-	margin-top: 15px;
-	padding-left: 80px;
-	padding-right: 90px;
 	z-index: 1000;
 }
 
 .navigation-wrapper #mainNav {
-	height: inherit;
-	flex-direction: row;
 	display: flex;
-	transition: all 0.25s;
 	align-items: center;
 }
 
 .navigation-wrapper .logo-wrapper {
-	display: block;
-	position: relative;
-}
-.navigation-wrapper #mainNav ul svg {
-	align-self: center;
-}
-.navigation-wrapper .logo-wrapper .img-logo {
-	display: block;
-	width: 100px;
-	height: 40px;
-	margin-left: 16px;
-}
-
-.navigation-wrapper nav {
 	display: flex;
-	flex-direction: column;
-	padding: 15px 0;
-	margin: 0px;
-	overflow-y: hidden;
-	justify-content: space-between;
+	flex-direction: row-reverse;
+	align-items: center;
+	gap: 1em;
+	margin-left: 1.2em;
 }
 
-.navigation-wrapper ul {
-	padding: 0px;
-	margin: 0px;
-	list-style: none;
+.navigation-wrapper .logo-wrapper .img-logo {
+	width: 88px;
 }
 
-.navigation-wrapper ul li {
-	padding: 0px;
-}
-
-.navigation-wrapper ul li a {
-	display: block;
-	padding: 12px 16px 12px 64px;
-	margin: 0px;
+.navigation-wrapper #mainNav .nav-item {
+	font-size: 1.02em;
+	font-weight: 500;
 	color: #fff;
-	background-repeat: no-repeat;
-	background-position: 15px center;
 	text-decoration: none;
 }
-
-.navigation-wrapper ul li a:hover,
-.navigation-wrapper ul li a.active {
-	color: #7800ff;
-}
-
-.navigation-wrapper select {
-	padding: 2px;
-	border-radius: 4px;
-}
-
-.wallet {
-	padding: 10px;
-	margin-right: 20px;
-	background-color: #7800ff;
-	color: white;
-	display: flex;
-	height: 40px;
-	width: 180px;
-	justify-content: center;
-	align-items: center;
-	cursor: pointer;
-	border-radius: 60px;
-}
-
-/* 
-.navigation-footer {
-	padding: 0 16px;
-}
-
-.navigation-footer .btn {
-	border-radius: 64px;
-}
-
-.navigation-footer .glow {
-	box-shadow: 0 0 4px 2px rgba(84, 212, 126, 0.5);
-} */
 
 .navbar-nav {
 	display: flex;
 	flex-direction: row;
-	overflow: hidden;
-	/* justify-content: center; */
-}
-
-.navbar-nav li {
-	margin-right: 20px !important;
-	font-size: 0.8rem !important;
-	display: flex;
-	justify-content: center;
 	align-items: center;
 }
 
-.navbar-nav li:last-child {
-	margin-right: 30px;
+.navbar-nav li {
+	margin-right: 34px;
 }
 
-.navbar-nav li:hover {
-	color: red;
+.navigation-wrapper #mainNav .nav-item:hover,
+.navigation-wrapper #mainNav .nav-item.active {
+	color: #7800ff;
 }
 
-.navbar-nav li a {
-	padding: 0 !important;
-}
-
-.sudo-nav-link {
-	border-radius: 8px;
-}
-
-.btn-social {
-	font-size: 26px;
+#mainNav .connect-wallet {
+	padding: 0.5em;
+	width: 8em;
+	margin-left: 1.5em;
+	background-color: #6400ff;
 	color: white;
-	margin: 4px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	border-radius: 5px;
+	margin-right: 1em;
 }
 
-.btn-social:hover {
-	color: #747d93 !important;
+#mainNav .connect-wallet:hover {
+	box-shadow: 0px 0px 10px rgb(100 0 255 / 90%);
 }
 
-.social-medias {
-	margin-bottom: 0.5rem;
+#mainNav .connect-wallet img {
+	height: 1.35rem;
+	width: 1.35rem;
+	margin-right: 0.6em;
 }
 
-.lang-select {
-	margin-top: 20px;
+#mainNav .connect-wallet span {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-size: 0.96em;
 }
 
-.collapsible-div {
-	background-color: #171e29;
-}
-
-#mainNav.collapse.show {
-	flex-direction: column;
-	height: calc(100% - 84px);
-	/* padding: 20px 30px 0px 30px; */
-	display: flex !important;
-}
-
-#mainNav.collapsing {
-	padding: 20px 30px 40px 30px;
-}
-
-@media (max-width: 668px) {
-	.navigation-wrapper nav {
-		margin: 0px;
+@media (max-width: 930px) {
+	.navigation-wrapper .logo-wrapper {
+		gap: 0.8em;
 	}
 
-	.navigation-footer {
-		margin-top: 50px;
-	}
-}
-
-@media (max-width: 990px) {
-	.navigation-wrapper #mainNav {
+	.navigation-wrapper #mainNav .nav-item {
 		display: none;
 	}
 
-	#mainNav.show {
-		height: calc(100% - 84px);
-		overflow-y: scroll;
+	.navigation-wrapper #mainNav .navbar-nav {
+		display: unset;
 	}
+}
 
-	#mainNav.collapsing {
-		padding: 20px 30px;
-	}
-
-	.navigation-wrapper nav {
-		padding: 0 0;
-		margin: 0px;
-	}
-
-	.navbar-toggler {
-		display: inline-block;
-	}
-
-	.navigation-wrapper {
-		display: block;
-		align-items: center;
-		width: 100%;
-		min-height: auto;
-		padding-top: 0px;
-		z-index: 11;
-		padding-bottom: 0px;
-		border-right: inherit !important;
-		padding-left: 20px;
-		padding-right: 20px;
-	}
-
+@media (max-width: 425px) {
 	.navigation-wrapper .logo-wrapper .img-logo {
-		display: inline-block;
-		margin: 5px;
-	}
-
-	.navigation-wrapper .logo-wrapper {
-		display: flex !important;
-		width: 100%;
-		padding-left: 0;
-		justify-content: space-between;
-		align-items: center;
-		padding: 5px 15px;
-		position: relative;
-		z-index: 11;
-	}
-
-	.navigation-wrapper nav {
-		position: fixed;
-		background-color: var(--space);
-		height: 0px !important;
-		z-index: 11;
-		width: 100%;
-		max-height: inherit;
-		overflow-y: inherit;
-		overflow: hidden;
-	}
-
-	#mainNav.collapse.show {
-		height: calc(100% - 68px) !important;
+		width: 82px;
 	}
 
 	.navigation-wrapper {
-		display: block;
-		height: auto;
-		align-items: center;
-		justify-content: space-between;
-	}
-
-	.navigation-footer {
-		display: block;
-		position: relative;
-		margin-top: 8%;
-		text-align: center;
-		padding-top: 10px;
-	}
-
-	.main-nav-overlay {
-		display: block;
-		position: fixed;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		height: 100vh;
-		width: 100vw;
-		opacity: 0;
-		z-index: 10;
-		pointer-events: none;
-		background: rgba(0, 0, 0, 0.65);
-	}
-
-	.main-nav-overlay.show {
-		opacity: 1;
-		pointer-events: all;
-	}
-
-	.social-medias {
-		margin-bottom: 10px;
-	}
-
-	.lang-select {
-		margin-top: 16px;
+		font-size: 0.9em;
 	}
 }

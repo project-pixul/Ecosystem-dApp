@@ -9,7 +9,6 @@ import { supportedLanguages, languageCodeOnly } from "../i18n";
 import { GiHamburgerMenu } from "react-icons/gi";
 import Collapsible from "react-collapsible";
 import "./shellNav.css";
-import "./shellNav.icons.css";
 import Sidebar from "./sidebar";
 
 const sideBarItems = [
@@ -24,7 +23,6 @@ export type ShellNavProps = {
   pages: IShellPage[];
 };
 export type ShellNavState = {
-  currentPage?: IShellPage;
   isSideBarOpen: boolean;
 };
 
@@ -32,7 +30,7 @@ class ShellNav extends BaseComponent<
   ShellNavProps & WithTranslation,
   ShellNavState
 > {
-  private collapseRef = React.createRef<HTMLButtonElement>();
+  private collapseRef = React.createRef<any>();
 
   constructor(props: ShellNavProps & WithTranslation) {
     super(props);
@@ -46,50 +44,6 @@ class ShellNav extends BaseComponent<
     if (window.innerWidth < 990) this.collapseRef.current.click();
   };
 
-  // collapsedNavItem(title) {
-  //   return (
-  //     <li className="sudo-nav-link">
-  //       <a
-  //         href=""
-  //         className={`d-flex justify-content-between nav-item ${title.toLowerCase()}`}
-  //       >
-  //         <p>{title}</p>
-  //         <p>▼</p>
-  //       </a>
-  //     </li>
-  //   );
-  // }
-
-  // expandedNavItem(title) {
-  //   return (
-  //     <li className="sudo-nav-link">
-  //       <a
-  //         href=""
-  //         className={`d-flex justify-content-between nav-item ${title.toLowerCase()}`}
-  //       >
-  //         <p>{title}</p>
-  //         <p>▲</p>
-  //       </a>
-  //     </li>
-  //   );
-  // }
-
-  // checkCurrentRoute() {
-  //   const location = window.location;
-
-  //   console.log(location);
-
-  //   if (
-  //     location.pathname == "/launch" ||
-  //     location.pathname == "/lock" ||
-  //     location.pathname == "/swap" ||
-  //     location.pathname == "/liquidity"
-  //   ) {
-  //     return true;
-  //   }
-  //   return false;
-  // }
-
   toggleSideBar() {
     this.setState((prevState) => ({
       isSideBarOpen: !prevState.isSideBarOpen,
@@ -97,7 +51,7 @@ class ShellNav extends BaseComponent<
   }
 
   render() {
-    const pages: IShellPage[] = this.readProps().pages || [];
+    const pages = this.readProps().pages || [];
     const t: TFunction<"translation"> = this.readProps().t;
     const i18n = this.readProps().i18n;
 
@@ -115,18 +69,11 @@ class ShellNav extends BaseComponent<
                 alt="Pixul"
               />
             </a>
-            <button
-              className="navbar-toggler"
-              // type="button"
-              // data-bs-target="#mainNav"
-              // data-bs-toggle="collapse"
-              // aria-controls="navbarSupportedContent"
-              // aria-label="Toggle navigation"
-              ref={this.collapseRef}
+            <GiHamburgerMenu
+              className="menu-toggler"
+              size={28}
               onClick={this.toggleSideBar}
-            >
-              <GiHamburgerMenu />
-            </button>
+            />
           </div>
           <nav id="mainNav">
             <ul className="navbar-nav">
@@ -151,25 +98,6 @@ class ShellNav extends BaseComponent<
                 );
               })}
 
-              {/*	<Collapsible
-                    trigger={this.collapsedNavItem("Trade")}
-                    triggerWhenOpen={this.expandedNavItem("Trade")}
-                    transitionTime={240}
-                    transitionCloseTime={240}
-                    open={this.checkCurrentRoute()}
-                >
-                    <div className="collapsible-div">
-                        <ul className="navbar-nav">
-                            <li>
-                                <a href="https://swap.raptr.finance/#/swap" activeClassName="active" className="nav-item swap">Swap BETA</a>
-                            </li>
-                            <li>
-                                <a href="https://swap.raptr.finance/#/pool" activeClassName="active" className="nav-item liquidity">Liquidity</a>
-                            </li>
-                        </ul>
-                    </div>
-                </Collapsible> */}
-
               {pages2.map((page) => {
                 const classes = ["nav-item", page.id];
                 const menuMap = {
@@ -191,57 +119,14 @@ class ShellNav extends BaseComponent<
                   </li>
                 );
               })}
-              {/* WIP */}
-              {/* <Collapsible
-                    trigger={this.collapsedNavItem()}
-                    triggerWhenOpen={this.expandedNavItem()}
-                    transitionTime={240}
-                    transitionCloseTime={240}
-                    open={this.checkCurrentRoute()}
-                >
-                    <div className="collapsible-div">
-                        <ul className="navbar-nav">
-                            <li>
-                                <NavLink to="launch" activeClassName="active" className="nav-item launch" onClick={this.toggleMenu}>Launch</NavLink>
-                            </li>
-                            <li>
-                                <NavLink to="lock" activeClassName="active" className="nav-item lock" onClick={this.toggleMenu}>Lock</NavLink>
-                            </li>
-                        </ul>
-                    </div>
-                </Collapsible> */}
-              <div className="wallet">
-                <span>Connect Wallet</span>
+              <div className="connect-wallet">
+                <img
+                  src="https://res.cloudinary.com/rk03/image/upload/v1650441472/ethereum-2296075-1912034_jtsmzt.png"
+                  alt="wallet"
+                />
+                <span>0x68d1aB423743E53945dcB4c182E385045817108A</span>
               </div>
-              <FontAwesomeIcon
-                icon={faChevronDown}
-                size="lg"
-                onClick={this.toggleSideBar}
-              />
             </ul>
-            {/* <div className="navigation-footer">
-                  <div className="mt-2">
-                      <a href="#" className="btn btn-primary btn-block" target="_blank">{t('nav.buyonfirst')}</a>
-                  </div>
-                  <div className="mt-2">
-                      <a href="#" className="btn btn-primary btn-block glow" target="_blank">{t('nav.buyonsecond')}</a>
-                  </div>
-                  <div className="mt-2">
-                      <a href="#" className="btn btn-complementary btn-block" target="_blank">{t('nav.viewonetherscan')}</a>
-                  </div>
-                  <select
-                      value={languageCodeOnly(i18n.language)}
-                      onChange={(e) => i18n.changeLanguage(e.target.value)}
-                      className="mt-2"
-                  >
-                      {supportedLanguages.map((lang) => (
-                          <option key={lang.code} value={lang.code}>
-                              {lang.name}
-                          </option>
-                      ))}
-                  </select>
-                  <p className="mt-2 text-center">© {t('nav.copyright')}</p>
-              </div> */}
           </nav>
         </div>
         {this.state.isSideBarOpen && (
