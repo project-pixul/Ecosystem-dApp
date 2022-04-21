@@ -25,8 +25,13 @@
 	margin-left: 1.2em;
 }
 
+.navigation-wrapper .logo-wrapper svg {
+	height: 1.75em;
+	width: 1.75em;
+}
+
 .navigation-wrapper .logo-wrapper .img-logo {
-	width: 88px;
+	width: 5.5em;
 }
 
 .navigation-wrapper #mainNav .nav-item {
@@ -97,11 +102,13 @@
 }
 
 @media (max-width: 425px) {
-	.navigation-wrapper .logo-wrapper .img-logo {
-		width: 82px;
-	}
-
 	.navigation-wrapper {
-		font-size: 0.84em;
+		font-size: 0.8em;
+	}
+}
+
+@media (max-width: 320px) {
+	.navigation-wrapper {
+		font-size: 0.6em;
 	}
 }

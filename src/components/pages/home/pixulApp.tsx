@@ -120,7 +120,6 @@ const PixulApp: React.FC = ({}) => {
           </div>
           <div className="pixul-card">
             <svg
-              className="cardIcon"
               version="1.1"
               id="Layer_1"
               xmlns="http://www.w3.org/2000/svg"
@@ -187,7 +186,6 @@ const PixulApp: React.FC = ({}) => {
           </div>
           <div className="pixul-card">
             <svg
-              className="cardIcon"
               version="1.1"
               id="Layer_1"
               xmlns="http://www.w3.org/2000/svg"
@@ -246,7 +244,7 @@ const PixulApp: React.FC = ({}) => {
       <span className="pixul-conv-title">Migrate PIXUL for xPIXUL</span>
       <div className="pixul-conv-container">
         <div className="pixul-migrate" ref={migrateRef}>
-          <BiInfoCircle size={20} className="info" onClick={toggleInfo} />
+          <BiInfoCircle className="info" onClick={toggleInfo} />
           <div className="switcher" onClick={switchTab}>
             <div
               className="to-pixul"

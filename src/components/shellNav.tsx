@@ -71,7 +71,6 @@ class ShellNav extends BaseComponent<
             </a>
             <GiHamburgerMenu
               className="menu-toggler"
-              size={28}
               onClick={this.toggleSideBar}
             />
           </div>
