@@ -2,8 +2,8 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	width: 18.5em;
-	max-width: 95vw;
+	width: 19.5em;
+	max-width: 96vw;
 	height: 22em;
 	padding: 1.6em 1.4em;
 	background-color: #1e1e27;
@@ -11,11 +11,15 @@
 	border-radius: 18px;
 }
 
+.farm-cards .card {
+	font-size: 0.96rem;
+}
+
 .farm-cards .card .title {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	font-weight: 600;
+	font-weight: 700;
 	font-size: 1.05em;
 }
 
@@ -37,8 +41,7 @@
 }
 
 .farm-cards .card .apr div span {
-	font-weight: 600;
-	font-size: 0.88em;
+	font-weight: 700;
 }
 
 .farm-cards .card .apr div .rate {
@@ -54,7 +57,7 @@
 
 .farm-cards .card .status span {
 	font-size: 0.88em;
-	font-weight: 600;
+	font-weight: 700;
 	color: #6a00f0;
 }
 

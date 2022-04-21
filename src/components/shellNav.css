@@ -26,12 +26,12 @@
 }
 
 .navigation-wrapper .logo-wrapper svg {
-	height: 1.75em;
-	width: 1.75em;
+	height: 1.85em;
+	width: 1.85em;
 }
 
 .navigation-wrapper .logo-wrapper .img-logo {
-	width: 5.5em;
+	width: 5.9em;
 }
 
 .navigation-wrapper #mainNav .nav-item {
@@ -103,12 +103,12 @@
 
 @media (max-width: 425px) {
 	.navigation-wrapper {
-		font-size: 0.8em;
+		font-size: 0.85em;
 	}
 }
 
 @media (max-width: 320px) {
 	.navigation-wrapper {
-		font-size: 0.6em;
+		font-size: 0.65em;
 	}
 }
