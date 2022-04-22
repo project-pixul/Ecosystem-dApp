@@ -379,7 +379,7 @@ input[type="radio"]:checked:before {
 
 @media screen and (max-width: 320px) {
 	.pixul-container {
-		font-size: 0.65em;
+		font-size: 0.75em;
 	}
 }
 
