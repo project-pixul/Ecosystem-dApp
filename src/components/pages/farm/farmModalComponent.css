@@ -13,7 +13,7 @@
 	margin-top: calc(50vh - 14em);
 	display: flex;
 	flex-direction: column;
-	padding: 1.6em 1em;
+	padding: 1.4em 1em;
 	background-color: #1e1e27;
 	border: 8px solid #424242;
 	border-radius: 12px;
@@ -40,7 +40,7 @@
 
 .farm-modal .modal-title .rate,
 .farm-modal .modal-title .name {
-	font-weight: 600;
+	font-weight: 700;
 }
 
 .farm-modal .modal-title .name {
@@ -66,18 +66,18 @@
 }
 
 .farm-modal .action {
-	width: 14em;
+	width: 15em;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
-	font-weight: 600;
+	font-weight: 700;
 	font-size: 1.2em;
 	gap: 1.6em;
 }
 
 .farm-modal .action span {
-	font-weight: 400;
-	font-size: 0.7em;
+	font-weight: 500;
+	font-size: 0.78em;
 }
 
 .farm-modal .token-bar-wrapper {
@@ -126,8 +126,8 @@
 
 @media screen and (max-width: 610px) {
 	.farm-modal .modal-card {
-		margin-top: calc(50vh - 44vh);
-		height: 88vh;
+		margin-top: calc(50vh - 47vh);
+		height: 94vh;
 	}
 
 	.farm-modal .modal-action::-webkit-scrollbar {
@@ -139,7 +139,7 @@
 	}
 
 	.farm-modal .action {
-		gap: 1.2em;
+		gap: 1.2rem;
 	}
 
 	.farm-modal .action.withdraw {
