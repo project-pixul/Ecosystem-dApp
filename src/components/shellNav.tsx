@@ -13,9 +13,9 @@ import Sidebar from "./sidebar";
 
 const sideBarItems = [
   { title: "Home", id: "home" },
-  { title: "About", id: "about" },
-  { title: "Farm", id: "farm" },
-  { title: "XPixul", id: "xpixul" },
+  { title: "Marketplace", id: "about" },
+  { title: "POS System", id: "farm" },
+  { title: "Documents", id: "xpixul" },
   { title: "Lottery", id: "lottery" },
 ];
 

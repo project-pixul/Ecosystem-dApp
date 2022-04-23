@@ -1,42 +1,72 @@
-#sidebar-root {
+#bmenu-container {
 	position: fixed;
-	right: 0;
+	width: 100vw;
+	height: 100vh;
+	overflow-y: scroll;
+	background: transparent;
+	backdrop-filter: blur(4px);
 	z-index: 9999;
 }
-.sidebar-wrapper {
+.bmenu-wrapper {
 	display: flex;
 	flex-direction: column;
-	gap: 4em;
-	align-items: flex-end;
-	height: 100vh;
-	width: 20rem;
-	max-width: 90vw;
-	background-color: #1e1e28;
-}
-.sidebar-wrapper svg {
-	margin-right: 1.85em;
-	margin-top: 1.4rem;
+	align-items: center;
+	gap: 0.8rem;
+	padding-bottom: 2em;
+	height: auto;
+	border-radius: 10px;
+	border: 6px solid #1e1e27;
+	margin: 5.5em auto;
+	width: 24rem;
+	max-width: 95vw;
+	background-color: #15151d;
 }
 
-.sidebar-wrapper a {
+.bmenu-wrapper header {
+	display: flex;
+	width: 100%;
+	align-items: center;
+	position: relative;
+	padding: 1rem 0;
+	margin-bottom: 1.2rem;
+	border-bottom: 6px solid #1e1e27;
+}
+.bmenu-wrapper header span {
+	font-weight: 700;
+	font-size: 1.4em;
+	margin: 0 auto;
+}
+
+.bmenu-wrapper header svg {
+	position: absolute;
+	right: 12px;
+}
+
+.bmenu-wrapper a {
 	color: white;
 	text-decoration: none;
 	margin-right: 2em;
 	border-radius: 6px;
 }
-.sidebar-wrapper a.active {
+.bmenu-wrapper a.active {
 	background-color: #262632;
 	border-radius: 6px;
 }
 
-.sidebar-wrapper .sidebar-item {
-	padding: 0.8em 2.2em;
-	font-weight: 400;
-	font-size: 1.2em;
+.bmenu-wrapper .bmenu-item {
+	width: 90%;
+	color: #bab9b9;
+	text-align: center;
+	padding: 0.8rem 1.2rem;
+	border-radius: 5px;
+	font-weight: 700;
+	font-size: 0.85em;
+	border: 3px solid #1e1e27;
+	box-shadow: 0px 2.8px 4.6px #0d0c11;
 }
 
-.sidebar-wrapper .sidebar-item:hover {
-	background-color: #262632;
+.bmenu-wrapper .bmenu-item:hover {
+	background-color: #1e1e27;
 }
 
 .highlight {

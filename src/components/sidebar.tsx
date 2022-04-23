@@ -25,10 +25,12 @@ class Sidebar extends Component<sideBarProps, sideBarState> {
   sideBarRef = React.createRef<any>();
 
   listener(event: any) {
-    if (!this.sideBarRef || this.sideBarRef.current.contains(event.target)) {
+    if (
+      this.sideBarRef.current &&
+      this.sideBarRef.current.contains(event.target)
+    ) {
       return;
     }
-
     this.props.toggleMenu();
   }
 
@@ -46,23 +48,27 @@ class Sidebar extends Component<sideBarProps, sideBarState> {
 
   render() {
     return createPortal(
-      <Slide right duration={500}>
-        <aside className="sidebar-wrapper" ref={this.sideBarRef}>
-          <MdClose
-            size="35px"
-            onClick={this.props.toggleMenu as React.MouseEventHandler}
-          />
-          {this.props.sidebarItems.map((item, index) => {
-            return (
-              <NavLink to={item.id} onClick={this.props.toggleMenu}>
-                <div className="sidebar-item" key={index}>
+      <div id="bmenu-container">
+        <Slide top opposite duration={400}>
+          <aside className="bmenu-wrapper" ref={this.sideBarRef}>
+            <header>
+              <span>Menu</span>
+              <MdClose
+                size="30px"
+                onClick={this.props.toggleMenu as React.MouseEventHandler}
+              />
+            </header>
+
+            {this.props.sidebarItems.map((item, index) => {
+              return (
+                <div className="bmenu-item" key={index}>
                   {item.title}
                 </div>
-              </NavLink>
-            );
-          })}
-        </aside>
-      </Slide>,
+              );
+            })}
+          </aside>
+        </Slide>
+      </div>,
       document.querySelector("#sidebar-root") as Element
     );
   }
