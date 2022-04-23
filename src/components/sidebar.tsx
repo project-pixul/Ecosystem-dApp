@@ -1,10 +1,12 @@
 import * as React from "react";
 import "./sidebar.css";
 import { NavLink } from "react-router-dom";
+import { GoChevronDown, GoChevronUp } from "react-icons/go";
 import Slide from "react-reveal/Slide";
 import { createPortal } from "react-dom";
 import { MdClose } from "react-icons/md";
 import { Component } from "react";
+import { jsx } from "@emotion/react";
 
 type sideBarProps = {
   sidebarItems: {
@@ -14,12 +16,18 @@ type sideBarProps = {
   toggleMenu(): void;
 };
 
-type sideBarState = {};
+type sideBarState = {
+  menuItems: number;
+};
 
 class Sidebar extends Component<sideBarProps, sideBarState> {
   constructor(props: sideBarProps) {
     super(props);
+    this.state = {
+      menuItems: 4,
+    };
     this.listener = this.listener.bind(this);
+    this.setMenuItemcount = this.setMenuItemcount.bind(this);
   }
 
   sideBarRef = React.createRef<any>();
@@ -34,23 +42,37 @@ class Sidebar extends Component<sideBarProps, sideBarState> {
     this.props.toggleMenu();
   }
 
-  showCloseAnim() {}
+  setMenuItemcount() {
+    if (this.state.menuItems === 4) {
+      this.setState({
+        menuItems: 9,
+      });
+    } else {
+      this.setState({
+        menuItems: 4,
+      });
+    }
+  }
 
   componentDidMount(): void {
-    document.addEventListener("mousedown", this.listener);
-    document.addEventListener("touchstart", this.listener);
+    // document.addEventListener("mousedown", this.listener);
+    // document.addEventListener("touchstart", this.listener);
   }
 
   componentWillUnmount(): void {
-    document.removeEventListener("mousedown", this.listener);
-    document.removeEventListener("touchstart", this.listener);
+    // document.removeEventListener("mousedown", this.listener);
+    // document.removeEventListener("touchstart", this.listener);
   }
 
   render() {
     return createPortal(
       <div id="bmenu-container">
         <Slide top opposite duration={400}>
-          <aside className="bmenu-wrapper" ref={this.sideBarRef}>
+          <aside
+            className="bmenu-wrapper"
+            ref={this.sideBarRef}
+            style={{ marginTop: this.state.menuItems === 4 ? "5em" : "1em" }}
+          >
             <header>
               <span>Menu</span>
               <MdClose
@@ -60,12 +82,27 @@ class Sidebar extends Component<sideBarProps, sideBarState> {
             </header>
 
             {this.props.sidebarItems.map((item, index) => {
-              return (
-                <div className="bmenu-item" key={index}>
-                  {item.title}
-                </div>
-              );
+              if (index < this.state.menuItems) {
+                return (
+                  <div className="bmenu-item" key={index}>
+                    {item.title}
+                  </div>
+                );
+              } else {
+                return;
+              }
             })}
+            <span
+              className="expand-button"
+              onClick={() => this.setMenuItemcount()}
+            >
+              {this.state.menuItems === 4 ? "More" : "Less"}
+              {this.state.menuItems === 4 ? (
+                <GoChevronDown size="12px" />
+              ) : (
+                <GoChevronUp size="12px" />
+              )}
+            </span>
           </aside>
         </Slide>
       </div>,

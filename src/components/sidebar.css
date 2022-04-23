@@ -12,11 +12,12 @@
 	flex-direction: column;
 	align-items: center;
 	gap: 0.8rem;
-	padding-bottom: 2em;
+	padding-bottom: 1.5em;
 	height: auto;
 	border-radius: 10px;
 	border: 6px solid #1e1e27;
-	margin: 5.5em auto;
+	margin-left: auto;
+	margin-right: auto;
 	width: 24rem;
 	max-width: 95vw;
 	background-color: #15151d;
@@ -38,6 +39,7 @@
 }
 
 .bmenu-wrapper header svg {
+	cursor: pointer;
 	position: absolute;
 	right: 12px;
 }
@@ -69,6 +71,20 @@
 	background-color: #1e1e27;
 }
 
-.highlight {
-	background-color: #262632;
+.bmenu-wrapper .expand-button {
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	margin-top: 0.8em;
+	gap: 0.2em;
+}
+
+.bmenu-wrapper .expand-button {
+	font-size: 0.8em;
+	color: #aaa;
+	font-weight: 600;
+}
+
+.bmenu-wrapper .expand-button svg {
+	fill: #aaa;
 }

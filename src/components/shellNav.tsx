@@ -15,8 +15,12 @@ const sideBarItems = [
   { title: "Home", id: "home" },
   { title: "Marketplace", id: "about" },
   { title: "POS System", id: "farm" },
-  { title: "Documents", id: "xpixul" },
-  { title: "Lottery", id: "lottery" },
+  { title: "Documents", id: "farm" },
+  { title: "Audits", id: "xpixul" },
+  { title: "Github", id: "lottery" },
+  { title: "Discord", id: "lottery" },
+  { title: "Twitter", id: "lottery" },
+  { title: "Telegram", id: "lottery" },
 ];
 
 export type ShellNavProps = {
