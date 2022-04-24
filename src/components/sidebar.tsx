@@ -71,7 +71,7 @@ class Sidebar extends Component<sideBarProps, sideBarState> {
           <aside
             className="bmenu-wrapper"
             ref={this.sideBarRef}
-            style={{ marginTop: this.state.menuItems === 4 ? "5em" : "1em" }}
+            style={{ marginTop: this.state.menuItems === 4 ? "5em" : "0.45em" }}
           >
             <header>
               <span>Menu</span>
