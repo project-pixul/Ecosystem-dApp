@@ -1,6 +1,6 @@
 .navigation-wrapper {
 	background-color: transparent;
-	height: 5.2em !important;
+	height: 5.1em !important;
 	width: 100vw;
 	background-color: #15151d;
 	border-bottom: #58485f 1.6px solid;
@@ -36,9 +36,9 @@
 }
 
 .navigation-wrapper #mainNav .nav-item {
-	font-size: 1.02em;
-	font-weight: 500;
-	color: #fff;
+	font-size: 1.05em;
+	font-weight: 700;
+	color: #dddbdb;
 	text-decoration: none;
 }
 
@@ -49,7 +49,7 @@
 }
 
 .navbar-nav li {
-	margin-right: 34px;
+	margin-right: 35px;
 }
 
 .navigation-wrapper #mainNav .nav-item:hover,
@@ -60,7 +60,7 @@
 #mainNav .connect-wallet {
 	padding: 0.5em;
 	width: 8em;
-	margin-left: 1.5em;
+	margin-left: 1.6em;
 	background-color: #6400ff;
 	color: white;
 	display: flex;
@@ -68,7 +68,7 @@
 	align-items: center;
 	cursor: pointer;
 	border-radius: 5px;
-	margin-right: 1em;
+	margin-right: 1.5em;
 }
 
 #mainNav .connect-wallet:hover {
