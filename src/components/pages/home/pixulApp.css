@@ -27,7 +27,7 @@ p {
 	width: fit-content;
 	border-radius: 10px;
 	background-color: rgb(30, 30, 40);
-	padding: 1.4em;
+	padding: 1.8em;
 }
 
 .pixul-header {
@@ -51,7 +51,6 @@ p {
 }
 
 .app-text p {
-	font-size: 1.02em;
 	font-weight: 600;
 	opacity: 0.82;
 }
@@ -102,21 +101,19 @@ p {
 .pixul-card {
 	margin-top: 60px;
 	position: relative;
-	font-size: 12px;
-	font-weight: 700;
 	border-radius: 20px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	height: 110px;
-	width: 145px;
+	width: 155px;
 	background-color: #262734;
 }
 
 .pixul-card img,
 .pixul-card svg {
-	top: -50%;
+	top: -52%;
 	position: absolute;
 	height: 100px;
 	width: 100px;
@@ -125,14 +122,26 @@ p {
 .pixul-card-text {
 	margin-top: 20px;
 	display: flex;
+	gap: 0.32rem;
 	flex-direction: column;
 	align-items: center;
 }
+
+.pixul-card-text span:first-of-type {
+	font-size: 0.84rem;
+	font-weight: 700;
+}
+
+.pixul-card-text span:nth-child(2) {
+	font-size: 0.75rem;
+	font-weight: 500;
+}
+
 .pixul-conv-title,
 .pixul-stake-title {
 	font-size: 1.8em;
 	font-weight: 700;
-	margin-top: 40px;
+	margin-top: 70px;
 	margin-bottom: 10px;
 }
 

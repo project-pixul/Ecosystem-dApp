@@ -6,10 +6,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { TFunction, withTranslation, WithTranslation } from "react-i18next";
 import { supportedLanguages, languageCodeOnly } from "../i18n";
+
 import { GiHamburgerMenu } from "react-icons/gi";
 import Collapsible from "react-collapsible";
 import "./shellNav.css";
 import Sidebar from "./sidebar";
+import { Farm, Pixul, Xpixul } from "./pages/home/svgs";
 
 const sideBarItems = [
   { title: "Home", id: "home" },
@@ -61,6 +63,22 @@ class ShellNav extends BaseComponent<
 
     const pages1 = pages.slice(0, 2);
     const pages2 = pages.slice(2, 7);
+
+    const menuItemName = {
+      home: t("nav.home"),
+      about: t("nav.about"),
+      farm: t("nav.farm"),
+      xpixul: t("nav.xpixul"),
+      lottery: t("nav.lottery"),
+    };
+
+    const mobileNavIcons = {
+      home: <Pixul />,
+      about: <Pixul />,
+      farm: <Farm />,
+      xpixul: <Xpixul />,
+      lottery: <Pixul />,
+    };
 
     return (
       <>
@@ -132,6 +150,29 @@ class ShellNav extends BaseComponent<
             </ul>
           </nav>
         </div>
+        <nav id="mobileNav">
+          {pages.map((page) => {
+            const menuName = (menuItemName as any)[`${page.id}`];
+            if (page.id === "about") {
+              return (
+                <NavLink to={`xpixul#staking`} activeClassName="active">
+                  <div className="mobile-nav-item">
+                    {mobileNavIcons[`${page.id}`]}
+                    <span>Staking</span>
+                  </div>
+                </NavLink>
+              );
+            }
+            return (
+              <NavLink to={page.id} activeClassName="active">
+                <div className="mobile-nav-item">
+                  {mobileNavIcons[`${page.id}`]}
+                  <span>{menuName}</span>
+                </div>
+              </NavLink>
+            );
+          })}
+        </nav>
         {this.state.isSideBarOpen && (
           <Sidebar
             sidebarItems={sideBarItems}
