@@ -2,8 +2,7 @@ import * as React from "react";
 
 import { NavLink, useLocation } from "react-router-dom";
 import { BaseComponent, IShellPage } from "./shellInterfaces";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { NavHashLink } from "react-router-hash-link";
 import { TFunction, withTranslation, WithTranslation } from "react-i18next";
 import { supportedLanguages, languageCodeOnly } from "../i18n";
 
@@ -11,7 +10,14 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import Collapsible from "react-collapsible";
 import "./shellNav.css";
 import Sidebar from "./sidebar";
-import { Farm, Pixul, Xpixul } from "./pages/home/svgs";
+import {
+  Docs,
+  Farm,
+  Pixul,
+  Stake,
+  Xpixul,
+  XpixulMobile,
+} from "./pages/home/svgs";
 
 const sideBarItems = [
   { title: "Home", id: "home" },
@@ -74,10 +80,37 @@ class ShellNav extends BaseComponent<
 
     const mobileNavIcons = {
       home: <Pixul />,
-      about: <Pixul />,
+      about: <Stake />,
       farm: <Farm />,
-      xpixul: <Xpixul />,
-      lottery: <Pixul />,
+      xpixul: <XpixulMobile />,
+      lottery: <Docs />,
+    };
+
+    const mobileNavExtraItems = {
+      staking: (
+        <NavHashLink to={`xpixul#staking`} activeClassName="active">
+          <div className="mobile-nav-item">
+            {mobileNavIcons["about"]}
+            <span>STAKING</span>
+          </div>
+        </NavHashLink>
+      ),
+      documents: (
+        <a href="https://www.pixul.io/documents" target="_br">
+          <div className="mobile-nav-item">
+            {mobileNavIcons["lottery"]}
+            <span>DOCS</span>
+          </div>
+        </a>
+      ),
+      migrate: (
+        <NavHashLink to={`xpixul#migrate`} activeClassName="active">
+          <div className="mobile-nav-item">
+            {mobileNavIcons["xpixul"]}
+            <span>xPIXUL</span>
+          </div>
+        </NavHashLink>
+      ),
     };
 
     return (
@@ -150,26 +183,28 @@ class ShellNav extends BaseComponent<
             </ul>
           </nav>
         </div>
+
         <nav id="mobileNav">
           {pages.map((page) => {
             const menuName = (menuItemName as any)[`${page.id}`];
             if (page.id === "about") {
-              return (
-                <NavLink to={`xpixul#staking`} activeClassName="active">
-                  <div className="mobile-nav-item">
-                    {mobileNavIcons[`${page.id}`]}
-                    <span>Staking</span>
-                  </div>
-                </NavLink>
-              );
+              return mobileNavExtraItems.staking;
+            } else if (page.id === "lottery") {
+              return mobileNavExtraItems.documents;
+            } else if (page.id === "xpixul") {
+              return mobileNavExtraItems.migrate;
             }
             return (
-              <NavLink to={page.id} activeClassName="active">
+              <NavHashLink
+                to={`${page.id}`}
+                activeClassName="active"
+                onClick={() => window.scrollTo(0, 0)}
+              >
                 <div className="mobile-nav-item">
                   {mobileNavIcons[`${page.id}`]}
-                  <span>{menuName}</span>
+                  <span>{menuName.toUpperCase()}</span>
                 </div>
-              </NavLink>
+              </NavHashLink>
             );
           })}
         </nav>
