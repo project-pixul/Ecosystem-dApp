@@ -320,7 +320,7 @@ const PixulApp: React.FC = ({}) => {
             <div className="stake">
               <p>Stake Pixul</p>
             </div>
-            <div className="stake">
+            <div className="stake active">
               <p>Unstake Pixul</p>
             </div>
           </div>
