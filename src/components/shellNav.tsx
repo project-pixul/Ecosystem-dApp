@@ -18,6 +18,7 @@ import {
   Xpixul,
   XpixulMobile,
 } from "./pages/home/svgs";
+import {Wallet} from "./wallet";
 
 const sideBarItems = [
   { title: "Home", id: "home" },
@@ -36,6 +37,8 @@ export type ShellNavProps = {
 };
 export type ShellNavState = {
   isSideBarOpen: boolean;
+  walletAddr : String;
+  wallet : Object;
 };
 
 class ShellNav extends BaseComponent<
@@ -48,6 +51,8 @@ class ShellNav extends BaseComponent<
     super(props);
     this.state = {
       isSideBarOpen: false,
+      walletAddr : '',
+      wallet : {},
     };
     this.toggleSideBar = this.toggleSideBar.bind(this);
   }
@@ -60,6 +65,31 @@ class ShellNav extends BaseComponent<
     this.setState((prevState) => ({
       isSideBarOpen: !prevState.isSideBarOpen,
     }));
+  }
+
+  async connectWallet() {
+    let wallet = new Wallet();
+    let result = await wallet.connect();
+    if(result === true){
+      localStorage.setItem('walletAddr',wallet.currentAddress);
+      this.setState(({'walletAddr':wallet.currentAddress,'wallet':wallet}));
+    }
+  }
+
+  async disconnectWallet() {
+        const result = await this.state.wallet.disconnect();
+        if (result) {
+          throw 'The wallet connection was cancelled.';
+        }
+        localStorage.setItem('walletAddr','');
+        this.setState({'walletAddr':'','wallet':{}});
+  }
+
+  componentDidMount(): void {
+    let temp = localStorage.getItem('walletAddr');
+    if (temp){
+      this.connectWallet();
+    }
   }
 
   render() {
@@ -174,11 +204,18 @@ class ShellNav extends BaseComponent<
                 );
               })}
               <div className="connect-wallet">
-                <img
-                  src="https://res.cloudinary.com/rk03/image/upload/v1650441472/ethereum-2296075-1912034_jtsmzt.png"
-                  alt="wallet"
-                />
-                <span>0x68d1aB423743E53945dcB4c182E385045817108A</span>
+                {
+                  this.state.walletAddr ? <>
+                    <img
+                      src="https://res.cloudinary.com/rk03/image/upload/v1650441472/ethereum-2296075-1912034_jtsmzt.png"
+                      alt="wallet"
+                    />
+                    <span onClick={() => this.disconnectWallet()}>{this.state.walletAddr}</span>
+                  </>
+                    :
+                    <span onClick={() => this.connectWallet()}>Connect Wallet</span>
+                }
+              
               </div>
             </ul>
           </nav>

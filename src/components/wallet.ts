@@ -9,31 +9,32 @@ export class Wallet {
 	private web3Modal = new Web3Modal({
 		network: "ethereum", // TODO: change this network option to be changable according
 		cacheProvider: true,
-		providerOptions: this.getProviderOptions()
+		providerOptions: this.getProviderOptions(),
+		theme:"dark"
 	});
 	private _web3: Web3 = null;
 
 	public getProviderOptions(): any {
 		const providerOptions = {
-			walletconnect: {
-				package: WalletConnectProvider,
-				options: {
-					rpc: {
-						1: 'https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161'
-					},
-					network: 'ethereum',
-					chainId: 1,
-					infuraId: '9AA3D95B3BC440fA88EA12EAA4456161'
-				}
-				// ,options: {
-				// 	rpc: {
-				// 		97: 'https://data-seed-prebsc-1-s1.binance.org:8545/'
-				// 	},
-				// 	network: 'binance',
-				// 	chainId: 97,
-				// 	infuraId: 'TR4KMIQ72NEDFNJ2ZP5C1BGGTD6DSTTGGT '
-				// }
-			}
+			// walletconnect: {
+			// 	package: WalletConnectProvider,
+			// 	options: {
+			// 		rpc: {
+			// 			1: 'https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161'
+			// 		},
+			// 		network: 'ethereum',
+			// 		chainId: 1,
+			// 		infuraId: '9AA3D95B3BC440fA88EA12EAA4456161'
+			// 	}
+			// 	// ,options: {
+			// 	// 	rpc: {
+			// 	// 		97: 'https://data-seed-prebsc-1-s1.binance.org:8545/'
+			// 	// 	},
+			// 	// 	network: 'binance',
+			// 	// 	chainId: 97,
+			// 	// 	infuraId: 'TR4KMIQ72NEDFNJ2ZP5C1BGGTD6DSTTGGT '
+			// 	// }
+			// }
 		};
 
 		return providerOptions;
@@ -99,7 +100,7 @@ export class Wallet {
 	public async disconnect(): Promise<boolean> {
 		this._web3 = null;
 		this._address = null;
-		if (this._provider.close) {
+		if (this._provider&& this._provider.close) {
 			await this._provider.close();
 		}
 		// If the cached provider is not cleared,
