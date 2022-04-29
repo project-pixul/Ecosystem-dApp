@@ -1,6 +1,7 @@
 import Web3 from 'web3';
 import Web3Modal, { providers } from 'web3modal';
 import WalletConnectProvider from '@walletconnect/web3-provider';
+import Torus from "@toruslabs/torus-embed";
 import { Contract } from 'web3-eth-contract';
 
 export class Wallet {
@@ -16,25 +17,29 @@ export class Wallet {
 
 	public getProviderOptions(): any {
 		const providerOptions = {
-			// walletconnect: {
-			// 	package: WalletConnectProvider,
-			// 	options: {
-			// 		rpc: {
-			// 			1: 'https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161'
-			// 		},
-			// 		network: 'ethereum',
-			// 		chainId: 1,
-			// 		infuraId: '9AA3D95B3BC440fA88EA12EAA4456161'
-			// 	}
-			// 	// ,options: {
-			// 	// 	rpc: {
-			// 	// 		97: 'https://data-seed-prebsc-1-s1.binance.org:8545/'
-			// 	// 	},
-			// 	// 	network: 'binance',
-			// 	// 	chainId: 97,
-			// 	// 	infuraId: 'TR4KMIQ72NEDFNJ2ZP5C1BGGTD6DSTTGGT '
-			// 	// }
-			// }
+			walletconnect: {
+				package: WalletConnectProvider,
+				options: {
+					rpc: {
+						1: 'https://rinkeby.infura.io/v3/e74fa0f0d19b498ab09c201b12e9c797'
+					},
+					network: 'rinkeby',
+					chainId: 1,
+					infuraId: 'e74fa0f0d19b498ab09c201b12e9c797'
+				}
+			},
+			torus: {
+				package: Torus, // required
+				options: {
+					rpc: {
+						1: 'https://rinkeby.infura.io/v3/e74fa0f0d19b498ab09c201b12e9c797'
+					},
+					network: 'rinkeby',
+					chainId: 1,
+					infuraId: 'e74fa0f0d19b498ab09c201b12e9c797'
+				}
+			},
+			
 		};
 
 		return providerOptions;
@@ -63,31 +68,31 @@ export class Wallet {
 		const selectedAccount = accounts[0];
 
 		const provider: any = this._provider;
-		if (provider) {
-			if ((provider.chainId != 1) && (provider.networkVersion != 1)) {
-				if (provider.isMetaMask) {
-					const networkinfo = [{
-						chainId: '0x01',
-						chainName: 'Ethereum Mainnet',
-						nativeCurrency:
-						{
-							name: 'ETH',
-							symbol: 'ETH',
-							decimals: 18
-						},
-						rpcUrls: ['https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161'],
-						blockExplorerUrls: ['https://etherscan.com/'],
-					}]
-					await ethereum.request({ method: 'wallet_addEthereumChain', params: networkinfo }).catch(function () { throw 'Please choose Ethereum Mainnet as the current network in your wallet app !' })
-				}
-				else {
-					throw 'Please choose Ethereum Mainnet as the current network in your wallet app !';
-				}
-			}
-		}
-		else {
-			throw 'No compatible wallet app was found. Please install a supported browser extension, such as Metamask.';
-		}
+		// if (provider) {
+		// 	if ((provider.chainId != 1) && (provider.networkVersion != 1)) {
+		// 		if (provider.isMetaMask) {
+		// 			const networkinfo = [{
+		// 				chainId: '0x01',
+		// 				chainName: 'Ethereum Mainnet',
+		// 				nativeCurrency:
+		// 				{
+		// 					name: 'ETH',
+		// 					symbol: 'ETH',
+		// 					decimals: 18
+		// 				},
+		// 				rpcUrls: ['https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161'],
+		// 				blockExplorerUrls: ['https://etherscan.com/'],
+		// 			}]
+		// 			await ethereum.request({ method: 'wallet_addEthereumChain', params: networkinfo }).catch(function () { throw 'Please choose Ethereum Mainnet as the current network in your wallet app !' })
+		// 		}
+		// 		else {
+		// 			throw 'Please choose Ethereum Mainnet as the current network in your wallet app !';
+		// 		}
+		// 	}
+		// }
+		// else {
+		// 	throw 'No compatible wallet app was found. Please install a supported browser extension, such as Metamask.';
+		// }
 
 		this._address = selectedAccount;
 		return this.isConnected;
