@@ -8,6 +8,7 @@ import "bootstrap";
 
 // with our own theme
 import "./index.css";
+import "./i18n";
 
 // with custom packages for the fallback loader
 import { ClipLoader } from "react-spinners";
@@ -24,7 +25,6 @@ import PixulComponent from "./components/pages/home/pixulApp";
 // not in use
 import FaqComponent from "./components/pages/faq/faqComponent";
 import StakingComponent from "./components/pages/staking/stakingComponent";
-import "./i18n";
 
 const pagesInNavigator = [
 	{ id: "home", title: "Home", component: HomeComponent },
@@ -42,7 +42,6 @@ const overrideCss = css`
 
 // initialize modals
 Modal.setAppElement("#root");
-console.log(HomeComponent);
 
 // and render our app into the "root" element!
 ReactDOM.render(

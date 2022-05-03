@@ -1,20 +1,19 @@
 import * as React from "react";
 
-import { Suspense } from "react";
 import { BaseComponent } from "../../shellInterfaces";
 import { TreasuryWalletAddress } from "../../contracts/pixul";
 import { PixulStatistics } from "../../contracts/statistics";
 import { withTranslation, WithTranslation, TFunction } from "react-i18next";
-import { Fade, Slide } from "react-reveal";
-import { PuffLoader, PropagateLoader } from "react-spinners";
-import AnimatedNumber from "animated-number-react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFacebook } from "@fortawesome/free-brands-svg-icons/faFacebook";
-import { faInstagram } from "@fortawesome/free-brands-svg-icons/faInstagram";
-import { faReddit } from "@fortawesome/free-brands-svg-icons/faReddit";
-import { faTiktok } from "@fortawesome/free-brands-svg-icons/faTiktok";
-import { faYoutube } from "@fortawesome/free-brands-svg-icons/faYoutube";
-import { faDiscord } from "@fortawesome/free-brands-svg-icons/faDiscord";
+import { Slide } from "react-reveal";
+// import { PuffLoader, PropagateLoader } from "react-spinners";
+// import AnimatedNumber from "animated-number-react";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faFacebook } from "@fortawesome/free-brands-svg-icons/faFacebook";
+// import { faInstagram } from "@fortawesome/free-brands-svg-icons/faInstagram";
+// import { faReddit } from "@fortawesome/free-brands-svg-icons/faReddit";
+// import { faTiktok } from "@fortawesome/free-brands-svg-icons/faTiktok";
+// import { faYoutube } from "@fortawesome/free-brands-svg-icons/faYoutube";
+// import { faDiscord } from "@fortawesome/free-brands-svg-icons/faDiscord";
 
 import { Dex, Farm, Xpixul, Stake } from "./svgs";
 import "./homeComponent.css";
@@ -47,7 +46,6 @@ class HomeComponent extends BaseComponent<
   }
 
   componentDidMount() {
-    console.log("mount");
     this.tick();
   }
 
