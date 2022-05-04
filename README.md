@@ -1,7 +1,9 @@
-# Pixul Finance dApp
-This project contains the website of Pixul Finance.
+# Pixul Protocol dApp
+
+This project contains the website of Pixul Protocol.
 
 ## How to edit
+
 Install Node.js, then run:
 
     npm install
@@ -17,6 +19,7 @@ This way you can conveniently edit the website with any editor.
 When you're done, please follow the deployment routine.
 
 ## How to deploy
+
 Make your changes first. Then run:
 
     npm run build
@@ -28,14 +31,13 @@ Make sure the `.htaccess` is also deployed because the React router will break w
 
 ### DO
 
-* maintain the structural integrity of the project
-* use existing components, if possible - for example `StaticHtml` for a new static page
-* use NPM to add external dependencies (like Web3, JQuery, ...)
-* stick to React.js best practices
+- maintain the structural integrity of the project
+- use existing components, if possible - for example `StaticHtml` for a new static page
+- use NPM to add external dependencies (like Web3, JQuery, ...)
+- stick to React.js best practices
 
 ### DON'T
 
-* add external libraries by committing `.js` files directly into the repo (always use NPM)
-* add static content anywhere else than `/src/content`
-* commit directly on `main` without consent of lead developer
-
+- add external libraries by committing `.js` files directly into the repo (always use NPM)
+- add static content anywhere else than `/src/content`
+- commit directly on `main` without consent of lead developer

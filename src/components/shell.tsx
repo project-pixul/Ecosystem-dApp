@@ -97,6 +97,7 @@ export class Shell extends BaseComponent<ShellProps, ShellState> {
 								<h2>Ecosystem</h2>
 								<a href=''>Marketplace</a>
 								<a href=''>Staking</a>
+								<a href=''>Buy/Sell Crypto</a>
 								<a href=''>Farms</a>
 								<a href=''>DEX</a>
 							</div>
