@@ -21,7 +21,7 @@ import HomeComponent from "./components/pages/home/homeComponent";
 import AboutComponent from "./components/pages/about/aboutComponent";
 import FarmComponent from "./components/pages/farm/farmComponent";
 import PixulComponent from "./components/pages/home/pixulApp";
-import transactionComponent from "./components/pages/transaction/transactionComponent";
+
 // not in use
 import FaqComponent from "./components/pages/faq/faqComponent";
 import StakingComponent from "./components/pages/staking/stakingComponent";
