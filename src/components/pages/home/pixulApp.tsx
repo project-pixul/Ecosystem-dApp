@@ -8,7 +8,7 @@ import "./pixulApp.css";
 import PixulConvert from "./pixulConvert";
 import useOnClickOutside from "../../../hooks/useOnClickOutSide";
 
-const PixulApp: React.FC = ({}) => {
+const PixulApp = ({}) => {
   const { t } = useTranslation();
   const [tabState, setTabState] = React.useState(true);
   const [showInfo, setInfoState] = React.useState(false);

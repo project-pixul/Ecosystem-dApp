@@ -6,7 +6,6 @@ import Slide from "react-reveal/Slide";
 import { createPortal } from "react-dom";
 import { MdClose } from "react-icons/md";
 import { Component } from "react";
-import { jsx } from "@emotion/react";
 
 type sideBarProps = {
   sidebarItems: {
