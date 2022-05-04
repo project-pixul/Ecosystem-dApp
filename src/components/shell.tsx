@@ -6,16 +6,14 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
-import { ShellHost } from "./shellHost";
+import ShellHost from "./shellHost";
 import { BaseComponent, IShellPage } from "./shellInterfaces";
 import {
   faMedium,
-  faTelegram,
   faTwitter,
   faGithub,
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import ShellNav from "./shellNav";
 
 import "./shell.css";

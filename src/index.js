@@ -16,15 +16,11 @@ import { css } from "styled-components";
 
 // now all the components
 import { Shell } from "./components/shell";
-import Sidebar from "./components/sidebar";
 import LotteryComponent from "./components/pages/lottery/lotteryComponent";
 import HomeComponent from "./components/pages/home/homeComponent";
 import AboutComponent from "./components/pages/about/aboutComponent";
 import FarmComponent from "./components/pages/farm/farmComponent";
 import PixulComponent from "./components/pages/home/pixulApp";
-// not in use
-import FaqComponent from "./components/pages/faq/faqComponent";
-import StakingComponent from "./components/pages/staking/stakingComponent";
 
 const pagesInNavigator = [
 	{ id: "home", title: "Home", component: HomeComponent },
