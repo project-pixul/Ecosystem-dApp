@@ -4,21 +4,13 @@ import { NavLink, useLocation } from "react-router-dom";
 import { BaseComponent, IShellPage } from "./shellInterfaces";
 import { NavHashLink } from "react-router-hash-link";
 import { TFunction, withTranslation, WithTranslation } from "react-i18next";
-import { supportedLanguages, languageCodeOnly } from "../i18n";
 
 import { GiHamburgerMenu } from "react-icons/gi";
-import Collapsible from "react-collapsible";
+
 import "./shellNav.css";
 import Sidebar from "./sidebar";
-import {
-  Docs,
-  Farm,
-  Pixul,
-  Stake,
-  Xpixul,
-  XpixulMobile,
-} from "./pages/home/svgs";
-import {Wallet} from "./wallet";
+import { Docs, Farm, Pixul, Stake, XpixulMobile } from "./pages/home/svgs";
+import { Wallet } from "./wallet";
 
 const sideBarItems = [
   { title: "Home", id: "home" },
@@ -37,8 +29,8 @@ export type ShellNavProps = {
 };
 export type ShellNavState = {
   isSideBarOpen: boolean;
-  walletAddr : String;
-  wallet : Object;
+  walletAddr: String;
+  wallet: Object;
 };
 
 class ShellNav extends BaseComponent<
@@ -51,8 +43,8 @@ class ShellNav extends BaseComponent<
     super(props);
     this.state = {
       isSideBarOpen: false,
-      walletAddr : '',
-      wallet : {},
+      walletAddr: "",
+      wallet: {},
     };
     this.toggleSideBar = this.toggleSideBar.bind(this);
   }
@@ -70,26 +62,26 @@ class ShellNav extends BaseComponent<
   async connectWallet() {
     let wallet = new Wallet();
     let result = await wallet.connect();
-    if(result === true){
-      alert('wallet is connected');
-      localStorage.setItem('walletAddr',wallet.currentAddress);
-      this.setState(({'walletAddr':wallet.currentAddress,'wallet':wallet}));
+    if (result === true) {
+      alert("wallet is connected");
+      localStorage.setItem("walletAddr", wallet.currentAddress);
+      this.setState({ walletAddr: wallet.currentAddress, wallet: wallet });
     }
   }
 
   async disconnectWallet() {
-        const result = await this.state.wallet.disconnect();
-        if (result) {
-          alert('wallet is disconnected');
-          throw 'The wallet connection was cancelled.';
-        }
-        localStorage.setItem('walletAddr','');
-        this.setState({'walletAddr':'','wallet':{}});
+    const result = await this.state.wallet.disconnect();
+    if (result) {
+      alert("wallet is disconnected");
+      throw "The wallet connection was cancelled.";
+    }
+    localStorage.setItem("walletAddr", "");
+    this.setState({ walletAddr: "", wallet: {} });
   }
 
   componentDidMount(): void {
-    let temp = localStorage.getItem('walletAddr');
-    if (temp){
+    let temp = localStorage.getItem("walletAddr");
+    if (temp) {
       this.connectWallet();
     }
   }
@@ -206,18 +198,21 @@ class ShellNav extends BaseComponent<
                 );
               })}
               <div className="connect-wallet">
-                {
-                  this.state.walletAddr ? <>
+                {this.state.walletAddr ? (
+                  <>
                     <img
                       src="https://res.cloudinary.com/rk03/image/upload/v1650441472/ethereum-2296075-1912034_jtsmzt.png"
                       alt="wallet"
                     />
-                    <span onClick={() => this.disconnectWallet()}>{this.state.walletAddr}</span>
+                    <span onClick={() => this.disconnectWallet()}>
+                      {this.state.walletAddr}
+                    </span>
                   </>
-                    :
-                    <span onClick={() => this.connectWallet()}>Connect Wallet</span>
-                }
-              
+                ) : (
+                  <span onClick={() => this.connectWallet()}>
+                    Connect Wallet
+                  </span>
+                )}
               </div>
             </ul>
           </nav>
