@@ -39,13 +39,6 @@ export class Shell extends BaseComponent<ShellProps, ShellState> {
 				<div className='main-wrapper'>
 					<ShellNav pages={pages} />
 					<div className='content-wrapper'>
-						{/* <div className='listing-banner d-flex align-items-center shadow'>
-							<FontAwesomeIcon icon={faInfoCircle} className='info-icon' />
-							<h1>
-								The Pixul DeFi dApp <strong>BETA</strong> is{' '}
-								<strong>finally here</strong>!.
-							</h1>
-						</div> */}
 						<Switch>
 							{pages.map((page) => (
 								<Route key={`${page.id}`} path={'/' + page.id}>
@@ -97,7 +90,6 @@ export class Shell extends BaseComponent<ShellProps, ShellState> {
 								<h2>Ecosystem</h2>
 								<a href=''>Marketplace</a>
 								<a href=''>Staking</a>
-								<a href=''>Buy/Sell Crypto</a>
 								<a href=''>Farms</a>
 								<a href=''>DEX</a>
 							</div>

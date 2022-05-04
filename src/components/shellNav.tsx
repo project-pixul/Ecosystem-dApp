@@ -2,14 +2,23 @@ import * as React from "react";
 
 import { NavLink, useLocation } from "react-router-dom";
 import { BaseComponent, IShellPage } from "./shellInterfaces";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { NavHashLink } from "react-router-hash-link";
 import { TFunction, withTranslation, WithTranslation } from "react-i18next";
 import { supportedLanguages, languageCodeOnly } from "../i18n";
+
 import { GiHamburgerMenu } from "react-icons/gi";
 import Collapsible from "react-collapsible";
 import "./shellNav.css";
 import Sidebar from "./sidebar";
+import {
+  Docs,
+  Farm,
+  Pixul,
+  Stake,
+  Xpixul,
+  XpixulMobile,
+} from "./pages/home/svgs";
+import {Wallet} from "./wallet";
 
 const sideBarItems = [
   { title: "Home", id: "home" },
@@ -28,6 +37,8 @@ export type ShellNavProps = {
 };
 export type ShellNavState = {
   isSideBarOpen: boolean;
+  walletAddr : String;
+  wallet : Object;
 };
 
 class ShellNav extends BaseComponent<
@@ -40,6 +51,8 @@ class ShellNav extends BaseComponent<
     super(props);
     this.state = {
       isSideBarOpen: false,
+      walletAddr : '',
+      wallet : {},
     };
     this.toggleSideBar = this.toggleSideBar.bind(this);
   }
@@ -54,6 +67,33 @@ class ShellNav extends BaseComponent<
     }));
   }
 
+  async connectWallet() {
+    let wallet = new Wallet();
+    let result = await wallet.connect();
+    if(result === true){
+      alert('wallet is connected');
+      localStorage.setItem('walletAddr',wallet.currentAddress);
+      this.setState(({'walletAddr':wallet.currentAddress,'wallet':wallet}));
+    }
+  }
+
+  async disconnectWallet() {
+        const result = await this.state.wallet.disconnect();
+        if (result) {
+          alert('wallet is disconnected');
+          throw 'The wallet connection was cancelled.';
+        }
+        localStorage.setItem('walletAddr','');
+        this.setState({'walletAddr':'','wallet':{}});
+  }
+
+  componentDidMount(): void {
+    let temp = localStorage.getItem('walletAddr');
+    if (temp){
+      this.connectWallet();
+    }
+  }
+
   render() {
     const pages = this.readProps().pages || [];
     const t: TFunction<"translation"> = this.readProps().t;
@@ -61,6 +101,49 @@ class ShellNav extends BaseComponent<
 
     const pages1 = pages.slice(0, 2);
     const pages2 = pages.slice(2, 7);
+
+    const menuItemName = {
+      home: t("nav.home"),
+      about: t("nav.about"),
+      farm: t("nav.farm"),
+      xpixul: t("nav.xpixul"),
+      lottery: t("nav.lottery"),
+    };
+
+    const mobileNavIcons = {
+      home: <Pixul />,
+      about: <Stake />,
+      farm: <Farm />,
+      xpixul: <XpixulMobile />,
+      lottery: <Docs />,
+    };
+
+    const mobileNavExtraItems = {
+      staking: (
+        <NavHashLink to={`xpixul#staking`} activeClassName="active">
+          <div className="mobile-nav-item">
+            {mobileNavIcons["about"]}
+            <span>STAKING</span>
+          </div>
+        </NavHashLink>
+      ),
+      documents: (
+        <a href="https://www.pixul.io/documents" target="_br">
+          <div className="mobile-nav-item">
+            {mobileNavIcons["lottery"]}
+            <span>DOCS</span>
+          </div>
+        </a>
+      ),
+      migrate: (
+        <NavHashLink to={`xpixul#migrate`} activeClassName="active">
+          <div className="mobile-nav-item">
+            {mobileNavIcons["xpixul"]}
+            <span>xPIXUL</span>
+          </div>
+        </NavHashLink>
+      ),
+    };
 
     return (
       <>
@@ -123,15 +206,47 @@ class ShellNav extends BaseComponent<
                 );
               })}
               <div className="connect-wallet">
-                <img
-                  src="https://res.cloudinary.com/rk03/image/upload/v1650441472/ethereum-2296075-1912034_jtsmzt.png"
-                  alt="wallet"
-                />
-                <span>0x68d1aB423743E53945dcB4c182E385045817108A</span>
+                {
+                  this.state.walletAddr ? <>
+                    <img
+                      src="https://res.cloudinary.com/rk03/image/upload/v1650441472/ethereum-2296075-1912034_jtsmzt.png"
+                      alt="wallet"
+                    />
+                    <span onClick={() => this.disconnectWallet()}>{this.state.walletAddr}</span>
+                  </>
+                    :
+                    <span onClick={() => this.connectWallet()}>Connect Wallet</span>
+                }
+              
               </div>
             </ul>
           </nav>
         </div>
+
+        <nav id="mobileNav">
+          {pages.map((page) => {
+            const menuName = (menuItemName as any)[`${page.id}`];
+            if (page.id === "about") {
+              return mobileNavExtraItems.staking;
+            } else if (page.id === "lottery") {
+              return mobileNavExtraItems.documents;
+            } else if (page.id === "xpixul") {
+              return mobileNavExtraItems.migrate;
+            }
+            return (
+              <NavHashLink
+                to={`${page.id}`}
+                activeClassName="active"
+                onClick={() => window.scrollTo(0, 0)}
+              >
+                <div className="mobile-nav-item">
+                  {mobileNavIcons[`${page.id}`]}
+                  <span>{menuName.toUpperCase()}</span>
+                </div>
+              </NavHashLink>
+            );
+          })}
+        </nav>
         {this.state.isSideBarOpen && (
           <Sidebar
             sidebarItems={sideBarItems}

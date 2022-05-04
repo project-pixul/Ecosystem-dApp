@@ -88,6 +88,46 @@
 	font-size: 0.96em;
 }
 
+#mobileNav {
+	display: none;
+	height: 5em;
+	align-items: center;
+	justify-content: space-around;
+	position: fixed;
+	background-color: #15151d;
+	bottom: 0;
+	z-index: 1000;
+	width: 100vw;
+}
+
+#mobileNav a .mobile-nav-item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.4em;
+}
+
+#mobileNav a .mobile-nav-item span {
+	color: white;
+	font-weight: 700;
+	font-size: 0.9em;
+	opacity: 0.4;
+}
+
+#mobileNav a .mobile-nav-item svg {
+	position: unset !important;
+	opacity: 0.4;
+	height: 1.9em !important;
+	width: 1.9em !important;
+}
+
+#mobileNav a .mobile-nav-item:hover span,
+#mobileNav a .mobile-nav-item:hover svg,
+#mobileNav a.active .mobile-nav-item span,
+#mobileNav a.active .mobile-nav-item svg {
+	opacity: 1;
+}
+
 @media (max-width: 930px) {
 	.navigation-wrapper .logo-wrapper {
 		gap: 0.8em;
@@ -100,16 +140,32 @@
 	.navigation-wrapper #mainNav .navbar-nav {
 		display: unset;
 	}
+
+	#mobileNav {
+		display: flex;
+	}
+
+	.footer {
+		display: none !important;
+	}
 }
 
 @media (max-width: 425px) {
 	.navigation-wrapper {
 		font-size: 0.85em;
 	}
+
+	#mobileNav {
+		font-size: 0.85em;
+	}
 }
 
 @media (max-width: 320px) {
 	.navigation-wrapper {
+		font-size: 0.75em;
+	}
+
+	#mobileNav {
 		font-size: 0.75em;
 	}
 }

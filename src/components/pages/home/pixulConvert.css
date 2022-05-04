@@ -33,7 +33,7 @@
 .conv-card .status {
 	display: flex;
 	flex-direction: column;
-	justify-content: space-evenly;
+	justify-content: space-around;
 	font-size: 1em;
 	font-weight: 700;
 }

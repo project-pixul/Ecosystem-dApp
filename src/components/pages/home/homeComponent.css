@@ -8,6 +8,7 @@
 .content-wrapper {
 	min-height: 100%;
 	overflow-x: hidden;
+	padding-bottom: 5em;
 	width: 100vw;
 	background: transparent;
 	position: relative;

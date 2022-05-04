@@ -241,7 +241,9 @@ const PixulApp: React.FC = ({}) => {
           </div>
         </div>
       </div>
+      <a id="migrate"></a>
       <span className="pixul-conv-title">Migrate PIXUL for xPIXUL</span>
+
       <div className="pixul-conv-container">
         <div className="pixul-migrate" ref={migrateRef}>
           <BiInfoCircle className="info" onClick={toggleInfo} />
@@ -309,14 +311,16 @@ const PixulApp: React.FC = ({}) => {
           <p>Step 3: Migrate your xPIXUL to PIXUL on our migration swap </p>
         </div>
       </div>
+      <a id="staking"></a>
       <span className="pixul-stake-title">Stake Your xPIXUL</span>
+
       <div className="pixul-stake-container">
         <div className="pixul-stake">
           <div className="pixul-stake-header">
             <div className="stake">
               <p>Stake Pixul</p>
             </div>
-            <div className="stake">
+            <div className="stake active">
               <p>Unstake Pixul</p>
             </div>
           </div>
