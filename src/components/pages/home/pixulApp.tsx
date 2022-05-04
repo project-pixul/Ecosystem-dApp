@@ -1,7 +1,6 @@
 import * as React from "react";
 
 import { withTranslation, useTranslation } from "react-i18next";
-import { Slide } from "react-reveal";
 
 import { BiDownArrow, BiInfoCircle } from "react-icons/bi";
 
