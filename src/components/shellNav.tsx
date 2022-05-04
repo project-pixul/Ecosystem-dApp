@@ -71,6 +71,7 @@ class ShellNav extends BaseComponent<
     let wallet = new Wallet();
     let result = await wallet.connect();
     if(result === true){
+      alert('wallet is connected');
       localStorage.setItem('walletAddr',wallet.currentAddress);
       this.setState(({'walletAddr':wallet.currentAddress,'wallet':wallet}));
     }
@@ -79,6 +80,7 @@ class ShellNav extends BaseComponent<
   async disconnectWallet() {
         const result = await this.state.wallet.disconnect();
         if (result) {
+          alert('wallet is disconnected');
           throw 'The wallet connection was cancelled.';
         }
         localStorage.setItem('walletAddr','');
