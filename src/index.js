@@ -16,18 +16,19 @@ import { css } from "styled-components";
 
 // now all the components
 import { Shell } from "./components/shell";
-import LotteryComponent from "./components/pages/lottery/lotteryComponent";
 import HomeComponent from "./components/pages/home/homeComponent";
 import AboutComponent from "./components/pages/about/aboutComponent";
 import FarmComponent from "./components/pages/farm/farmComponent";
-import PixulComponent from "./components/pages/home/pixulApp";
+import PixulComponent from "./components/pages/staking/pixulApp";
 
 const pagesInNavigator = [
 	{ id: "home", title: "Home", component: HomeComponent },
 	{ id: "about", title: "About", component: AboutComponent },
 	{ id: "farm", title: "Farm", component: FarmComponent },
 	{ id: "xpixul", title: "xpixul", component: PixulComponent },
-	{ id: "lottery", title: "Pixul Lottery", component: LotteryComponent },
+
+	// will be replaced with onwramper widget
+	// { id: "lottery", title: "Pixul Lottery", component: LotteryComponent },
 ];
 
 const overrideCss = css`

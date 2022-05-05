@@ -20,10 +20,10 @@ import "./homeComponent.css";
 //   treasuryBalance?: number;
 // };
 
-const RoadmapDiv = React.lazy(() => import("./roadmap"));
-const PixulAppDiv = React.lazy(() => import("./pixulApp"));
-const PixulForestDiv = React.lazy(() => import("./pixulForest"));
-const TokenStatisticsDiv = React.lazy(() => import("./tokenStatistics"));
+// const RoadmapDiv = React.lazy(() => import("./roadmap"));
+// const PixulAppDiv = React.lazy(() => import("./pixulApp"));
+// const PixulForestDiv = React.lazy(() => import("./pixulForest"));
+// const TokenStatisticsDiv = React.lazy(() => import("./tokenStatistics"));
 
 const HomeComponent = () => {
   let _statistics: PixulStatistics;
