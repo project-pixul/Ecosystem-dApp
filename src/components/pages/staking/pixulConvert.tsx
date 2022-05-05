@@ -1,8 +1,5 @@
 import * as React from "react";
 import "./pixulConvert.css";
-import { BaseComponent } from "../../shellInterfaces";
-
-export type ConvertState = {};
 
 export type ConvertProps = {
   convertType: boolean;
