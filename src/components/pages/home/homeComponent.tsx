@@ -70,7 +70,7 @@ const HomeComponent = () => {
   //   const t: TFunction<"translation"> = this.readProps().t;
 
   return (
-    <div className="home-container shadow">
+    <div className="home-container">
       <div className="container">
         <section className="main flex-column d-flex justify-content-center align-items-center">
           <div className="flex-column d-flex justify-content-center firstSection align-items-center">

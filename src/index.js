@@ -28,7 +28,7 @@ const pagesInNavigator = [
 	{ id: "xpixul", title: "xpixul", component: PixulComponent },
 
 	// will be replaced with onwramper widget
-	// { id: "lottery", title: "Pixul Lottery", component: LotteryComponent },
+	{ id: "lottery", title: "Pixul Lottery", component: HomeComponent },
 ];
 
 const overrideCss = css`

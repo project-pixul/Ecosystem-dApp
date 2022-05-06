@@ -141,16 +141,12 @@ const ShellNav = (props: ShellNavProps) => {
           <GiHamburgerMenu className="menu-toggler" onClick={toggleSideBar} />
         </div>
         <nav id="mainNav">
-          <ul className="navbar-nav">
+          <div className="navbar-nav">
             {pages1.map((page) => {
               const classes = ["nav-item", page.id];
-              const menuMap = {
-                home: t("nav.home"),
-                about: t("nav.about"),
-              };
-              const menuName = (menuMap as any)[`${page.id}`];
+              const menuName = menuItemName[`${page.id}`];
               return (
-                <li key={`${page.id}`}>
+                <div key={`${page.id}`}>
                   <NavLink
                     to={page.id}
                     activeClassName="active"
@@ -165,12 +161,8 @@ const ShellNav = (props: ShellNavProps) => {
 
             {pages2.map((page) => {
               const classes = ["nav-item", page.id];
-              const menuMap = {
-                farm: t("nav.farm"),
-                xpixul: t("nav.xpixul"),
-                lottery: t("nav.lottery"),
-              };
-              const menuName = (menuMap as any)[`${page.id}`];
+              const menuName = menuItemName[`${page.id}`];
+
               return (
                 <li key={`${page.id}`}>
                   <NavLink
@@ -197,7 +189,7 @@ const ShellNav = (props: ShellNavProps) => {
                 <span onClick={() => connectWallet()}>Connect Wallet</span>
               )}
             </div>
-          </ul>
+          </div>
         </nav>
       </div>
 
