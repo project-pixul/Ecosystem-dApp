@@ -123,7 +123,7 @@ const HomeComponent = () => {
                     <h2>{t("home.explore.stake_header")}</h2>
                     <p>{t("home.explore.stake_paragraph")}</p>
                   </div>
-                  <a href="#" className="btn">
+                  <a href="/xpixul" className="btn">
                     {t("home.explore.stake_button")}
                   </a>
                 </div>
@@ -136,7 +136,7 @@ const HomeComponent = () => {
                     <h2>{t("home.explore.farm_header")}</h2>
                     <p>{t("home.explore.farm_paragraph")}</p>
                   </div>
-                  <a href="#" className="btn">
+                  <a href="/farm" className="btn">
                     {t("home.explore.farm_button")}
                   </a>
                 </div>
