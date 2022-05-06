@@ -97,7 +97,7 @@ const HomeComponent = () => {
             </div>
           </div>
 
-          <div className="statContainer d-flex flex-wrap flex-row justify-content-around align-items-center">
+          <div className="stat-container">
             <p className="stats">
               <span>$0.015</span>
               <span className="statname">{t("home.stat1")}</span>
@@ -117,7 +117,7 @@ const HomeComponent = () => {
           </div>
 
           <div className="explore">
-            <h1>{t("home.explore.explore_header")}</h1>
+            <span>{t("home.explore.explore_header")}</span>
             <div className="exploreCards d-flex flex-column align-items-center">
               <div className="exploreCard">
                 <Stake />
@@ -174,7 +174,7 @@ const HomeComponent = () => {
           </div>
 
           <div className="social">
-            <h1>{t("home.social.social_header")}</h1>
+            <span>{t("home.social.social_header")}</span>
             <div className="socialCards">
               <div className="socialCard">
                 <svg
