@@ -74,7 +74,10 @@ const HomeComponent = () => {
       <div className="container">
         <section className="main flex-column d-flex justify-content-center align-items-center">
           <div className="flex-column d-flex justify-content-center firstSection align-items-center">
-            <img src="/images/pixulfavicon.png" alt="" />
+            <img
+              src="https://res.cloudinary.com/rk03/image/upload/v1651852307/pixullogo_r7bycd.png"
+              alt=""
+            />
             <h1 className="d-flex justify-content-center align-items-center">
               <strong className="title-white">{t("home.subtitle1")}</strong>
               <br />
