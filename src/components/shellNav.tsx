@@ -146,7 +146,7 @@ const ShellNav = (props: ShellNavProps) => {
               const classes = ["nav-item", page.id];
               const menuName = menuItemName[`${page.id}`];
               return (
-                <div key={`${page.id}`}>
+                <li key={`${page.id}`}>
                   <NavLink
                     to={page.id}
                     activeClassName="active"
