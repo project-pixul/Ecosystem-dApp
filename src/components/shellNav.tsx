@@ -7,10 +7,15 @@ import { withTranslation, useTranslation } from "react-i18next";
 
 import { GiHamburgerMenu } from "react-icons/gi";
 
+import { useWeb3React } from '@web3-react/core';
+import { injected } from '../web3/Connector';
+
 import "./shellNav.css";
 import Sidebar from "./sidebar";
 import { Docs, Farm, Pixul, Stake, XpixulMobile } from "./pages/home/svgs";
-import { Wallet } from "./wallet";
+
+
+import { connect, disconnect } from '../web3/connect';
 
 const sideBarItems = [
   { title: "Home", id: "home" },
@@ -34,10 +39,9 @@ export type ShellNavState = {
 };
 
 const ShellNav = (props: ShellNavProps) => {
+  const { active, account, library, connector, activate, deactivate } = useWeb3React();
   const collapseRef = React.createRef<any>();
   const [isSideBarOpen, setSideBarOpen] = React.useState<Boolean>(false);
-  const [walletAddr, setWalletAddr] = React.useState<String>("");
-  const [wallet, setWallet] = React.useState<any>();
   const { t } = useTranslation();
 
   const toggleMenu = (e: any) => {
@@ -51,27 +55,12 @@ const ShellNav = (props: ShellNavProps) => {
   };
 
   const connectWallet = async () => {
-    let wallet = new Wallet();
-    let result = await wallet.connect();
-    if (result === true) {
-      alert("wallet is connected");
-      localStorage.setItem("walletAddr", wallet.currentAddress);
-      setWalletAddr(wallet.currentAddress);
-      setWallet(wallet);
-    }
+    await activate(injected);
   };
 
   const disconnectWallet = async () => {
-    const result = await wallet.disconnect();
-
-    if (result) {
-      alert("wallet is disconnected");
-      throw "The wallet connection was cancelled.";
-    }
-    localStorage.setItem("walletAddr", "");
-
-    setWalletAddr("");
-    setWallet({});
+    deactivate();
+    localStorage.setItem("walletAddr", '');
   };
 
   React.useEffect(() => {
@@ -80,6 +69,10 @@ const ShellNav = (props: ShellNavProps) => {
       connectWallet();
     }
   }, []);
+
+  React.useEffect(() => {
+      localStorage.setItem("walletAddr", account);
+  }, [account]);
 
   const pages1 = props.pages.slice(0, 2);
   const pages2 = props.pages.slice(2, 7);
@@ -177,13 +170,13 @@ const ShellNav = (props: ShellNavProps) => {
               );
             })}
             <div className="connect-wallet">
-              {walletAddr ? (
+              {account ? (
                 <>
                   <img
                     src="https://res.cloudinary.com/rk03/image/upload/v1650441472/ethereum-2296075-1912034_jtsmzt.png"
                     alt="wallet"
                   />
-                  <span onClick={() => disconnectWallet()}>{walletAddr}</span>
+                  <span onClick={() => disconnectWallet()}>{account}</span>
                 </>
               ) : (
                 <span onClick={() => connectWallet()}>Connect Wallet</span>
