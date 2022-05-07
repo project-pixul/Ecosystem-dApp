@@ -112,7 +112,7 @@
 
 .explore span,
 .social span {
-	font-size: 1.6em;
+	font-size: 2em;
 	font-weight: 700;
 	text-align: center;
 }
@@ -174,7 +174,7 @@
 	height: 10em;
 	display: flex;
 	align-items: center;
-	padding-right: 2em;
+	padding-right: 4em;
 }
 
 .socialCard .content {
@@ -200,8 +200,9 @@
 
 .exploreCard .contentBody p {
 	font-size: 0.96em;
-	opacity: 0.6;
-	line-height: 25px;
+	opacity: 0.5;
+	font-weight: 600;
+	line-height: 20px;
 }
 
 .exploreCard .content a,
@@ -409,11 +410,6 @@
 		height: 100px;
 		width: 100px;
 		left: -60px;
-	}
-
-	.exploreCard .contentBody p {
-		font-size: 0.3em;
-		line-height: 18px;
 	}
 
 	.exploreCard .content {
