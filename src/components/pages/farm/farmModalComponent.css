@@ -124,9 +124,9 @@
 	background-color: #5400bd;
 }
 
-@media screen and (max-width: 610px) {
+@media screen and (max-width: 650px) {
 	.farm-modal .modal-card {
-		margin-top: calc(50vh - 47vh);
+		margin-top: calc(50vh - 48vh);
 		height: 94vh;
 	}
 

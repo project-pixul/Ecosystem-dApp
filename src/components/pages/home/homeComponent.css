@@ -7,7 +7,7 @@
 .content-wrapper {
 	min-height: 100%;
 	overflow-x: hidden;
-	padding-bottom: 5em;
+	padding-bottom: 8em;
 	width: 100vw;
 	background: transparent;
 	position: relative;
@@ -24,7 +24,7 @@
 }
 
 .home-container .hero-buttons {
-	margin: 20px 0;
+	margin: 25px 0;
 }
 
 .home-container .title-white {
@@ -32,7 +32,7 @@
 }
 
 .main {
-	padding: 40px;
+	padding: 35px;
 	margin-top: 8vh;
 }
 
@@ -43,18 +43,20 @@
 
 .firstSection img {
 	height: 7.5em;
-	margin-bottom: 0.5em;
+	margin-bottom: 0.6em;
 }
 
 .firstSection h1 {
 	font-size: 3.65em;
+	margin-bottom: 0.6rem;
 }
 
 .paragraph1 {
 	text-align: center;
-	font-size: 0.96em;
+	font-size: 1em;
 	font-weight: 600;
 	width: 90%;
+	line-height: 1.6;
 }
 
 .home-container .learn {
@@ -99,8 +101,9 @@
 
 .explore,
 .social {
-	margin-top: 6.3em;
-	width: 96vw;
+	margin-top: 6.2em;
+	width: 60em;
+	max-width: 92vw;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -109,7 +112,7 @@
 
 .explore span,
 .social span {
-	font-size: 1.65em;
+	font-size: 1.6em;
 	font-weight: 700;
 	text-align: center;
 }
@@ -121,10 +124,9 @@
 .exploreCard,
 .socialCard {
 	position: relative;
-	margin-top: 80px;
+	margin-top: 90px;
 	display: flex;
 	align-items: center;
-	margin-right: 20px;
 }
 
 .exploreCard {
@@ -144,9 +146,8 @@
 }
 
 .cardIcon {
-	height: 200px;
-	width: 200px;
-	left: -120px;
+	width: 185px;
+	left: -102px;
 }
 
 .circleIcon {
@@ -164,15 +165,16 @@
 .exploreCard .content,
 .socialCard .content {
 	background-color: #232127f6;
-	border-radius: 20px;
-	padding: 15px;
-	padding-top: 40px;
+	border-radius: 12px;
 }
 
 .exploreCard .content {
-	height: 200px;
-	font-size: 3em;
-	width: 700px;
+	width: 43.2rem;
+	max-width: 86vw;
+	height: 10em;
+	display: flex;
+	align-items: center;
+	padding-right: 2em;
 }
 
 .socialCard .content {
@@ -188,17 +190,17 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	margin-left: 50px;
+	margin-left: 6em;
 }
 
 .exploreCard .contentBody h2,
 .socialCard .content h2 {
-	font-size: 0.5em;
-	font-weight: 600;
+	font-weight: 700;
 }
 
 .exploreCard .contentBody p {
-	font-size: 0.4em;
+	font-size: 0.96em;
+	opacity: 0.6;
 	line-height: 25px;
 }
 
@@ -219,9 +221,10 @@
 
 .exploreCard .content a {
 	position: absolute;
-	top: 90%;
-	right: 15%;
-	width: 16em;
+	top: 86%;
+	right: 12%;
+	width: 11em;
+	font-size: 1em;
 }
 
 .exploreCard .content a {
@@ -335,7 +338,7 @@
 
 @media screen and (max-width: 425px) {
 	.firstSection {
-		font-size: 0.78rem;
+		font-size: 0.82rem;
 	}
 
 	.main {
@@ -346,7 +349,7 @@
 @media screen and (max-width: 376px) {
 	.explore span,
 	.social span {
-		font-size: 1.4em;
+		font-size: 1.36em;
 	}
 }
 

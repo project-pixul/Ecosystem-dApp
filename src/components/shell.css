@@ -22,13 +22,7 @@
 }
 
 .main-wrapper.xpixul::before {
-	content: "";
-	position: absolute;
-	background: url("https://res.cloudinary.com/rk03/image/upload/v1649605335/pixulbgstaking_bfl5sd.jpg")
-		no-repeat bottom right;
 	background-size: cover;
-	width: 100%;
-	height: 100%;
 }
 
 .footer {
