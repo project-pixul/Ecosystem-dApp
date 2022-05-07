@@ -14,6 +14,13 @@ import "./i18n";
 import { ClipLoader } from "react-spinners";
 import { css } from "styled-components";
 
+import { Web3ReactProvider } from '@web3-react/core';
+import Web3 from 'web3';
+
+function getLibrary(provider) {
+    return new Web3(provider);
+}
+
 // now all the components
 import { Shell } from "./components/shell";
 import HomeComponent from "./components/pages/home/homeComponent";
@@ -42,10 +49,12 @@ Modal.setAppElement("#root");
 
 // and render our app into the "root" element!
 ReactDOM.render(
-	<React.Suspense
-		fallback={<ClipLoader color={"#7800ff"} css={overrideCss} size={100} />}
-	>
-		<Shell pages={pagesInNavigator} />
-	</React.Suspense>,
+	<Web3ReactProvider getLibrary={getLibrary}>
+		<React.Suspense
+			fallback={<ClipLoader color={"#7800ff"} css={overrideCss} size={100} />}
+		>
+			<Shell pages={pagesInNavigator} />
+		</React.Suspense>
+	</Web3ReactProvider>,
 	document.getElementById("root")
 );
