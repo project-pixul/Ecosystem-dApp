@@ -33,7 +33,7 @@
 
 .main {
 	padding: 35px;
-	margin-top: 8vh;
+	margin-top: 12vh;
 }
 
 .firstSection {
@@ -131,50 +131,46 @@
 
 .exploreCard {
 	flex-direction: row;
+	margin-right: -3.5em;
 }
 
 .socialCard {
 	justify-content: center;
-
 	flex-direction: column;
 }
 
-.cardIcon,
-.socialIcon {
-	position: absolute;
-	enable-background: new 0 0 200 200;
-}
-
 .cardIcon {
-	width: 185px;
-	left: -102px;
+	position: absolute;
+	width: 11.5em;
+	left: -5.5em;
 }
 
 .circleIcon {
-	height: 150px;
-	width: 150px;
-	left: -100px;
+	transform: rotate3d(1, 0, 0, 180deg);
+	width: 8.25em;
+	left: -5em;
 }
 
 .socialIcon {
+	position: absolute;
 	top: -75px;
 	height: 125px;
 	width: 125px;
 }
 
-.exploreCard .content,
-.socialCard .content {
+.exploreCard .content {
 	background-color: #232127f6;
 	border-radius: 12px;
-}
-
-.exploreCard .content {
 	width: 43.2rem;
 	max-width: 86vw;
 	height: 10em;
 	display: flex;
 	align-items: center;
 	padding-right: 4em;
+}
+
+.socialCard .content {
+	border-radius: 12px;
 }
 
 .socialCard .content {
@@ -190,7 +186,7 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	margin-left: 6em;
+	margin-left: 7.5em;
 }
 
 .exploreCard .contentBody h2,
@@ -211,11 +207,12 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	font-size: 12px;
+	font-size: 13px;
+	font-weight: 700;
 	border-radius: 5px;
 	white-space: nowrap;
 	height: 40px;
-	width: 120px;
+	width: 140px;
 	color: #fff;
 	border: none;
 }
@@ -233,15 +230,20 @@
 }
 
 .socialCard .content a {
-	background: linear-gradient(0.35turn, rgb(218, 0, 134), rgb(83, 3, 134));
+	background: linear-gradient(0.35turn, rgb(154, 17, 241), rgb(89, 1, 255));
 }
 
 .socialCards {
-	margin-top: 20px;
+	margin-top: 95px;
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-around;
+	justify-content: center;
+	gap: 3em;
 	align-items: center;
+}
+
+.socialCard {
+	margin-top: 30px;
 }
 
 .token-stats {
@@ -304,7 +306,22 @@
 	stop-color: #ef569f;
 }
 
-@media screen and (max-width: 330px) {
+@media screen and (max-width: 425px) {
+	.firstSection {
+		font-size: 0.82rem;
+	}
+
+	.main {
+		margin-top: 15vh;
+	}
+
+	.explore span,
+	.social span {
+		font-size: 1.4em;
+	}
+}
+
+/* @media screen and (max-width: 330px) {
 	.cardIcon {
 		height: 80px !important;
 		width: 80px !important;
@@ -335,26 +352,9 @@
 		font-size: 10px;
 		right: 10%;
 	}
-}
+} */
 
-@media screen and (max-width: 425px) {
-	.firstSection {
-		font-size: 0.82rem;
-	}
-
-	.main {
-		margin-top: 15vh;
-	}
-}
-
-@media screen and (max-width: 376px) {
-	.explore span,
-	.social span {
-		font-size: 1.36em;
-	}
-}
-
-@media screen and (max-width: 560px) and (min-width: 329px) {
+/* @media screen and (max-width: 560px) and (min-width: 329px) {
 	.cardIcon {
 		height: 100px;
 		width: 100px;
@@ -384,7 +384,7 @@
 		width: 25vw;
 		right: 10%;
 	}
-}
+} */
 
 @media screen and (max-width: 680px) {
 	.stat-container {
@@ -399,7 +399,7 @@
 	}
 }
 
-@media screen and (max-width: 804px) and (min-width: 559px) {
+/* @media screen and (max-width: 804px) and (min-width: 559px) {
 	.cardIcon {
 		height: 150px;
 		width: 150px;
@@ -415,15 +415,15 @@
 	.exploreCard .content {
 		height: 150px;
 	}
-}
+} */
 
-@media screen and (max-width: 960px) {
+/* @media screen and (max-width: 960px) {
 	.exploreCard .content {
 		width: 70vw;
 	}
-}
+} */
 
-@media (max-width: 990px) {
+/* @media (max-width: 990px) {
 	.explore h1,
 	.social h1 {
 		font-size: calc(100vw / 30);
@@ -463,4 +463,4 @@
 		margin-right: auto !important;
 		margin-bottom: 16px;
 	}
-}
+} */

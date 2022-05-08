@@ -7,15 +7,14 @@ import { withTranslation, useTranslation } from "react-i18next";
 
 import { GiHamburgerMenu } from "react-icons/gi";
 
-import { useWeb3React } from '@web3-react/core';
-import { injected } from '../web3/Connector';
+import { useWeb3React } from "@web3-react/core";
+import { injected } from "../web3/Connector";
 
 import "./shellNav.css";
 import Sidebar from "./sidebar";
 import { Docs, Farm, Pixul, Stake, XpixulMobile } from "./pages/home/svgs";
 
-
-import { connect, disconnect } from '../web3/connect';
+import { connect, disconnect } from "../web3/connect";
 
 const sideBarItems = [
   { title: "Home", id: "home" },
@@ -39,7 +38,8 @@ export type ShellNavState = {
 };
 
 const ShellNav = (props: ShellNavProps) => {
-  const { active, account, library, connector, activate, deactivate } = useWeb3React();
+  const { active, account, library, connector, activate, deactivate } =
+    useWeb3React();
   const collapseRef = React.createRef<any>();
   const [isSideBarOpen, setSideBarOpen] = React.useState<Boolean>(false);
   const { t } = useTranslation();
@@ -60,7 +60,7 @@ const ShellNav = (props: ShellNavProps) => {
 
   const disconnectWallet = async () => {
     deactivate();
-    localStorage.setItem("walletAddr", '');
+    localStorage.setItem("walletAddr", "");
   };
 
   React.useEffect(() => {
@@ -71,7 +71,7 @@ const ShellNav = (props: ShellNavProps) => {
   }, []);
 
   React.useEffect(() => {
-      localStorage.setItem("walletAddr", account);
+    localStorage.setItem("walletAddr", account);
   }, [account]);
 
   const pages1 = props.pages.slice(0, 2);
