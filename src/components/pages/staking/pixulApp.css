@@ -158,16 +158,13 @@ p {
 	background-color: #262734;
 	border-radius: 5px;
 	font-size: 14px;
-	font-weight: 600;
+	font-weight: 700;
 	padding: 0.8em 0.4em;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
 	align-items: center;
 }
-
-/* .stake-pixul-container {
-} */
 
 .stake-pixul-container h2 {
 	font-weight: 700;
@@ -191,16 +188,17 @@ p {
 	height: 25px;
 	width: 55px;
 	margin-left: 10px;
+	font-weight: 700;
 	border: none;
 	background-color: #7901fe;
-	color: #d8d9db;
+	color: white;
 	border-radius: 5px;
 }
 
 .stake {
 	border-radius: 5px;
 	display: flex;
-	padding: 1.4em 7em;
+	padding: 1.4em 6.2em;
 	justify-content: center;
 	align-items: center;
 }
@@ -224,6 +222,7 @@ p {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	gap: 0.2em;
 }
 
 input[type="radio"]:checked {
@@ -252,13 +251,8 @@ input[type="radio"]:checked:before {
 	background: #7901fe;
 }
 
-.btn-wallet {
-	color: #d8d9db;
-	background-color: #7901fe;
-	height: 50px;
-	outline: none;
-	border: none;
-	border-radius: 5px;
+.pixul-stake .connect-wallet {
+	margin-top: unset !important;
 }
 
 .pixul-stat {
@@ -323,6 +317,7 @@ input[type="radio"]:checked:before {
 	border-radius: 10px 10px 0px 0px;
 }
 
+.pixul-stake .connect-wallet,
 .pixul-migrate .connect-wallet {
 	width: 100%;
 	background-color: #7901fe;
@@ -396,12 +391,6 @@ input[type="radio"]:checked:before {
 @media screen and (max-width: 425px) {
 	.pixul-container {
 		font-size: 0.85em;
-	}
-}
-
-@media screen and (max-width: 380px) {
-	.stake {
-		padding: 1.4em 6.2em;
 	}
 }
 

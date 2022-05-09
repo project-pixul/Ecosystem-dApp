@@ -1,7 +1,7 @@
 import * as React from "react";
 
-import { NavLink, useLocation } from "react-router-dom";
-import { BaseComponent, IShellPage } from "./shellInterfaces";
+import { NavLink } from "react-router-dom";
+import { IShellPage } from "./shellInterfaces";
 import { NavHashLink } from "react-router-hash-link";
 import { withTranslation, useTranslation } from "react-i18next";
 

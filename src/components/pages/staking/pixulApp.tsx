@@ -8,9 +8,10 @@ import "./pixulApp.css";
 import PixulConvert from "./pixulConvert";
 import useOnClickOutside from "../../../hooks/useOnClickOutSide";
 
-const PixulApp = ({}) => {
+const PixulApp = () => {
   const { t } = useTranslation();
-  const [tabState, setTabState] = React.useState(true);
+  const [migrateState, setMigrateState] = React.useState(true);
+  const [stakingState, setStakingState] = React.useState(true);
   const [showInfo, setInfoState] = React.useState(false);
   const migrateRef = React.useRef<HTMLDivElement>();
   const infoRef = React.useRef<HTMLDivElement>();
@@ -24,14 +25,20 @@ const PixulApp = ({}) => {
     };
   }, []);
 
-  const switchTab = (): void => {
-    setTabState((prevState): boolean => {
+  const toggleMigrate = (): void => {
+    setMigrateState((prevState): boolean => {
       return !prevState;
     });
   };
 
   const toggleInfo = (): void => {
     setInfoState((prevState): boolean => {
+      return !prevState;
+    });
+  };
+
+  const toggleStaking = () => {
+    setStakingState((prevState) => {
       return !prevState;
     });
   };
@@ -246,16 +253,16 @@ const PixulApp = ({}) => {
       <div className="pixul-conv-container">
         <div className="pixul-migrate" ref={migrateRef}>
           <BiInfoCircle className="info" onClick={toggleInfo} />
-          <div className="switcher" onClick={switchTab}>
+          <div className="switcher" onClick={toggleMigrate}>
             <div
               className="to-pixul"
-              style={{ backgroundColor: tabState ? "#1e1e28" : "#272634" }}
+              style={{ backgroundColor: migrateState ? "#1e1e28" : "#272634" }}
             >
               Migrate to PIXUL
             </div>
             <div
               className="to-xpixul"
-              style={{ backgroundColor: !tabState ? "#1e1e28" : "#272634" }}
+              style={{ backgroundColor: !migrateState ? "#1e1e28" : "#272634" }}
             >
               Migrate to xPIXUL
             </div>
@@ -264,7 +271,7 @@ const PixulApp = ({}) => {
             tokenBalance={12}
             key="from"
             convertType={true}
-            convertToken={!tabState ? true : false}
+            convertToken={!migrateState ? true : false}
           />
           <BiDownArrow
             style={{
@@ -279,7 +286,7 @@ const PixulApp = ({}) => {
             tokenBalance={12}
             key="to"
             convertType={false}
-            convertToken={tabState ? true : false}
+            convertToken={migrateState ? true : false}
             tokenValue={4000}
           />
           <button className="connect-wallet">Connect Wallet</button>
@@ -315,11 +322,11 @@ const PixulApp = ({}) => {
 
       <div className="pixul-stake-container">
         <div className="pixul-stake">
-          <div className="pixul-stake-header">
-            <div className="stake">
+          <div className="pixul-stake-header" onClick={toggleStaking}>
+            <div className={`stake ${stakingState ? "active" : ""}`}>
               <p>Stake Pixul</p>
             </div>
-            <div className="stake active">
+            <div className={`stake ${stakingState ? "" : "active"}`}>
               <p>Unstake Pixul</p>
             </div>
           </div>
@@ -363,7 +370,7 @@ const PixulApp = ({}) => {
               <label htmlFor="time">4 years</label>
             </div>
           </div>
-          <button className="btn-wallet">Connect Wallet</button>
+          <button className="connect-wallet">Connect Wallet</button>
         </div>
         <div className="pixul-stat">
           <h1>xPIXUL Stats</h1>
