@@ -162,7 +162,7 @@
 	background-color: #232127f6;
 	border-radius: 12px;
 	width: 43.2rem;
-	max-width: 86vw;
+	max-width: 88vw;
 	height: 10em;
 	display: flex;
 	align-items: center;
@@ -219,7 +219,7 @@
 
 .exploreCard .content a {
 	position: absolute;
-	top: 86%;
+	top: 88%;
 	right: 12%;
 	width: 11em;
 	font-size: 1em;
@@ -317,74 +317,25 @@
 
 	.explore span,
 	.social span {
-		font-size: 1.4em;
+		font-size: 1.55em;
+	}
+
+	.exploreCard {
+		font-size: 0.85rem;
+	}
+
+	.exploreCard .content {
+		padding-right: 2em;
+	}
+
+	.exploreCards > .exploreCard {
+		margin-top: 65px;
+	}
+
+	.exploreCards > .exploreCard ~ .exploreCard {
+		margin-top: 85px;
 	}
 }
-
-/* @media screen and (max-width: 330px) {
-	.cardIcon {
-		height: 80px !important;
-		width: 80px !important;
-		left: -18px !important;
-	}
-
-	.circleIcon {
-		height: 50px !important;
-		width: 50px !important;
-		left: -8px !important;
-	}
-
-	.exploreCard .content {
-		height: 125px !important;
-	}
-
-	.exploreCard .contentBody h2 {
-		font-size: 18px;
-	}
-
-	.exploreCard .contentBody p {
-		font-size: 10px !important;
-		line-height: 12px;
-	}
-
-	.exploreCard .content a {
-		width: 25vw;
-		font-size: 10px;
-		right: 10%;
-	}
-} */
-
-/* @media screen and (max-width: 560px) and (min-width: 329px) {
-	.cardIcon {
-		height: 100px;
-		width: 100px;
-		left: -35px;
-	}
-
-	.circleIcon {
-		height: 70px;
-		width: 70px;
-	}
-
-	.exploreCard .content {
-		height: 150px;
-		width: 85vw !important;
-	}
-
-	.exploreCard .contentBody h2 {
-		font-size: 20px;
-	}
-
-	.exploreCard .contentBody p {
-		font-size: 12px !important;
-		line-height: 14px;
-	}
-
-	.exploreCard .content a {
-		width: 25vw;
-		right: 10%;
-	}
-} */
 
 @media screen and (max-width: 680px) {
 	.stat-container {
@@ -397,70 +348,20 @@
 	.stat-container .stats {
 		margin-top: 3rem;
 	}
-}
 
-/* @media screen and (max-width: 804px) and (min-width: 559px) {
-	.cardIcon {
-		height: 150px;
-		width: 150px;
-		left: -80px;
-	}
-
-	.circleIcon {
-		height: 100px;
-		width: 100px;
-		left: -60px;
+	.exploreCard {
+		margin-right: unset;
 	}
 
 	.exploreCard .content {
-		height: 150px;
+		height: 9rem;
 	}
-} */
 
-/* @media screen and (max-width: 960px) {
-	.exploreCard .content {
-		width: 70vw;
-	}
-} */
-
-/* @media (max-width: 990px) {
-	.explore h1,
-	.social h1 {
-		font-size: calc(100vw / 30);
-	}
-	.token-stats {
+	.exploreCard svg {
 		display: none;
 	}
 
-	.second-paragraph {
-		margin-top: 20px;
+	.exploreCard .contentBody {
+		margin-left: 2em;
 	}
-
-	.hero-buttons {
-		justify-content: center;
-	}
-	.btn-about {
-		margin-left: 10px !important;
-	}
-
-	.btn-lg {
-		font-size: medium;
-	}
-
-	.content-wrapper {
-		width: 100vw;
-	}
-	.home-container .btn-golden {
-		width: 100%;
-	}
-
-	.pixul-app {
-		padding: 8% 0 8% 0;
-	}
-
-	.pixul-app img {
-		margin-left: auto !important;
-		margin-right: auto !important;
-		margin-bottom: 16px;
-	}
-} */
+}
