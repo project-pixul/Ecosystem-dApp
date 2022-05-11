@@ -35,4 +35,9 @@ module.exports = merge(common, {
 		publicPath: "/",
 		historyApiFallback: true,
 	},
+	devServer: {
+		compress: true,
+		disableHostCheck: true,   // That solved it
+	
+	 },   
 });
