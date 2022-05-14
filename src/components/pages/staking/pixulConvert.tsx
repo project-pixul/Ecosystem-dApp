@@ -25,8 +25,8 @@ const PixulConvert = (props: ConvertProps) => {
           <img
             src={
               props.convertToken
-                ? "/images/pixulfavicon.png"
-                : "/images/xpixulicon.svg"
+                ? "https://res.cloudinary.com/rk03/image/upload/v1652517551/pixulfavicon_dptdpm.png"
+                : "https://res.cloudinary.com/rk03/image/upload/v1652517651/xpixulicon_qesgld.svg"
             }
             alt="tokenicon"
           />

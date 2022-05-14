@@ -116,7 +116,10 @@ const PixulApp = () => {
         </div>
         <div className="pixul-card-container">
           <div className="pixul-card">
-            <img src="/images/pixulfavicon.png" alt="" />
+            <img
+              src="https://res.cloudinary.com/rk03/image/upload/v1652517551/pixulfavicon_dptdpm.png"
+              alt=""
+            />
             <div className="pixul-card-text">
               <span className="title">
                 {t("home.pixul_app.pixul_cards.pixul_card1")}
@@ -182,7 +185,10 @@ const PixulApp = () => {
             </div>
           </div>
           <div className="pixul-card">
-            <img src="/images/pixulfavicon.png" alt="" />
+            <img
+              src="https://res.cloudinary.com/rk03/image/upload/v1652517551/pixulfavicon_dptdpm.png"
+              alt=""
+            />
             <div className="pixul-card-text">
               <span className="title">
                 {t("home.pixul_app.pixul_cards.pixul_card3")}

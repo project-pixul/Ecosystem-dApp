@@ -126,7 +126,7 @@ const ShellNav = (props: ShellNavProps) => {
         <div className="logo-wrapper">
           <a href="/home">
             <img
-              src="/images/pixellogowebsitewhite.png"
+              src="https://res.cloudinary.com/rk03/image/upload/v1652517209/pixellogowebsitewhite_pwoj9r.png"
               className="img-logo"
               alt="Pixul"
             />
