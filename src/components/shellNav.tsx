@@ -31,11 +31,6 @@ const sideBarItems = [
 export type ShellNavProps = {
   pages: IShellPage[];
 };
-export type ShellNavState = {
-  isSideBarOpen: boolean;
-  walletAddr: String;
-  wallet: Object;
-};
 
 const ShellNav = (props: ShellNavProps) => {
   const { active, account, library, connector, activate, deactivate } =
@@ -155,6 +150,7 @@ const ShellNav = (props: ShellNavProps) => {
             {pages2.map((page) => {
               const classes = ["nav-item", page.id];
               const menuName = menuItemName[`${page.id}`];
+              if (page.id === "lottery") return "";
 
               return (
                 <li key={`${page.id}`}>
