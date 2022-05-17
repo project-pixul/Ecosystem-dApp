@@ -15,6 +15,7 @@ const PixulApp = () => {
   const [showInfo, setInfoState] = React.useState(false);
   const migrateRef = React.useRef<HTMLDivElement>();
   const infoRef = React.useRef<HTMLDivElement>();
+  const pixulInputRef = React.useRef<HTMLInputElement>();
   useOnClickOutside(infoRef, setInfoState, "info");
 
   //changing background image
@@ -41,6 +42,12 @@ const PixulApp = () => {
     setStakingState((prevState) => {
       return !prevState;
     });
+  };
+
+  const changeInputSize = () => {
+    pixulInputRef.current.style.width = `${
+      pixulInputRef.current.value.length + 0.6
+    }ch`;
   };
 
   return (
@@ -339,9 +346,24 @@ const PixulApp = () => {
           <div className="stake-pixul-container">
             <h2>{t("home.pixul_app.stake_pixul.title")}</h2>
             <div className="stake-pixul-balance">
-              <span className="pixual-amount">0 PIXUL</span>
+              <div style={{ display: "flex", gap: "0.1em" }}>
+                <input
+                  className="pixual-amount"
+                  defaultValue={0}
+                  ref={pixulInputRef}
+                  onChange={changeInputSize}
+                  size={1}
+                  type="number"
+                ></input>
+                <span>&nbsp;PIXUL</span>
+              </div>
+
+              {/* <input type="number" defaultValue={0}></input>
+              <label>PIXUL</label> */}
               <span className="pixul-balance">
-                <span>Balance: </span>
+                <span>
+                  Balance: <span> 12 PIXUL</span>
+                </span>
                 <button>Max</button>
               </span>
             </div>

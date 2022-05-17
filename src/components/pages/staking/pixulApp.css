@@ -172,16 +172,31 @@ p {
 }
 
 .stake-pixul-balance {
-	font-size: 12px;
+	font-size: 13px;
 	font-weight: 800;
 	color: #7e7f84;
 	background-color: #262635;
 	padding: 1.2em 0;
 	display: flex;
-	padding-left: 25px;
-	padding-right: 25px;
+	flex-wrap: wrap;
+	gap: 1.5em;
+	padding-left: 20px;
+	padding-right: 18px;
 	justify-content: space-between;
 	align-items: center;
+}
+
+.pixual-amount {
+	width: 1.6ch;
+	max-width: 10em;
+	border: 0;
+	color: inherit;
+	font-size: 13px;
+	font-weight: 800;
+	background: inherit;
+}
+.pixual-amount:focus-visible {
+	outline: none;
 }
 
 .pixul-balance button {
