@@ -1,269 +1,269 @@
 {
-	"nav": {
-		"home": "Home",
-		"about": "About",
-		"swap": "Swap",
-		"farm": "Farm",
-		"xpixul": "xPixul",
-		"exchange": "Exchange",
-		"bridge": "Bridge",
-		"lottery": "Lottery",
-		"faq": "FAQ",
-		"coinmarketcap": "CoinMarketCap",
-		"coingecko": "CoinGecko",
-		"buyonfirst": "Buy on DeX",
-		"buyonsecond": "Buy on CeX",
-		"viewonetherscan": "View on Etherscan",
-		"copyright": "Pixul 2021+"
-	},
-	"home": {
-		"subtitle1": "Pixul Protocol",
-		"paragraph1": "Begin staking, earning, farming, voting, swapping, bridging with our decentralised platform developed by Pixul",
-		"stat1": "$PIXUL Price",
-		"stat2": "Total Value Locked",
-		"stat3": "Total Volume",
-		"stat4": "Total Pairs",
-		"explore": {
-			"explore_header": "Explore our ever-expanding decentralized applications",
-			"stake_header": "Stake $PIXUL",
-			"stake_paragraph": "Earn xPIXUL tokens, governance rights and 0.05% of all swaps from multi-chairs in one simple place",
-			"stake_button": "Enter Staking",
-			"farm_header": "Farming Pools",
-			"farm_paragraph": "Earn passive income and the chance to harvest $PIXUL",
-			"farm_button": "Enter Farms",
-			"xpixul_header": "xPIXUL",
-			"xpixul_paragraph": "View your total amount you're earning and holding. View global voting and voting booth",
-			"xpixul_button": "Enter Farms",
-			"dex_header": "DEX",
-			"dex_paragraph": "Use our decentralized exchange to swap tokens on our multi-chain dex",
-			"dex_button": "Enter DEX"
-		},
-		"social": {
-			"social_header": "Join our growing communities to discuss Pixul, DeFi and more"
-		},
-		"pixul_forest": {
-			"title": "Our Pixul Stats",
-			"funder": "<0>Powered by: </0><1>Pixul Investors</1>",
-			"age": "Age:",
-			"day": "{{count, number}} day",
-			"day_plural": "{{count, number}} days",
-			"co2_offset": "Milestones:",
-			"tonnes": "tonnes",
-			"species": "Different Products:",
-			"tree_amount": "Amount Fees:",
-			"planting_projects": "Planting projects:",
-			"our_forest": "Our Token",
-			"click_here": "Click Here"
-		},
-		"about_us": "About Us",
-		"learn": "Learn More",
-		"win_tokens": "<0>Win</0> Pixul tokens",
-		"earn_tokens": "<0>Earn</0> Pixul tokens",
-		"subtitle2": "More Content",
-		"paragraph2": "Describe and write about what we do. Link ",
-		"roadmap": "roadmap",
-		"for_details": "for details.",
-		"paragraph3": "This is our only treasury wallet address:",
-		"paragraph4_1": "There is currently $",
-		"paragraph4_2": " in our treasury!",
-		"token_statistics": {
-			"title": "Token Statistics",
-			"price_usd": "Price USD",
-			"price_bnb": "Price in ETH:"
-		},
-		"pixul_app": {
-			"title": "Earn more by staking PIXUL",
-			"paragraph": "When your PIXUL is staked in our protocol, you receive xPIXUL in return for voting rights and a fully composable token that can interact with other products in our ecosystem. Your xPIXUL is continuously compoundig, when you unstake you will receive all the originally deposited PIXUL and any additional from fees",
-			"banner": {
-				"banner_name": "PIXUL Staking APR",
-				"banner_stat": "Average APR"
-			},
-			"pixul_cards": {
-				"pixul_card1": "PIXUL Balance",
-				"pixul_card2": "xPIXUL Balance",
-				"pixul_card3": "Total PIXUL Migrated"
-			},
-			"stake_pixul": {
-				"title": "Stake PIXUL"
-			}
-		}
-	},
-	"swap": {
-		"title": "PixulSwap is coming soon"
-	},
-	"liquidity": {
-		"connect_wallet": "Connect Wallet",
-		"disconnect_wallet": "Disconnect Wallet",
-		"paragraph1": "View and add liquidity tokens on the Pixul pool using the Pixul Liquidity tool. Connect your wallet to begin."
-	},
-	"farm": {
-		"connect_wallet": "Connect Wallet",
-		"disconnect_wallet": "Disconnect Wallet",
-		"paragraph1": "Pixul Farm lets you stake LP tokens to earn greater yields. Connect your wallet to view the APR.",
-		"paragraph2": "In order to farm with LP tokens, you need to connect your browser wallet (such as <1>Metamask</1>) and <1>Switch to Ethereum Mainnet</1>"
-	},
-	"staking": {
-		"connect_wallet": "Connect Wallet",
-		"disconnect_wallet": "Disconnect Wallet",
-		"paragraph1": "Using xPixul staking, you can easily earn more xPixul tokens over time while the blockchain is running. Earn passive income on your xPixul holdings with our APR of 5-9% on our staking.",
-		"paragraph2": "In order to stake xPixul tokens, you need to connect your browser wallet (such as <1>Metamask</1>) and <1>Switch to Ethereum Mainnet</1>",
-		"your_info": {
-			"title": "Your Information",
-			"wallet_address": "Wallet address",
-			"connect_wallet": "Please connect your wallet",
-			"tradeable": "Tradeable balance",
-			"staked": "Staked balance",
-			"pending_rewards": "Pending rewards"
-		},
-		"stake": {
-			"title": "Stake",
-			"percentage": "Percentage of tokens to stake:",
-			"amount": "Amount of tokens to stake:",
-			"claim_rewards": "Claim rewards"
-		},
-		"unstake": {
-			"title": "Unstake",
-			"percentage": "Percentage of tokens to unstake:",
-			"amount": "Amount of tokens to unstake:",
-			"claim_rewards": "Claim rewards"
-		}
-	},
-	"lottery": {
-		"connect_wallet": "Connect Wallet",
-		"disconnect_wallet": "Disconnect Wallet",
-		"paragraph1": "This is a simple, non-custodial, proof-of-work random number generation lottery for Pixul. You have the chance to win Pixul tokens by buying tickets with Pixul tokens.",
-		"paragraph2": "In order to stake your Pixul tokens, you need to connect your browser wallet (such as <1>Metamask</1>) and <1>Switch to Ethereum Mainnet</1>",
-		"your_info": {
-			"title": "Your Information",
-			"wallet_address": "Wallet address",
-			"connect_wallet": "Please connect your wallet",
-			"purchased": "Purchased tickets",
-			"wallet_balance": "Wallet balance",
-			"price_per_ticket": "Price per ticket",
-			"tickets": "tickets"
-		},
-		"status": {
-			"title": "Lottery Status",
-			"current_number": "Current draw number",
-			"nothing": "Nothing has been drawn yet!",
-			"winner": "Winner of last round",
-			"nobody": "Nobody won yet!",
-			"current_jackpot": "Current jackpot",
-			"total_tickets": "Total tickets for this round",
-			"purchase": "Purchase a lottery ticket"
-		}
-	},
-	"about": {
-		"title": "About the Pixul Protocol",
-		"desc": "When your Pixul is swapped in our protocol, you recieve xPIXUL in return for voting rights and a fully composable token that can interact with other products in our ecosystem. Your xPIXUL is continuously compounding, and when you unstake you will receive all the originally deposited PIXUL and any additional from fees.",
-		"staking_gov": {
-			"title": "Staking | Governance Token | xPIXUL",
-			"paragraph1": "xPIXUL is the governance token of Pixul that is based on a vote locking model. The main benefits for xPIXUL users include: receiving staking rewards, marketplace benefits, ecosystem benefits, voting power for emisson allocations, and the opportunity to obtain boosted Pixul farming incentives. As Pixul expands our goal is develop new incentive for xPixul holders.",
-			"paragraph2": "xPixul is not tradeable on any DEX or CEX, and has no direct value"
-		},
-		"staking": {
-			"title": "Staking",
-			"paragraph1": "Users who stake Pixul will receive an APY between 3%-9% depending on the lock period that is selected by the user",
-			"paragraph2": "Withdraw Fee = 5% when unstaking your xPIXUL"
-		},
-		"staking_eco": {
-			"title": "Staking Ecosystem Rewards",
-			"line1": "80% of all fees go to Pixul Treasury",
-			"line2": "20% Goes to Pixul Stakers",
-			"line3": "5% Goes to Liquidity",
-			"line4": "15% Goes back to Pixul Stakers"
-		},
-		"recieving_pixul": {
-			"title": "How Does a User receive xPIXUL?",
-			"point1": "To receive xPixul, individuals must lock Pixul tokens for a user-defined timeframe. XPixul would enable the user to more advantageous conditions for all interactions with the Pixul protocol.",
-			"point2": "Protocol users can lock their $Pixul tokens for any intervals between 1 week to 5 years.",
-			"point3": "Locking your $Pixul tokens for a longer timeframe yields a greater amount of xPixul. For exmaple, locking 500 $Pixul for 1-year yields 45 Pixul.",
-			"point4": "The amount of xPixul will slowly decrease in the user's decentralized wallet until it reaches 0. This indicates that the lock period has ended and the user can withdraw their $Pixul tokens.",
-			"point5": "xPIXUl is a non-tradable token, for example, you cannot sell xPIXUL tokens."
-		},
-		"protocol_rewards": {
-			"title": "Protocol Incentives & Rewards",
-			"point1": "Our protocol income materializes from transaction fees(1/6th of the protocol's 0.3% swap fee) on PixulSwap.",
-			"point2": "Protocol income will be allocated towards an incentive pool that will be distributed to all active participants on the protocol. For example, users which engage with the platform for token exchange services, participate as liquidity providers, or participate in governance will be entitled to receive rewards for their efforts.",
-			"point3": "If a user is holding a minimum os $100 worth of xPIXUL the user will only pay a 3% fee for transactions in the marketplace."
-		},
-		"power": {
-			"title": "Pixulated Voting Power",
-			"point1": "1 xPIXUL = 1 Vote, you're unable to recover the xPIXUL you use for voting and will be removed from circulation",
-			"point2": "xPixul holders can vote once a week on farm emisson allocations",
-			"point3": "xPIXUL holders can vote on protocol improvement proposals through snapshot governance."
-		},
-		"exchange": {
-			"title": "PixulSwap | Decentralized Exchange",
-			"desc": "PixulSwap Dex provides users in our protocol a simple way to swap tokens on Ethereum by using auto-mated liquidity pools. In a swap, one token is sold to buy another token. The rate of the swap is determined by the AMM with the equation ( X * Y = K )",
-			"breakdown": {
-				"title": "Breakdown",
-				"desc": "The breakdown is x = the number of $AAA tokens, y = the number of $BBB tokens, and k is a constant."
-			}
-		},
-		"farming": {
-			"title": "Farming",
-			"liquidity": {
-				"title": "Add Liquidity",
-				"desc": "To participate in a farm, a user will need to become a liquidity provider for the protocol. For users to become liquidity provides a user must stake token pairs (EX: ETH/$Pixul) into our decentralized market-creating pools to provide the necessary liquidity for transactions."
-			},
-			"earn": {
-				"title": "Earn",
-				"desc": "Users who become liquidity providers for the Pixul Protocol help the project by promoting the adoption of PixulSwap and in exchange for Pixul-LP tokens, users will be rewarded with $Pixul tokens. User's rewards will vary depending on the contribution towards the farming pools."
-			},
-			"motive": {
-				"title": "Motive",
-				"desc": "Pixul's goal is to bring liquidity to Ethereum, therefore we will prioritize supporting farming rewards for other protocol tokens that are building on Ethereum. However, eventually supported farming pools and their emissions will be decided by our governance token holders"
-			}
-		}
-	},
-	"faq": {
-		"faq1": {
-			"title": "How do I buy Pixul Token?",
-			"desc": "Input how to buy Pixul Token"
-		},
-		"faq2": {
-			"title": "How do I stake?",
-			"desc": "Input how to stake here"
-		},
-		"faq3": {
-			"title": "How do I claim my rewards?",
-			"desc": "Input how to claim rewards"
-		},
-		"faq4": {
-			"title": "How do I unstake my Pixul Tokens?",
-			"desc": "Input how to unstake tokens here"
-		},
-		"faq5": {
-			"title": "Is the liquidity locked?",
-			"desc": "Yes or no and reason"
-		},
-		"faq6": {
-			"title": "Is the team doxxed?",
-			"desc": "Yes/no and why."
-		},
-		"faq7": {
-			"title": "Is it safe to stake my tokens on the staking website?",
-			"desc": "Yes, audit stuff and how"
-		},
-		"faq8": {
-			"title": "Why is the price in my Trustwallet sometimes incorrect?",
-			"desc": "Can change this."
-		},
-		"faq9": {
-			"title": "What sets your project apart from all of the others?",
-			"desc": "Plain and simple; why we are different."
-		}
-	},
-	"launch": {
-		"paragraph1": "Start your project the right way, using Pixul's own launch platform.",
-		"paragraph2": "PixulLaunch allows you to manage your project's initial sales as smooth as possible. Projects will also get listed on PixulSwap instantly.",
-		"eth": "ETH",
-		"raised": "Total Raised",
-		"soft_cap": "Soft Cap",
-		"min_cont": "Min",
-		"max_cont": "Max",
-		"participants": "Participants",
-		"countdown": "Presale Countdown"
-	}
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "swap": "Swap",
+    "farm": "Farm",
+    "xpixul": "xPixul",
+    "exchange": "Exchange",
+    "bridge": "Bridge",
+    "lottery": "Lottery",
+    "faq": "FAQ",
+    "coinmarketcap": "CoinMarketCap",
+    "coingecko": "CoinGecko",
+    "buyonfirst": "Buy on DeX",
+    "buyonsecond": "Buy on CeX",
+    "viewonetherscan": "View on Etherscan",
+    "copyright": "Pixul 2021+"
+  },
+  "home": {
+    "subtitle1": "Pixul Protocol",
+    "paragraph1": "Begin staking, earning, farming, voting, swapping, bridging with our decentralised platform developed by Pixul",
+    "stat1": "$PIXUL Price",
+    "stat2": "Total Value Locked",
+    "stat3": "Total Volume",
+    "stat4": "Total Pairs",
+    "explore": {
+      "explore_header": "Explore our ever-expanding decentralized applications",
+      "stake_header": "Stake $PIXUL",
+      "stake_paragraph": "Earn xPIXUL tokens, governance rights and 0.05% of all swaps from multi-chain in one simple place",
+      "stake_button": "Enter Staking",
+      "farm_header": "Farming Pools",
+      "farm_paragraph": "Earn passive income and the chance to harvest $PIXUL",
+      "farm_button": "Enter Farms",
+      "xpixul_header": "xPIXUL",
+      "xpixul_paragraph": "View your total amount you're earning and holding. View global voting and voting booth",
+      "xpixul_button": "Enter Farms",
+      "dex_header": "DEX",
+      "dex_paragraph": "Use our decentralized exchange to swap tokens on our multi-chain DEX",
+      "dex_button": "Enter DEX"
+    },
+    "social": {
+      "social_header": "Join our growing communities to discuss Pixul, DeFi and more"
+    },
+    "pixul_forest": {
+      "title": "Our Pixul Stats",
+      "funder": "<0>Powered by: </0><1>Pixul Investors</1>",
+      "age": "Age:",
+      "day": "{{count, number}} day",
+      "day_plural": "{{count, number}} days",
+      "co2_offset": "Milestones:",
+      "tonnes": "tonnes",
+      "species": "Different Products:",
+      "tree_amount": "Amount Fees:",
+      "planting_projects": "Planting projects:",
+      "our_forest": "Our Token",
+      "click_here": "Click Here"
+    },
+    "about_us": "About Us",
+    "learn": "Learn More",
+    "win_tokens": "<0>Win</0> Pixul tokens",
+    "earn_tokens": "<0>Earn</0> Pixul tokens",
+    "subtitle2": "More Content",
+    "paragraph2": "Describe and write about what we do. Link ",
+    "roadmap": "roadmap",
+    "for_details": "for details.",
+    "paragraph3": "This is our only treasury wallet address:",
+    "paragraph4_1": "There is currently $",
+    "paragraph4_2": " in our treasury!",
+    "token_statistics": {
+      "title": "Token Statistics",
+      "price_usd": "Price USD",
+      "price_bnb": "Price in ETH:"
+    },
+    "pixul_app": {
+      "title": "Earn more by staking PIXUL",
+      "paragraph": "When your PIXUL is staked in our protocol, you receive xPIXUL in return for voting rights and a fully composable token that can interact with other products in our ecosystem. Your xPIXUL is continuously compoundig, when you unstake you will receive all the originally deposited PIXUL and any additional from fees",
+      "banner": {
+        "banner_name": "PIXUL Staking APR",
+        "banner_stat": "Average APR"
+      },
+      "pixul_cards": {
+        "pixul_card1": "PIXUL Balance",
+        "pixul_card2": "xPIXUL Balance",
+        "pixul_card3": "Total PIXUL Migrated"
+      },
+      "stake_pixul": {
+        "title": "Stake PIXUL"
+      }
+    }
+  },
+  "swap": {
+    "title": "PixulSwap is coming soon"
+  },
+  "liquidity": {
+    "connect_wallet": "Connect Wallet",
+    "disconnect_wallet": "Disconnect Wallet",
+    "paragraph1": "View and add liquidity tokens on the Pixul pool using the Pixul Liquidity tool. Connect your wallet to begin."
+  },
+  "farm": {
+    "connect_wallet": "Connect Wallet",
+    "disconnect_wallet": "Disconnect Wallet",
+    "paragraph1": "Pixul Farm lets you stake LP tokens to earn greater yields. Connect your wallet to view the APR.",
+    "paragraph2": "In order to farm with LP tokens, you need to connect your browser wallet (such as <1>Metamask</1>) and <1>Switch to Ethereum Mainnet</1>"
+  },
+  "staking": {
+    "connect_wallet": "Connect Wallet",
+    "disconnect_wallet": "Disconnect Wallet",
+    "paragraph1": "Using xPixul staking, you can easily earn more xPixul tokens over time while the blockchain is running. Earn passive income on your xPixul holdings with our APR of 5-9% on our staking.",
+    "paragraph2": "In order to stake xPixul tokens, you need to connect your browser wallet (such as <1>Metamask</1>) and <1>Switch to Ethereum Mainnet</1>",
+    "your_info": {
+      "title": "Your Information",
+      "wallet_address": "Wallet address",
+      "connect_wallet": "Please connect your wallet",
+      "tradeable": "Tradeable balance",
+      "staked": "Staked balance",
+      "pending_rewards": "Pending rewards"
+    },
+    "stake": {
+      "title": "Stake",
+      "percentage": "Percentage of tokens to stake:",
+      "amount": "Amount of tokens to stake:",
+      "claim_rewards": "Claim rewards"
+    },
+    "unstake": {
+      "title": "Unstake",
+      "percentage": "Percentage of tokens to unstake:",
+      "amount": "Amount of tokens to unstake:",
+      "claim_rewards": "Claim rewards"
+    }
+  },
+  "lottery": {
+    "connect_wallet": "Connect Wallet",
+    "disconnect_wallet": "Disconnect Wallet",
+    "paragraph1": "This is a simple, non-custodial, proof-of-work random number generation lottery for Pixul. You have the chance to win Pixul tokens by buying tickets with Pixul tokens.",
+    "paragraph2": "In order to stake your Pixul tokens, you need to connect your browser wallet (such as <1>Metamask</1>) and <1>Switch to Ethereum Mainnet</1>",
+    "your_info": {
+      "title": "Your Information",
+      "wallet_address": "Wallet address",
+      "connect_wallet": "Please connect your wallet",
+      "purchased": "Purchased tickets",
+      "wallet_balance": "Wallet balance",
+      "price_per_ticket": "Price per ticket",
+      "tickets": "tickets"
+    },
+    "status": {
+      "title": "Lottery Status",
+      "current_number": "Current draw number",
+      "nothing": "Nothing has been drawn yet!",
+      "winner": "Winner of last round",
+      "nobody": "Nobody won yet!",
+      "current_jackpot": "Current jackpot",
+      "total_tickets": "Total tickets for this round",
+      "purchase": "Purchase a lottery ticket"
+    }
+  },
+  "about": {
+    "title": "About the Pixul Protocol",
+    "desc": "When your Pixul is swapped in our protocol, you recieve xPIXUL in return for voting rights and a fully composable token that can interact with other products in our ecosystem. Your xPIXUL is continuously compounding, and when you unstake you will receive all the originally deposited PIXUL and any additional from fees.",
+    "staking_gov": {
+      "title": "Staking | Governance Token | xPIXUL",
+      "paragraph1": "xPIXUL is the governance token of Pixul that is based on a vote locking model. The main benefits for xPIXUL users include: receiving staking rewards, marketplace benefits, ecosystem benefits, voting power for emisson allocations, and the opportunity to obtain boosted Pixul farming incentives. As Pixul expands our goal is develop new incentive for xPixul holders.",
+      "paragraph2": "xPixul is not tradeable on any DEX or CEX, and has no direct value"
+    },
+    "staking": {
+      "title": "Staking",
+      "paragraph1": "Users who stake Pixul will receive an APY between 3%-9% depending on the lock period that is selected by the user",
+      "paragraph2": "Withdraw Fee = 5% when unstaking your xPIXUL"
+    },
+    "staking_eco": {
+      "title": "Staking Ecosystem Rewards",
+      "line1": "80% of all fees go to Pixul Treasury",
+      "line2": "20% Goes to Pixul Stakers",
+      "line3": "5% Goes to Liquidity",
+      "line4": "15% Goes back to Pixul Stakers"
+    },
+    "recieving_pixul": {
+      "title": "How Does a User receive xPIXUL?",
+      "point1": "To receive xPixul, individuals must lock Pixul tokens for a user-defined timeframe. XPixul would enable the user to more advantageous conditions for all interactions with the Pixul protocol.",
+      "point2": "Protocol users can lock their $Pixul tokens for any intervals between 1 week to 5 years.",
+      "point3": "Locking your $Pixul tokens for a longer timeframe yields a greater amount of xPixul. For exmaple, locking 500 $Pixul for 1-year yields 45 Pixul.",
+      "point4": "The amount of xPixul will slowly decrease in the user's decentralized wallet until it reaches 0. This indicates that the lock period has ended and the user can withdraw their $Pixul tokens.",
+      "point5": "xPIXUl is a non-tradable token, for example, you cannot sell xPIXUL tokens."
+    },
+    "protocol_rewards": {
+      "title": "Protocol Incentives & Rewards",
+      "point1": "Our protocol income materializes from transaction fees(1/6th of the protocol's 0.3% swap fee) on PixulSwap.",
+      "point2": "Protocol income will be allocated towards an incentive pool that will be distributed to all active participants on the protocol. For example, users which engage with the platform for token exchange services, participate as liquidity providers, or participate in governance will be entitled to receive rewards for their efforts.",
+      "point3": "If a user is holding a minimum os $100 worth of xPIXUL the user will only pay a 3% fee for transactions in the marketplace."
+    },
+    "power": {
+      "title": "Pixulated Voting Power",
+      "point1": "1 xPIXUL = 1 Vote, you're unable to recover the xPIXUL you use for voting and will be removed from circulation",
+      "point2": "xPixul holders can vote once a week on farm emisson allocations",
+      "point3": "xPIXUL holders can vote on protocol improvement proposals through snapshot governance."
+    },
+    "exchange": {
+      "title": "PixulSwap | Decentralized Exchange",
+      "desc": "PixulSwap Dex provides users in our protocol a simple way to swap tokens on Ethereum by using auto-mated liquidity pools. In a swap, one token is sold to buy another token. The rate of the swap is determined by the AMM with the equation ( X * Y = K )",
+      "breakdown": {
+        "title": "Breakdown",
+        "desc": "The breakdown is x = the number of $AAA tokens, y = the number of $BBB tokens, and k is a constant."
+      }
+    },
+    "farming": {
+      "title": "Farming",
+      "liquidity": {
+        "title": "Add Liquidity",
+        "desc": "To participate in a farm, a user will need to become a liquidity provider for the protocol. For users to become liquidity provides a user must stake token pairs (EX: ETH/$Pixul) into our decentralized market-creating pools to provide the necessary liquidity for transactions."
+      },
+      "earn": {
+        "title": "Earn",
+        "desc": "Users who become liquidity providers for the Pixul Protocol help the project by promoting the adoption of PixulSwap and in exchange for Pixul-LP tokens, users will be rewarded with $Pixul tokens. User's rewards will vary depending on the contribution towards the farming pools."
+      },
+      "motive": {
+        "title": "Motive",
+        "desc": "Pixul's goal is to bring liquidity to Ethereum, therefore we will prioritize supporting farming rewards for other protocol tokens that are building on Ethereum. However, eventually supported farming pools and their emissions will be decided by our governance token holders"
+      }
+    }
+  },
+  "faq": {
+    "faq1": {
+      "title": "How do I buy Pixul Token?",
+      "desc": "Input how to buy Pixul Token"
+    },
+    "faq2": {
+      "title": "How do I stake?",
+      "desc": "Input how to stake here"
+    },
+    "faq3": {
+      "title": "How do I claim my rewards?",
+      "desc": "Input how to claim rewards"
+    },
+    "faq4": {
+      "title": "How do I unstake my Pixul Tokens?",
+      "desc": "Input how to unstake tokens here"
+    },
+    "faq5": {
+      "title": "Is the liquidity locked?",
+      "desc": "Yes or no and reason"
+    },
+    "faq6": {
+      "title": "Is the team doxxed?",
+      "desc": "Yes/no and why."
+    },
+    "faq7": {
+      "title": "Is it safe to stake my tokens on the staking website?",
+      "desc": "Yes, audit stuff and how"
+    },
+    "faq8": {
+      "title": "Why is the price in my Trustwallet sometimes incorrect?",
+      "desc": "Can change this."
+    },
+    "faq9": {
+      "title": "What sets your project apart from all of the others?",
+      "desc": "Plain and simple; why we are different."
+    }
+  },
+  "launch": {
+    "paragraph1": "Start your project the right way, using Pixul's own launch platform.",
+    "paragraph2": "PixulLaunch allows you to manage your project's initial sales as smooth as possible. Projects will also get listed on PixulSwap instantly.",
+    "eth": "ETH",
+    "raised": "Total Raised",
+    "soft_cap": "Soft Cap",
+    "min_cont": "Min",
+    "max_cont": "Max",
+    "participants": "Participants",
+    "countdown": "Presale Countdown"
+  }
 }

@@ -86,7 +86,7 @@ const HomeComponent = () => {
             <div className="learn hero-buttons d-flex justify-content-center align-items-center">
               <Slide left>
                 <a
-                  className="shadow btn btn-lg"
+                  // className="shadow btn btn-lg"
                   role="button"
                   // href='/whitepaper.pdf'
                   target="_blank"

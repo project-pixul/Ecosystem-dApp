@@ -339,7 +339,7 @@ const PixulApp = () => {
           <div className="stake-pixul-container">
             <h2>{t("home.pixul_app.stake_pixul.title")}</h2>
             <div className="stake-pixul-balance">
-              <span className="pixual-amount">0 PIXUl</span>
+              <span className="pixual-amount">0 PIXUL</span>
               <span className="pixul-balance">
                 <span>Balance: </span>
                 <button>Max</button>
