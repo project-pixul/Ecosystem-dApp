@@ -17,15 +17,31 @@ import { Docs, Farm, Pixul, Stake, XpixulMobile } from "./pages/home/svgs";
 import { connect, disconnect } from "../web3/connect";
 
 const sideBarItems = [
-  { title: "Home", id: "home" },
-  { title: "Marketplace", id: "about" },
-  { title: "POS System", id: "farm" },
-  { title: "Documents", id: "farm" },
-  { title: "Audits", id: "xpixul" },
-  { title: "Github", id: "lottery" },
-  { title: "Discord", id: "lottery" },
-  { title: "Twitter", id: "lottery" },
-  { title: "Telegram", id: "lottery" },
+  { title: "Home", id: "home", url: "https://pixul.io" },
+  {
+    title: "Marketplace",
+    id: "market",
+    url: "https://marketplace.pixul.io/home",
+  },
+  { title: "POS System", id: "pos", url: "#" },
+  {
+    title: "Documents",
+    id: "documents",
+    url: "https://www.pixul.io/documents",
+  },
+  {
+    title: "Audits",
+    id: "audits",
+    url: "https://github.com/solidproof/projects/blob/main/Pixul/SmartContract_Audit_Solidproof_PixulToken.pdf",
+  },
+  {
+    title: "Github",
+    id: "github",
+    url: "https://github.com/project-pixul/Pixul-Ecosystem",
+  },
+  { title: "Discord", id: "discord", url: "https://discord.gg/NBeJaQh7RF" },
+  { title: "Twitter", id: "twitter", url: "https://twitter.com/Pixul_" },
+  { title: "Telegram", id: "telegram", url: "https://t.me/pixulchat" },
 ];
 
 export type ShellNavProps = {
