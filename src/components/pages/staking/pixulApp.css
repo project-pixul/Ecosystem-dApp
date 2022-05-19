@@ -56,6 +56,7 @@ p {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	max-width: -moz-available;
 	max-width: -webkit-fill-available;
 	font-weight: 800;
 	width: 640px;
