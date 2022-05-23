@@ -18,7 +18,7 @@
   },
   "home": {
     "subtitle1": "Pixul Protocol",
-    "paragraph1": "Begin staking, earning, farming, voting, swapping, bridging with our decentralised platform developed by Pixul",
+    "paragraph1": "Begin staking, earning, farming, voting, swapping, bridging with our decentralized platform developed by Pixul",
     "stat1": "$PIXUL Price",
     "stat2": "Total Value Locked",
     "stat3": "Total Volume",
@@ -26,7 +26,7 @@
     "explore": {
       "explore_header": "Explore our ever-expanding decentralized applications",
       "stake_header": "Stake $PIXUL",
-      "stake_paragraph": "Earn xPIXUL tokens, governance rights and 0.05% of all swaps from multi-chain in one simple place",
+      "stake_paragraph": "Earn xPIXUL tokens, governance rights and 0.05% of all swaps from multi-chain in our protocol",
       "stake_button": "Enter Staking",
       "farm_header": "Farming Pools",
       "farm_paragraph": "Earn passive income and the chance to harvest $PIXUL",
@@ -155,7 +155,7 @@
   },
   "about": {
     "title": "About the Pixul Protocol",
-    "desc": "When your Pixul is swapped in our protocol, you recieve xPIXUL in return for voting rights and a fully composable token that can interact with other products in our ecosystem. Your xPIXUL is continuously compounding, and when you unstake you will receive all the originally deposited PIXUL and any additional from fees.",
+    "desc": "When your PIXUL is migrated in our protocol, you receive xPIXUL in return for voting rights and a fully composable token that can interact with other products in our ecosystem.",
     "staking_gov": {
       "title": "Staking | Governance Token | xPIXUL",
       "paragraph1": "xPIXUL is the governance token of Pixul that is based on a vote locking model. The main benefits for xPIXUL users include: receiving staking rewards, marketplace benefits, ecosystem benefits, voting power for emisson allocations, and the opportunity to obtain boosted Pixul farming incentives. As Pixul expands our goal is develop new incentive for xPixul holders.",
@@ -163,22 +163,25 @@
     },
     "staking": {
       "title": "Staking",
-      "paragraph1": "Users who stake Pixul will receive an APY between 3%-9% depending on the lock period that is selected by the user",
-      "paragraph2": "Withdraw Fee = 5% when unstaking your xPIXUL"
+      "paragraph1": "Users who stake Pixul will receive an APY between 1%-9% depending on the lock period that is selected by the user.",
+      "paragraph2": "No internal protocol fees when unstaking and staking xPIXUL",
+      "paragraph3": "No internal protocol fees when migrating PIXUL",
+      "paragraph4": "Ethereum network gas fees vary on the congestion of the network",
+      "paragraph5": "Staking Ecosystem Rewards",
+      "paragraph6": "80% of all fees go to Pixul Treasury",
+      "paragraph7": "20% Goes to Pixul Stakers"
     },
     "staking_eco": {
       "title": "Staking Ecosystem Rewards",
       "line1": "80% of all fees go to Pixul Treasury",
-      "line2": "20% Goes to Pixul Stakers",
-      "line3": "5% Goes to Liquidity",
-      "line4": "15% Goes back to Pixul Stakers"
+      "line2": "20% Goes to Pixul Stakers"
     },
     "recieving_pixul": {
       "title": "How Does a User receive xPIXUL?",
-      "point1": "To receive xPixul, individuals must lock Pixul tokens for a user-defined timeframe. XPixul would enable the user to more advantageous conditions for all interactions with the Pixul protocol.",
-      "point2": "Protocol users can lock their $Pixul tokens for any intervals between 1 week to 5 years.",
-      "point3": "Locking your $Pixul tokens for a longer timeframe yields a greater amount of xPixul. For exmaple, locking 500 $Pixul for 1-year yields 45 Pixul.",
-      "point4": "The amount of xPixul will slowly decrease in the user's decentralized wallet until it reaches 0. This indicates that the lock period has ended and the user can withdraw their $Pixul tokens.",
+      "point1": "To receive xPIXUL , users must use our migration swap to swap their PIXUL tokens to xPIXUL tokens for a 1:1 ratio",
+      "point2": "Protocol users can lock their xPIXUL tokens for any intervals between 1 week to 4 years",
+      "point3": "Locking your xPIXUL tokens for a longer timeframe yields a greater amount of xPIXUL. For example, locking 500 xPIXUL for 1-year yields 45 xPIXUL",
+      "point4": "In order to get your PIXUL you must use our migration tool to migrate your xPIXUL to PIXUL",
       "point5": "xPIXUl is a non-tradable token, for example, you cannot sell xPIXUL tokens."
     },
     "protocol_rewards": {

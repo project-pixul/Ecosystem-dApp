@@ -226,7 +226,11 @@ const HomeComponent = () => {
                   </g>
                 </svg>
                 <div className="content">
-                  <a href="#" className="btn">
+                  <a
+                    href="https://discord.gg/NBeJaQh7RF"
+                    target="_blank"
+                    className="btn"
+                  >
                     Join Discord
                   </a>
                 </div>
@@ -252,7 +256,11 @@ const HomeComponent = () => {
                   </g>
                 </svg>
                 <div className="content">
-                  <a href="#" className="btn">
+                  <a
+                    href="https://t.me/pixulchat"
+                    target="_blank"
+                    className="btn"
+                  >
                     Join Telegram
                   </a>
                 </div>
@@ -363,7 +371,11 @@ const HomeComponent = () => {
                   </g>
                 </svg>
                 <div className="content">
-                  <a href="" className="btn">
+                  <a
+                    href="https://twitter.com/Pixul_"
+                    target="_blank"
+                    className="btn"
+                  >
                     Join Twitter
                   </a>
                 </div>

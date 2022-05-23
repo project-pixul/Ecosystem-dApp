@@ -5,7 +5,7 @@ export type ConvertProps = {
   convertType: boolean;
   convertToken: boolean;
   tokenBalance: number;
-  tokenValue?: number;
+  convertedValue?: number;
 };
 
 const PixulConvert = (props: ConvertProps) => {
@@ -16,8 +16,8 @@ const PixulConvert = (props: ConvertProps) => {
         <input
           type="number"
           defaultValue={0}
-          value={props.tokenValue}
-          disabled={props.convertType ? false : true}
+          // value={props.tokenValue}
+          // disabled={props.convertType ? false : true}
         />
       </div>
       <div className="status">

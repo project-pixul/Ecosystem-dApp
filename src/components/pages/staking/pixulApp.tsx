@@ -300,7 +300,7 @@ const PixulApp = () => {
             key="to"
             convertType={false}
             convertToken={migrateState ? true : false}
-            tokenValue={4000}
+            convertedValue={4000}
           />
           <button className="connect-wallet">Connect Wallet</button>
         </div>
@@ -369,6 +369,10 @@ const PixulApp = () => {
             </div>
           </div>
           <div className="time-frame-container">
+            <div className="time-frame">
+              <input type="radio" name="time" id="" />
+              <label htmlFor="time">No Lock</label>
+            </div>
             <div className="time-frame">
               <input type="radio" name="time" id="" />
               <label htmlFor="time">1 week</label>

@@ -36,14 +36,15 @@ const aboutComponent = () => {
           <div className="staking">
             <h2>{t("about.staking.title")}</h2>
             <p>{t("about.staking.paragraph1")}</p>
+            <br />
             <p>{t("about.staking.paragraph2")}</p>
+            <p>{t("about.staking.paragraph3")}</p>
+            <p>{t("about.staking.paragraph4")}</p>
           </div>
           <div className="staking_eco">
             <h2>{t("about.staking_eco.title")}</h2>
             <p>{t("about.staking_eco.line1")}</p>
             <p>{t("about.staking_eco.line2")}</p>
-            <p>{t("about.staking_eco.line3")}</p>
-            <p>{t("about.staking_eco.line4")}</p>
           </div>
           <div className="receive">
             <h2>{t("about.recieving_pixul.title")}</h2>
