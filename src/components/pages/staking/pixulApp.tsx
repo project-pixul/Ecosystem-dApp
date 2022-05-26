@@ -45,6 +45,9 @@ const PixulApp = () => {
   };
 
   const changeInputSize = () => {
+    if (pixulInputRef.current.value.length === 0) {
+      return (pixulInputRef.current.style.width = "1.6ch");
+    }
     pixulInputRef.current.style.width = `${
       pixulInputRef.current.value.length + 0.6
     }ch`;
@@ -260,9 +263,7 @@ const PixulApp = () => {
           </div>
         </div>
       </div>
-      <a id="migrate"></a>
       <span className="pixul-conv-title">Migrate PIXUL for xPIXUL</span>
-
       <div className="pixul-conv-container">
         <div className="pixul-migrate" ref={migrateRef}>
           <BiInfoCircle className="info" onClick={toggleInfo} />
@@ -325,44 +326,60 @@ const PixulApp = () => {
           ref={infoRef}
         >
           <h4>Instructions</h4>
-          <p>Step 1: Connect your wallet </p>
-          <p>Step 2: Choose the amount of xPIXUL tokens you want to unstake</p>
-          <p>Step 3: Migrate your xPIXUL to PIXUL on our migration swap </p>
+          {migrateState ? (
+            <>
+              <p>Step 1: Connect your wallet </p>
+              <p>
+                Step 2: Choose the amount of xPIXUL tokens you want to unstake
+              </p>
+              <p>Step 3: Migrate your xPIXUL to PIXUL on our migration swap </p>
+            </>
+          ) : (
+            <>
+              <p>Step 1: Connect your wallet </p>
+              <p>Step 2: Migrate your xPIXUL to PIXUL on our migration swap</p>
+              <p>
+                Step 3: Choose the amount of xPIXUL tokens you want to stake{" "}
+              </p>
+              <p>Step 4: Choose your locking duration</p>
+              <p>
+                Step 5: Click the staking button and authorize the transactions{" "}
+              </p>
+            </>
+          )}
         </div>
       </div>
-      <a id="staking"></a>
-      <span className="pixul-stake-title">Stake Your xPIXUL</span>
 
+      <span className="pixul-stake-title">Stake Your xPIXUL</span>
       <div className="pixul-stake-container">
         <div className="pixul-stake">
           <div className="pixul-stake-header" onClick={toggleStaking}>
             <div className={`stake ${stakingState ? "active" : ""}`}>
-              <p>Stake Pixul</p>
+              <p>Stake xPIXUL</p>
             </div>
             <div className={`stake ${stakingState ? "" : "active"}`}>
-              <p>Unstake Pixul</p>
+              <p>Unstake xPIXUL</p>
             </div>
           </div>
           <div className="stake-pixul-container">
-            <h2>{t("home.pixul_app.stake_pixul.title")}</h2>
+            <h2>Stake xPIXUL</h2>
             <div className="stake-pixul-balance">
-              <div style={{ display: "flex", gap: "0.1em" }}>
+              <div
+                style={{ display: "flex", gap: "0.1em", alignItems: "center" }}
+              >
                 <input
                   className="pixual-amount"
-                  defaultValue={0}
+                  placeholder="0"
                   ref={pixulInputRef}
                   onChange={changeInputSize}
                   size={1}
                   type="number"
                 ></input>
-                <span>&nbsp;PIXUL</span>
+                <span>&nbsp;xPIXUL</span>
               </div>
-
-              {/* <input type="number" defaultValue={0}></input>
-              <label>PIXUL</label> */}
               <span className="pixul-balance">
                 <span>
-                  Balance: <span> 12 PIXUL</span>
+                  Balance: <span> 12 xPIXUL</span>
                 </span>
                 <button>Max</button>
               </span>
@@ -403,6 +420,12 @@ const PixulApp = () => {
             </div>
           </div>
           <button className="connect-wallet">Connect Wallet</button>
+          <div className="claim-tokens">
+            <div>
+              Total Claimable Tokens <span>100 XPIXUL</span>
+            </div>
+            <button>Claim Tokens</button>
+          </div>
         </div>
         <div className="pixul-stat">
           <h1>xPIXUL Stats</h1>

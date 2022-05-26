@@ -10,6 +10,7 @@
 
 .conv-card .amount {
 	display: flex;
+	width: 50%;
 	flex-direction: column;
 	gap: 0.4em;
 }
@@ -22,7 +23,7 @@
 
 .conv-card .amount input {
 	background-color: transparent;
-	width: 85%;
+	width: 100%;
 	color: white;
 	border: 0;
 	outline: none;
@@ -53,6 +54,7 @@
 	display: flex;
 	align-items: center;
 	gap: 1.2em;
+	font-weight: 800;
 	font-size: 0.82rem;
 	color: #7e7f84;
 }
@@ -74,6 +76,7 @@
 
 	.conv-card .amount {
 		gap: 0em;
+		width: unset;
 	}
 
 	.conv-card .status .title {

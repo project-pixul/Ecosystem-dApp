@@ -158,7 +158,7 @@ p {
 .pixul-stake-header {
 	background-color: #262734;
 	border-radius: 5px;
-	font-size: 14px;
+
 	font-weight: 700;
 	padding: 0.8em 0.4em;
 	display: flex;
@@ -180,7 +180,7 @@ p {
 	padding: 1.2em 0;
 	display: flex;
 	flex-wrap: wrap;
-	gap: 1.5em;
+	gap: 1em;
 	padding-left: 20px;
 	padding-right: 18px;
 	justify-content: space-between;
@@ -214,7 +214,7 @@ p {
 .stake {
 	border-radius: 5px;
 	display: flex;
-	padding: 1.4em 6.2em;
+	padding: 1.4em 5em;
 	justify-content: center;
 	align-items: center;
 }
@@ -226,7 +226,7 @@ p {
 .time-frame-container {
 	font-size: 14px;
 	font-weight: 700;
-	gap: 2em;
+	gap: 1.5em;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
@@ -378,6 +378,40 @@ input[type="radio"]:checked:before {
 	margin: 1.25em 0;
 }
 
+.claim-tokens {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: inherit;
+}
+
+.claim-tokens div {
+	display: flex;
+	flex-direction: column;
+	gap: 0.4em;
+	font-weight: 700;
+}
+
+.claim-tokens div span {
+	font-size: 0.95em;
+	color: #7e7f84;
+}
+
+.claim-tokens button {
+	background-color: #262635;
+	color: #7e7f84;
+	border: 0;
+	border-radius: 4px;
+	font-size: 0.9em;
+	font-weight: 800;
+	padding: 1em 2.8em;
+}
+
+.claim-tokens button.active {
+	background-color: #7901fe;
+	color: white;
+}
+
 @media screen and (max-width: 1030px) {
 	.pixul-conv-container .pixul-migrate {
 		padding: 1.4em;
@@ -406,18 +440,12 @@ input[type="radio"]:checked:before {
 
 @media screen and (max-width: 425px) {
 	.pixul-container {
-		font-size: 0.85em;
-	}
-}
-
-@media screen and (max-width: 355px) {
-	.stake {
-		padding: 1.4em 5.2em;
+		font-size: 0.85rem;
 	}
 }
 
 @media screen and (max-width: 320px) {
 	.pixul-container {
-		font-size: 0.75em;
+		font-size: 0.75rem;
 	}
 }
