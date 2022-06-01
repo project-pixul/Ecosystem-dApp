@@ -23,8 +23,8 @@ const PixulApp = () => {
   const [pixulBalance, setPixulBalance] = React.useState<number>(120000);
   const [xPixulBalance, setXPixulBalance] = React.useState<number>(2120000);
 
-  const [toInputValue, setToInputValue] = React.useState(12022);
-  const [fromInputValue, setFromInputValue] = React.useState(123123);
+  const [toInputValue, setToInputValue] = React.useState<number>(120);
+  const [fromInputValue, setFromInputValue] = React.useState<number>(2);
 
   const { active, account, library, connector, activate, deactivate } =
     useWeb3React();
@@ -62,6 +62,26 @@ const PixulApp = () => {
     });
   };
 
+  // when migrateState is false from input field is for xPixul
+  // when migrateState is true to input field is for Pixul
+  // and vice-versa
+  React.useEffect(() => {
+    if (!migrateState) {
+      //setToValue converting pixul --> xpixul
+    } else {
+      //setToValue converting xpixul --> pixul
+    }
+  }, [fromInputValue, migrateState]);
+
+  React.useEffect(() => {
+    if (migrateState) {
+      //setFromValue converting pixul --> xpixul
+    } else {
+      //setFromValue converting xpixul --> pixul
+    }
+  }, [toInputValue, migrateState]);
+
+  //changing input size based on the digits
   const changeInputSize = () => {
     if (pixulInputRef.current.value.length === 0) {
       return (pixulInputRef.current.style.width = "1.6ch");
@@ -304,8 +324,8 @@ const PixulApp = () => {
             key="from"
             convertType={true}
             convertToken={!migrateState}
-            inputValue={toInputValue}
-            setInputValue={setToInputValue}
+            inputValue={fromInputValue}
+            setInputValue={setFromInputValue}
           />
           <BiDownArrow
             style={{
@@ -321,8 +341,8 @@ const PixulApp = () => {
             key="to"
             convertType={false}
             convertToken={migrateState}
-            inputValue={fromInputValue}
-            setInputValue={setFromInputValue}
+            inputValue={toInputValue}
+            setInputValue={setToInputValue}
           />
           {account ? (
             <button className="connect-wallet">Migrate</button>
