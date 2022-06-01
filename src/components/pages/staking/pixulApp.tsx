@@ -20,7 +20,14 @@ const PixulApp = () => {
   const infoRef = React.useRef<HTMLDivElement>();
   const pixulInputRef = React.useRef<HTMLInputElement>();
 
-  const { active, account, library, connector, activate, deactivate } = useWeb3React();
+  const [pixulBalance, setPixulBalance] = React.useState<number>(120000);
+  const [xPixulBalance, setXPixulBalance] = React.useState<number>(2120000);
+
+  const [toInputValue, setToInputValue] = React.useState(12022);
+  const [fromInputValue, setFromInputValue] = React.useState(123123);
+
+  const { active, account, library, connector, activate, deactivate } =
+    useWeb3React();
 
   const connectWallet = async () => {
     await activate(injected);
@@ -36,6 +43,7 @@ const PixulApp = () => {
     };
   }, []);
 
+  //changing all the states
   const toggleMigrate = (): void => {
     setMigrateState((prevState): boolean => {
       return !prevState;
@@ -292,10 +300,12 @@ const PixulApp = () => {
             </div>
           </div>
           <PixulConvert
-            tokenBalance={12}
+            tokenBalance={!migrateState ? pixulBalance : xPixulBalance}
             key="from"
             convertType={true}
-            convertToken={!migrateState ? true : false}
+            convertToken={!migrateState}
+            inputValue={toInputValue}
+            setInputValue={setToInputValue}
           />
           <BiDownArrow
             style={{
@@ -307,17 +317,20 @@ const PixulApp = () => {
             size={20}
           />
           <PixulConvert
-            tokenBalance={12}
+            tokenBalance={migrateState ? pixulBalance : xPixulBalance}
             key="to"
             convertType={false}
-            convertToken={migrateState ? true : false}
-            convertedValue={4000}
+            convertToken={migrateState}
+            inputValue={fromInputValue}
+            setInputValue={setFromInputValue}
           />
-          {account ? 
-            <button className="connect-wallet">Migrate</button>:
-            <button className="connect-wallet" onClick={connectWallet}>Connect Wallet</button>
-          }
-          
+          {account ? (
+            <button className="connect-wallet">Migrate</button>
+          ) : (
+            <button className="connect-wallet" onClick={connectWallet}>
+              Connect Wallet
+            </button>
+          )}
         </div>
         <div
           className="instructions"
@@ -433,10 +446,13 @@ const PixulApp = () => {
               <label htmlFor="time">4 years</label>
             </div>
           </div>
-          {account ? 
-            <button className="connect-wallet">Stake</button>:
-            <button className="connect-wallet" onClick={connectWallet}>Connect Wallet</button>
-          }
+          {account ? (
+            <button className="connect-wallet">Stake</button>
+          ) : (
+            <button className="connect-wallet" onClick={connectWallet}>
+              Connect Wallet
+            </button>
+          )}
           <div className="claim-tokens">
             <div>
               Total Claimable Tokens <span>100 XPIXUL</span>

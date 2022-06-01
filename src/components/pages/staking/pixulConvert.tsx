@@ -5,10 +5,19 @@ export type ConvertProps = {
   convertType: boolean;
   convertToken: boolean;
   tokenBalance: number;
-  convertedValue?: number;
+  inputValue: number;
+  setInputValue: Function;
 };
 
 const PixulConvert = (props: ConvertProps) => {
+  const onInputChangeHandler = (e: any) => {
+    props.setInputValue(e.target.value);
+  };
+
+  const setToMax = (e: any) => {
+    props.setInputValue(props.tokenBalance);
+  };
+
   return (
     <div className="conv-card">
       <div className="amount">
@@ -16,8 +25,8 @@ const PixulConvert = (props: ConvertProps) => {
         <input
           type="number"
           defaultValue={0}
-          // value={props.tokenValue}
-          // disabled={props.convertType ? false : true}
+          value={props.inputValue}
+          onChange={onInputChangeHandler}
         />
       </div>
       <div className="status">
@@ -33,10 +42,12 @@ const PixulConvert = (props: ConvertProps) => {
           {props.convertToken ? "PIXUL" : "xPIXUL"}
         </div>
         <div className="balance">
-          <span>{`Balance: ${props.tokenBalance} ${
+          <span>{`Balance: ${props.tokenBalance
+            .toString()
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")} ${
             props.convertToken ? " PIXUL" : " xPIXUL"
           }`}</span>
-          <button>Max</button>
+          <button onClick={setToMax}>Max</button>
         </div>
       </div>
     </div>
