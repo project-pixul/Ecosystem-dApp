@@ -4,6 +4,9 @@ import { withTranslation, useTranslation } from "react-i18next";
 
 import { BiDownArrow, BiInfoCircle } from "react-icons/bi";
 
+import { useWeb3React } from "@web3-react/core";
+import { injected } from "../../../web3/Connector";
+
 import "./pixulApp.css";
 import PixulConvert from "./pixulConvert";
 import useOnClickOutside from "../../../hooks/useOnClickOutSide";
@@ -16,6 +19,13 @@ const PixulApp = () => {
   const migrateRef = React.useRef<HTMLDivElement>();
   const infoRef = React.useRef<HTMLDivElement>();
   const pixulInputRef = React.useRef<HTMLInputElement>();
+
+  const { active, account, library, connector, activate, deactivate } = useWeb3React();
+
+  const connectWallet = async () => {
+    await activate(injected);
+  };
+
   useOnClickOutside(infoRef, setInfoState, "info");
 
   //changing background image
@@ -303,7 +313,11 @@ const PixulApp = () => {
             convertToken={migrateState ? true : false}
             convertedValue={4000}
           />
-          <button className="connect-wallet">Connect Wallet</button>
+          {account ? 
+            <button className="connect-wallet">Migrate</button>:
+            <button className="connect-wallet" onClick={connectWallet}>Connect Wallet</button>
+          }
+          
         </div>
         <div
           className="instructions"
@@ -419,7 +433,10 @@ const PixulApp = () => {
               <label htmlFor="time">4 years</label>
             </div>
           </div>
-          <button className="connect-wallet">Connect Wallet</button>
+          {account ? 
+            <button className="connect-wallet">Stake</button>:
+            <button className="connect-wallet" onClick={connectWallet}>Connect Wallet</button>
+          }
           <div className="claim-tokens">
             <div>
               Total Claimable Tokens <span>100 XPIXUL</span>
