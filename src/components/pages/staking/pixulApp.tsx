@@ -387,6 +387,7 @@ const PixulApp = () => {
           </div>
         </div>
       </div>
+      <a id="migrate"></a>
       <span className="pixul-conv-title">Migrate PIXUL for xPIXUL</span>
       <div className="pixul-conv-container">
         <div className="pixul-migrate" ref={migrateRef}>
@@ -484,7 +485,7 @@ const PixulApp = () => {
           )}
         </div>
       </div>
-
+      <a id="staking"></a>
       <span className="pixul-stake-title">Stake Your xPIXUL</span>
       <div className="pixul-stake-container">
         <div className="pixul-stake">
