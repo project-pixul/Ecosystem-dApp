@@ -28,9 +28,12 @@ const PixulApp = () => {
 
   const [pixulBalance, setPixulBalance] = React.useState<number>(0);
   const [xPixulBalance, setXPixulBalance] = React.useState<number>(0);
+  const [claimableTokens, setClaimableTokens] = React.useState<number>(0);
 
   const [toInputValue, setToInputValue] = React.useState<number>(0);
   const [fromInputValue, setFromInputValue] = React.useState<number>(0);
+  const [stakingInputValue, setStakingInputValue] = React.useState<number>(0);
+  const [stakeTiming, setStakeTiming] = React.useState<number>(0);
 
   const { active, account, library, connector, activate, deactivate } =
     useWeb3React();
@@ -146,13 +149,31 @@ const PixulApp = () => {
     if (account) updateAppState();
   }, [account]);
 
-  //changing input size based on the digits
-  const changeInputSize = () => {
-    if (pixulInputRef.current.value.length === 0) {
+  const stakeTimingChangeHandler = ({ target }) => {
+    if (target.nodeName === "INPUT") {
+      setStakeTiming(target.value);
+    }
+  };
+
+  const stakingAmountChangeHandler = ({ target }) => {
+    setStakingInputValue(target.value);
+
+    //changing input size based on the count of digits
+    if (target.value.length === 0) {
+      return (target.style.width = "1.6ch");
+    }
+    target.style.width = `${target.value.length + 0.6}ch`;
+  };
+
+  const setStakingFieldToMax = () => {
+    setStakingInputValue(xPixulBalance);
+
+    //changing the input size
+    if (xPixulBalance.toString().length === 0) {
       return (pixulInputRef.current.style.width = "1.6ch");
     }
     pixulInputRef.current.style.width = `${
-      pixulInputRef.current.value.length + 0.6
+      xPixulBalance.toString().length + 0.6
     }ch`;
   };
 
@@ -485,7 +506,8 @@ const PixulApp = () => {
                   className="pixual-amount"
                   placeholder="0"
                   ref={pixulInputRef}
-                  onChange={changeInputSize}
+                  onChange={stakingAmountChangeHandler}
+                  value={stakingInputValue}
                   size={1}
                   type="number"
                 ></input>
@@ -493,43 +515,51 @@ const PixulApp = () => {
               </div>
               <span className="pixul-balance">
                 <span>
-                  Balance: <span> 12 xPIXUL</span>
+                  Balance:&nbsp;
+                  <span>
+                    {`${xPixulBalance
+                      .toString()
+                      .replace(/\B(?=(\d{3})+(?!\d))/g, ",")} xPIXUL`}
+                  </span>
                 </span>
-                <button>Max</button>
+                <button onClick={setStakingFieldToMax}>Max</button>
               </span>
             </div>
           </div>
-          <div className="time-frame-container">
+          <div
+            className="time-frame-container"
+            onClick={stakeTimingChangeHandler}
+          >
             <div className="time-frame">
-              <input type="radio" name="time" id="" />
+              <input type="radio" name="time" value="0" defaultChecked />
               <label htmlFor="time">No Lock</label>
             </div>
             <div className="time-frame">
-              <input type="radio" name="time" id="" />
+              <input type="radio" name="time" value="7" />
               <label htmlFor="time">1 week</label>
             </div>
             <div className="time-frame">
-              <input type="radio" name="time" id="" />
+              <input type="radio" name="time" value="30" />
               <label htmlFor="time">1 month</label>
             </div>
             <div className="time-frame">
-              <input type="radio" name="time" id="" />
+              <input type="radio" name="time" value="90" />
               <label htmlFor="time">3 months</label>
             </div>
             <div className="time-frame">
-              <input type="radio" name="time" id="" />
+              <input type="radio" name="time" value="180" />
               <label htmlFor="time">6 months</label>
             </div>
             <div className="time-frame">
-              <input type="radio" name="time" id="" />
+              <input type="radio" name="time" value="365" />
               <label htmlFor="time">1 year</label>
             </div>
             <div className="time-frame">
-              <input type="radio" name="time" id="" />
+              <input type="radio" name="time" value="730" />
               <label htmlFor="time">2 years</label>
             </div>
             <div className="time-frame">
-              <input type="radio" name="time" id="" />
+              <input type="radio" name="time" value="1461" />
               <label htmlFor="time">4 years</label>
             </div>
           </div>
@@ -542,9 +572,14 @@ const PixulApp = () => {
           )}
           <div className="claim-tokens">
             <div>
-              Total Claimable Tokens <span>100 XPIXUL</span>
+              Total Claimable Tokens
+              <span>{`${claimableTokens
+                .toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, ",")} XPIXUL`}</span>
             </div>
-            <button>Claim Tokens</button>
+            <button className={claimableTokens > 0 ? "active" : ""}>
+              Claim Tokens
+            </button>
           </div>
         </div>
         <div className="pixul-stat">

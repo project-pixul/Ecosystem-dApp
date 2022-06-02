@@ -173,7 +173,7 @@ p {
 }
 
 .stake-pixul-balance {
-	font-size: 13px;
+	font-size: 14px;
 	font-weight: 800;
 	color: #7e7f84;
 	background-color: #262635;
@@ -192,7 +192,6 @@ p {
 	max-width: 10em;
 	border: 0;
 	color: inherit;
-	font-size: 13px;
 	font-weight: 800;
 	background: inherit;
 }
