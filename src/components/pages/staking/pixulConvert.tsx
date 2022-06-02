@@ -24,7 +24,7 @@ const PixulConvert = (props: ConvertProps) => {
         <span>{props.convertType ? "From" : "To"}</span>
         <input
           type="number"
-          defaultValue={0}
+          placeholder="Enter amount"
           value={props.inputValue}
           onChange={onInputChangeHandler}
         />
@@ -47,7 +47,7 @@ const PixulConvert = (props: ConvertProps) => {
             .replace(/\B(?=(\d{3})+(?!\d))/g, ",")} ${
             props.convertToken ? " PIXUL" : " xPIXUL"
           }`}</span>
-          <button onClick={setToMax}>Max</button>
+          {props.convertType ? <button onClick={setToMax}>Max</button> : ""}
         </div>
       </div>
     </div>

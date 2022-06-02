@@ -45,41 +45,49 @@ const PixulApp = () => {
     console.log(234);
     const migratorContract = new library.eth.Contract(
       TokenMigratorABI,
-      '0xa08733b1ab4CF224fFBD1c3Bf43EEeaA3200cb2A'
+      "0xa08733b1ab4CF224fFBD1c3Bf43EEeaA3200cb2A"
     );
 
     const pixulTokenContract = new library.eth.Contract(
       PixulTokenABI,
-      '0x46b055324ba9389543DD54432D03e6B37CeAAf69'
+      "0x46b055324ba9389543DD54432D03e6B37CeAAf69"
     );
 
     const xPixulTokenContract = new library.eth.Contract(
       xPixulTokenABI,
-      '0x5C059Bcfd4312376f4AE0f0e331e3371029239cD'
+      "0x5C059Bcfd4312376f4AE0f0e331e3371029239cD"
     );
 
-    if(migrateState) {
+    if (migrateState) {
       console.log(345);
-      await xPixulTokenContract.methods.approve(
-        '0xa08733b1ab4CF224fFBD1c3Bf43EEeaA3200cb2A', 
-        web3.utils.toWei(fromInputValue.toString(), "ether")
-      ).send({ from: account });
+      await xPixulTokenContract.methods
+        .approve(
+          "0xa08733b1ab4CF224fFBD1c3Bf43EEeaA3200cb2A",
+          web3.utils.toWei(fromInputValue.toString(), "ether")
+        )
+        .send({ from: account });
 
-      await migratorContract.methods.migrateFromStakingToReward(
-        web3.utils.toWei(fromInputValue.toString(), "ether")
-      ).send({ from: account });
+      await migratorContract.methods
+        .migrateFromStakingToReward(
+          web3.utils.toWei(fromInputValue.toString(), "ether")
+        )
+        .send({ from: account });
     } else {
       console.log(456);
-      await pixulTokenContract.methods.approve(
-        '0xa08733b1ab4CF224fFBD1c3Bf43EEeaA3200cb2A',
-        web3.utils.toWei(fromInputValue.toString(), "ether")
-      ).send({ from: account });
+      await pixulTokenContract.methods
+        .approve(
+          "0xa08733b1ab4CF224fFBD1c3Bf43EEeaA3200cb2A",
+          web3.utils.toWei(fromInputValue.toString(), "ether")
+        )
+        .send({ from: account });
 
-      await migratorContract.methods.migrateFromRewardToStaking(
-        web3.utils.toWei(fromInputValue.toString(), "ether")
-      ).send({ from: account });
+      await migratorContract.methods
+        .migrateFromRewardToStaking(
+          web3.utils.toWei(fromInputValue.toString(), "ether")
+        )
+        .send({ from: account });
     }
-  }
+  };
 
   //changing all the states
   const toggleMigrate = (): void => {
@@ -114,26 +122,28 @@ const PixulApp = () => {
     async function updateAppState() {
       const pixulTokenContract = new library.eth.Contract(
         PixulTokenABI,
-        '0x46b055324ba9389543DD54432D03e6B37CeAAf69'
+        "0x46b055324ba9389543DD54432D03e6B37CeAAf69"
       );
 
-      const pixul_balance = await pixulTokenContract.methods.balanceOf(account).call({from: account});
+      const pixul_balance = await pixulTokenContract.methods
+        .balanceOf(account)
+        .call({ from: account });
 
       const xPixulTokenContract = new library.eth.Contract(
         xPixulTokenABI,
-        '0x5C059Bcfd4312376f4AE0f0e331e3371029239cD'
+        "0x5C059Bcfd4312376f4AE0f0e331e3371029239cD"
       );
 
-      const xpixul_balance = await xPixulTokenContract.methods.balanceOf(account).call({from: account});
-      console.log(web3.utils.fromWei(pixul_balance, 'ether'));
+      const xpixul_balance = await xPixulTokenContract.methods
+        .balanceOf(account)
+        .call({ from: account });
+      console.log(web3.utils.fromWei(pixul_balance, "ether"));
       console.log(web3.utils.fromWei(xpixul_balance));
 
-
-      setPixulBalance(parseInt(web3.utils.fromWei(pixul_balance, 'ether')));
+      setPixulBalance(parseInt(web3.utils.fromWei(pixul_balance, "ether")));
       setXPixulBalance(parseInt(web3.utils.fromWei(xpixul_balance)));
     }
-    if(account)
-      updateAppState();
+    if (account) updateAppState();
   }, [account]);
 
   //changing input size based on the digits
@@ -400,7 +410,9 @@ const PixulApp = () => {
             setInputValue={setFromInputValue}
           />
           {account ? (
-            <button className="connect-wallet" onClick={migrate}>Migrate</button>
+            <button className="connect-wallet" onClick={migrate}>
+              Migrate
+            </button>
           ) : (
             <button className="connect-wallet" onClick={connectWallet}>
               Connect Wallet
