@@ -9,6 +9,7 @@ import { useWeb3React, Web3ReactProvider } from "@web3-react/core";
 import web3 from "web3";
 
 import { injected } from "../../../web3/Connector";
+import StakingRewardsABI from "../../../web3/abis/StakingRewards.json";
 import TokenMigratorABI from "../../../web3/abis/TokenMigrator.json";
 import PixulTokenABI from "../../../web3/abis/Pixul.json";
 import xPixulTokenABI from "../../../web3/abis/xPixul.json";
@@ -30,7 +31,6 @@ const PixulApp = () => {
   const [xPixulBalance, setXPixulBalance] = React.useState<number>(0);
   const [claimableTokens, setClaimableTokens] = React.useState<number>(0);
 
-  const [toInputValue, setToInputValue] = React.useState<number>(0);
   const [fromInputValue, setFromInputValue] = React.useState<number>(0);
   const [stakingInputValue, setStakingInputValue] = React.useState<number>(0);
   const [stakeTiming, setStakeTiming] = React.useState<number>(0);
@@ -90,7 +90,44 @@ const PixulApp = () => {
         )
         .send({ from: account });
     }
+
+    updateAppState();
   };
+
+  const stake = async () => {
+    const stakingRewardsContract = new library.eth.Contract(
+      StakingRewardsABI,
+      "0x07Cd91c1884440b73ECb4E4643B7bC671C43A1A6"
+    );
+
+    const pixulTokenContract = new library.eth.Contract(
+      PixulTokenABI,
+      "0x46b055324ba9389543DD54432D03e6B37CeAAf69"
+    );
+
+    const xPixulTokenContract = new library.eth.Contract(
+      xPixulTokenABI,
+      "0x5C059Bcfd4312376f4AE0f0e331e3371029239cD"
+    );
+
+    console.log(stakeTiming);
+
+    await xPixulTokenContract.methods
+      .approve(
+        "0x07Cd91c1884440b73ECb4E4643B7bC671C43A1A6",
+        web3.utils.toWei(stakingInputValue.toString(), "ether")
+      )
+      .send({ from: account });
+
+    await stakingRewardsContract.methods
+      .stake(
+        web3.utils.toWei(stakingInputValue.toString(), "ether"),
+        stakeTiming
+      )
+      .send({ from: account });
+
+    updateAppState();
+  }
 
   //changing all the states
   const toggleMigrate = (): void => {
@@ -112,6 +149,31 @@ const PixulApp = () => {
     });
   };
 
+  async function updateAppState() {
+    const pixulTokenContract = new library.eth.Contract(
+      PixulTokenABI,
+      "0x46b055324ba9389543DD54432D03e6B37CeAAf69"
+    );
+
+    const pixul_balance = await pixulTokenContract.methods
+      .balanceOf(account)
+      .call({ from: account });
+
+    const xPixulTokenContract = new library.eth.Contract(
+      xPixulTokenABI,
+      "0x5C059Bcfd4312376f4AE0f0e331e3371029239cD"
+    );
+
+    const xpixul_balance = await xPixulTokenContract.methods
+      .balanceOf(account)
+      .call({ from: account });
+    console.log(web3.utils.fromWei(pixul_balance, "ether"));
+    console.log(web3.utils.fromWei(xpixul_balance));
+
+    setPixulBalance(parseInt(web3.utils.fromWei(pixul_balance, "ether")));
+    setXPixulBalance(parseInt(web3.utils.fromWei(xpixul_balance)));
+  }
+
   //changing background image
   React.useEffect(() => {
     document.querySelector(".main-wrapper").className = "main-wrapper xpixul";
@@ -121,31 +183,6 @@ const PixulApp = () => {
   }, []);
 
   React.useEffect(() => {
-    console.log(123);
-    async function updateAppState() {
-      const pixulTokenContract = new library.eth.Contract(
-        PixulTokenABI,
-        "0x46b055324ba9389543DD54432D03e6B37CeAAf69"
-      );
-
-      const pixul_balance = await pixulTokenContract.methods
-        .balanceOf(account)
-        .call({ from: account });
-
-      const xPixulTokenContract = new library.eth.Contract(
-        xPixulTokenABI,
-        "0x5C059Bcfd4312376f4AE0f0e331e3371029239cD"
-      );
-
-      const xpixul_balance = await xPixulTokenContract.methods
-        .balanceOf(account)
-        .call({ from: account });
-      console.log(web3.utils.fromWei(pixul_balance, "ether"));
-      console.log(web3.utils.fromWei(xpixul_balance));
-
-      setPixulBalance(parseInt(web3.utils.fromWei(pixul_balance, "ether")));
-      setXPixulBalance(parseInt(web3.utils.fromWei(xpixul_balance)));
-    }
     if (account) updateAppState();
   }, [account]);
 
@@ -536,36 +573,36 @@ const PixulApp = () => {
               <label htmlFor="time">No Lock</label>
             </div>
             <div className="time-frame">
-              <input type="radio" name="time" value="7" />
+              <input type="radio" name="time" value="1" />
               <label htmlFor="time">1 week</label>
             </div>
             <div className="time-frame">
-              <input type="radio" name="time" value="30" />
+              <input type="radio" name="time" value="2" />
               <label htmlFor="time">1 month</label>
             </div>
             <div className="time-frame">
-              <input type="radio" name="time" value="90" />
+              <input type="radio" name="time" value="3" />
               <label htmlFor="time">3 months</label>
             </div>
             <div className="time-frame">
-              <input type="radio" name="time" value="180" />
+              <input type="radio" name="time" value="4" />
               <label htmlFor="time">6 months</label>
             </div>
             <div className="time-frame">
-              <input type="radio" name="time" value="365" />
+              <input type="radio" name="time" value="5" />
               <label htmlFor="time">1 year</label>
             </div>
             <div className="time-frame">
-              <input type="radio" name="time" value="730" />
+              <input type="radio" name="time" value="6" />
               <label htmlFor="time">2 years</label>
             </div>
             <div className="time-frame">
-              <input type="radio" name="time" value="1461" />
+              <input type="radio" name="time" value="7" />
               <label htmlFor="time">4 years</label>
             </div>
           </div>
           {account ? (
-            <button className="connect-wallet">Stake</button>
+            <button className="connect-wallet" onClick={stake}>Stake</button>
           ) : (
             <button className="connect-wallet" onClick={connectWallet}>
               Connect Wallet
