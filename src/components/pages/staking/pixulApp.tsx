@@ -16,6 +16,7 @@ import xPixulTokenABI from "../../../web3/abis/xPixul.json";
 
 import "./pixulApp.css";
 import PixulConvert from "./pixulConvert";
+import StakedItem from "./stakedItem";
 import useOnClickOutside from "../../../hooks/useOnClickOutSide";
 
 const PixulApp = () => {
@@ -127,7 +128,7 @@ const PixulApp = () => {
       .send({ from: account });
 
     updateAppState();
-  }
+  };
 
   //changing all the states
   const toggleMigrate = (): void => {
@@ -534,91 +535,110 @@ const PixulApp = () => {
               <p>Unstake xPIXUL</p>
             </div>
           </div>
-          <div className="stake-pixul-container">
-            <h2>Stake xPIXUL</h2>
-            <div className="stake-pixul-balance">
-              <div
-                style={{ display: "flex", gap: "0.1em", alignItems: "center" }}
-              >
-                <input
-                  className="pixual-amount"
-                  placeholder="0"
-                  ref={pixulInputRef}
-                  onChange={stakingAmountChangeHandler}
-                  value={stakingInputValue}
-                  size={1}
-                  type="number"
-                ></input>
-                <span>&nbsp;xPIXUL</span>
-              </div>
-              <span className="pixul-balance">
-                <span>
-                  Balance:&nbsp;
-                  <span>
-                    {`${xPixulBalance
-                      .toString()
-                      .replace(/\B(?=(\d{3})+(?!\d))/g, ",")} xPIXUL`}
+          {stakingState ? (
+            <>
+              <div className="stake-pixul-container">
+                <h2>Stake xPIXUL</h2>
+                <div className="stake-pixul-balance">
+                  <div
+                    style={{
+                      display: "flex",
+                      gap: "0.1em",
+                      alignItems: "center",
+                    }}
+                  >
+                    <input
+                      className="pixual-amount"
+                      placeholder="0"
+                      ref={pixulInputRef}
+                      onChange={stakingAmountChangeHandler}
+                      value={stakingInputValue}
+                      size={1}
+                      type="number"
+                    ></input>
+                    <span>&nbsp;xPIXUL</span>
+                  </div>
+                  <span className="pixul-balance">
+                    <span>
+                      Balance:&nbsp;
+                      <span>
+                        {`${xPixulBalance
+                          .toString()
+                          .replace(/\B(?=(\d{3})+(?!\d))/g, ",")} xPIXUL`}
+                      </span>
+                    </span>
+                    <button onClick={setStakingFieldToMax}>Max</button>
                   </span>
-                </span>
-                <button onClick={setStakingFieldToMax}>Max</button>
-              </span>
-            </div>
-          </div>
-          <div
-            className="time-frame-container"
-            onClick={stakeTimingChangeHandler}
-          >
-            <div className="time-frame">
-              <input type="radio" name="time" value="0" defaultChecked />
-              <label htmlFor="time">No Lock</label>
-            </div>
-            <div className="time-frame">
-              <input type="radio" name="time" value="1" />
-              <label htmlFor="time">1 week</label>
-            </div>
-            <div className="time-frame">
-              <input type="radio" name="time" value="2" />
-              <label htmlFor="time">1 month</label>
-            </div>
-            <div className="time-frame">
-              <input type="radio" name="time" value="3" />
-              <label htmlFor="time">3 months</label>
-            </div>
-            <div className="time-frame">
-              <input type="radio" name="time" value="4" />
-              <label htmlFor="time">6 months</label>
-            </div>
-            <div className="time-frame">
-              <input type="radio" name="time" value="5" />
-              <label htmlFor="time">1 year</label>
-            </div>
-            <div className="time-frame">
-              <input type="radio" name="time" value="6" />
-              <label htmlFor="time">2 years</label>
-            </div>
-            <div className="time-frame">
-              <input type="radio" name="time" value="7" />
-              <label htmlFor="time">4 years</label>
-            </div>
-          </div>
-          {account ? (
-            <button className="connect-wallet" onClick={stake}>Stake</button>
+                </div>
+              </div>
+              <div
+                className="time-frame-container"
+                onClick={stakeTimingChangeHandler}
+              >
+                <div className="time-frame">
+                  <input type="radio" name="time" value="0" defaultChecked />
+                  <label htmlFor="time">No Lock</label>
+                </div>
+                <div className="time-frame">
+                  <input type="radio" name="time" value="1" />
+                  <label htmlFor="time">1 week</label>
+                </div>
+                <div className="time-frame">
+                  <input type="radio" name="time" value="2" />
+                  <label htmlFor="time">1 month</label>
+                </div>
+                <div className="time-frame">
+                  <input type="radio" name="time" value="3" />
+                  <label htmlFor="time">3 months</label>
+                </div>
+                <div className="time-frame">
+                  <input type="radio" name="time" value="4" />
+                  <label htmlFor="time">6 months</label>
+                </div>
+                <div className="time-frame">
+                  <input type="radio" name="time" value="5" />
+                  <label htmlFor="time">1 year</label>
+                </div>
+                <div className="time-frame">
+                  <input type="radio" name="time" value="6" />
+                  <label htmlFor="time">2 years</label>
+                </div>
+                <div className="time-frame">
+                  <input type="radio" name="time" value="7" />
+                  <label htmlFor="time">4 years</label>
+                </div>
+              </div>
+              {account ? (
+                <button className="connect-wallet" onClick={stake}>
+                  Stake
+                </button>
+              ) : (
+                <button className="connect-wallet" onClick={connectWallet}>
+                  Connect Wallet
+                </button>
+              )}
+            </>
           ) : (
-            <button className="connect-wallet" onClick={connectWallet}>
-              Connect Wallet
-            </button>
+            <>
+              <div className="staked-list">
+                <StakedItem stakedAmount={122222222} stakedTime={"4 years"} />
+                <StakedItem stakedAmount={12222} stakedTime={"4 years"} />
+                <StakedItem stakedAmount={12222} stakedTime={"4 years"} />
+                <StakedItem stakedAmount={12222} stakedTime={"4 years"} />
+              </div>
+              <div className="claim-tokens">
+                <div>
+                  Total Claimable Tokens
+                  <span>{`${claimableTokens
+                    .toString()
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")} XPIXUL`}</span>
+                </div>
+                <button className={claimableTokens > 0 ? "active" : ""}>
+                  Claim Tokens
+                </button>
+              </div>
+            </>
           )}
-          <div className="claim-tokens">
-            <div>
-              Total Claimable Tokens
-              <span>{`${claimableTokens
-                .toString()
-                .replace(/\B(?=(\d{3})+(?!\d))/g, ",")} XPIXUL`}</span>
-            </div>
-            <button className={claimableTokens > 0 ? "active" : ""}>
-              Claim Tokens
-            </button>
-          </div>
         </div>
         <div className="pixul-stat">
           <h1>xPIXUL Stats</h1>
