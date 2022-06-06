@@ -19,6 +19,14 @@ import PixulConvert from "./pixulConvert";
 import StakedItem from "./stakedItem";
 import useOnClickOutside from "../../../hooks/useOnClickOutSide";
 
+export type StakingInfo = {
+  stakingId: number;
+  amount: number;
+  starttime: number;
+  claimedCount: number;
+  stakingtype: number;
+};
+
 const PixulApp = () => {
   const { t } = useTranslation();
   const [migrateState, setMigrateState] = React.useState(true);
@@ -35,6 +43,7 @@ const PixulApp = () => {
   const [fromInputValue, setFromInputValue] = React.useState<number>(0);
   const [stakingInputValue, setStakingInputValue] = React.useState<number>(0);
   const [stakeTiming, setStakeTiming] = React.useState<number>(0);
+  const [stakingInfoList, setStakingInfoList] = React.useState<StakingInfo[]>([]);
 
   const { active, account, library, connector, activate, deactivate } =
     useWeb3React();
@@ -92,7 +101,7 @@ const PixulApp = () => {
         .send({ from: account });
     }
 
-    updateAppState();
+    updateMigratorBalance();
   };
 
   const stake = async () => {
@@ -127,8 +136,35 @@ const PixulApp = () => {
       )
       .send({ from: account });
 
-    updateAppState();
+    updateMigratorBalance();
+    updateStakingList();
   };
+
+  async function getRewards(stakingId) {
+    const stakingRewardsContract = new library.eth.Contract(
+      StakingRewardsABI,
+      "0x07Cd91c1884440b73ECb4E4643B7bC671C43A1A6"
+    );
+
+    console.log('reward staing Id' + stakingId);
+    await stakingRewardsContract.methods.getReward(stakingId).send({ from: account});
+
+    updateMigratorBalance();
+    updateStakingList();
+  }
+
+  async function unStake(stakingId) {
+    const stakingRewardsContract = new library.eth.Contract(
+      StakingRewardsABI,
+      "0x07Cd91c1884440b73ECb4E4643B7bC671C43A1A6"
+    );
+
+    console.log('unstake staing Id' + stakingId);
+    await stakingRewardsContract.methods.unstake(stakingId).send({ from: account});
+
+    updateMigratorBalance();
+    updateStakingList();
+  }
 
   //changing all the states
   const toggleMigrate = (): void => {
@@ -150,7 +186,7 @@ const PixulApp = () => {
     });
   };
 
-  async function updateAppState() {
+  async function updateMigratorBalance() {
     const pixulTokenContract = new library.eth.Contract(
       PixulTokenABI,
       "0x46b055324ba9389543DD54432D03e6B37CeAAf69"
@@ -175,6 +211,30 @@ const PixulApp = () => {
     setXPixulBalance(parseInt(web3.utils.fromWei(xpixul_balance)));
   }
 
+  async function updateStakingList() {
+    const stakingRewardsContract = new library.eth.Contract(
+      StakingRewardsABI,
+      "0x07Cd91c1884440b73ECb4E4643B7bC671C43A1A6"
+    );
+
+    console.log(1);
+    const balance = await stakingRewardsContract.methods.balanceOf(account).call({ from: account });
+    console.log(balance);
+
+    const list: StakingInfo[] = [];
+
+    for(let i = 0; i < balance; i++) {
+      const stakingId = await stakingRewardsContract.methods.stakingOfOwnerByIndex(account, i).call({ from: account });
+      const stakingInfo = await stakingRewardsContract.methods.stakingById(stakingId).call({ from: account });
+
+      console.log(stakingInfo);
+
+      list.push(stakingInfo);
+    }
+
+    setStakingInfoList(list);
+  }
+
   //changing background image
   React.useEffect(() => {
     document.querySelector(".main-wrapper").className = "main-wrapper xpixul";
@@ -184,7 +244,10 @@ const PixulApp = () => {
   }, []);
 
   React.useEffect(() => {
-    if (account) updateAppState();
+    if (account) {
+      updateMigratorBalance();
+      updateStakingList();
+    }
   }, [account]);
 
   const stakeTimingChangeHandler = ({ target }) => {
@@ -214,6 +277,10 @@ const PixulApp = () => {
       xPixulBalance.toString().length + 0.6
     }ch`;
   };
+
+  const stakingItems = stakingInfoList.map((stakingInfo) =>
+    <StakedItem key={stakingInfo.stakingId}info={stakingInfo} getRewards={getRewards} unStake={unStake}/>
+  );
 
   return (
     <div className="pixul-container">
@@ -621,21 +688,7 @@ const PixulApp = () => {
           ) : (
             <>
               <div className="staked-list">
-                <StakedItem stakedAmount={122222222} stakedTime={"4 years"} />
-                <StakedItem stakedAmount={12222} stakedTime={"4 years"} />
-                <StakedItem stakedAmount={12222} stakedTime={"4 years"} />
-                <StakedItem stakedAmount={12222} stakedTime={"4 years"} />
-              </div>
-              <div className="claim-tokens">
-                <div>
-                  Total Claimable Tokens
-                  <span>{`${claimableTokens
-                    .toString()
-                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")} XPIXUL`}</span>
-                </div>
-                <button className={claimableTokens > 0 ? "active" : ""}>
-                  Claim Tokens
-                </button>
+                {stakingItems}
               </div>
             </>
           )}
