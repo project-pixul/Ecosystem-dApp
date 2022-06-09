@@ -15,6 +15,7 @@ const useOnClickOutside = (
 			) {
 				return;
 			}
+
 			toggler(false);
 		};
 
@@ -25,7 +26,7 @@ const useOnClickOutside = (
 			document.removeEventListener("mousedown", listener);
 			document.removeEventListener("touchstart", listener);
 		};
-	}, [ref, toggler]);
+	}, []);
 };
 
 export default useOnClickOutside;

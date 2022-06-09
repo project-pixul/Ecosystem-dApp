@@ -1,8 +1,9 @@
-import { Component } from 'react';
-import { NotificationManager } from 'react-notifications';
+import { Component } from "react";
 
-export abstract class BaseComponent<TProps, TState> extends Component<TProps, TState> {
-
+export abstract class BaseComponent<TProps, TState> extends Component<
+	TProps,
+	TState
+> {
 	protected constructor(props: TProps) {
 		super(props);
 	}
@@ -22,7 +23,9 @@ export abstract class BaseComponent<TProps, TState> extends Component<TProps, TS
 	}
 }
 
-export interface ComponentRef extends Function { new(...args: any[]): Component; }
+export interface ComponentRef extends Function {
+	new (...args: any[]): Component;
+}
 
 export interface IShellPage {
 	id: String;
@@ -34,24 +37,20 @@ export interface IShellPage {
 
 export class ShellErrorHandler {
 	static handle(error: any) {
-
 		let message;
 		console.error(error);
 
 		if (!error) {
-			message = "An unknown error occurred. Please let us know about it in our Telegram group."
-		}
-		else {
+			message =
+				"An unknown error occurred. Please let us know about it in our Telegram group.";
+		} else {
 			if (!!error.message) {
 				message = error.message;
-			}
-			else if (typeof error === 'string') {
+			} else if (typeof error === "string") {
 				message = error;
-			}
-			else {
+			} else {
 				message = "An unknown error occurred: " + error;
 			}
 		}
-		NotificationManager.error(message);
 	}
 }

@@ -152,7 +152,7 @@ p {
 	width: 640px;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-around;
+	justify-content: space-between;
 }
 
 .pixul-stake-header {
@@ -273,6 +273,7 @@ input[type="radio"]:checked:before {
 .pixul-stat {
 	border-radius: 5px;
 	width: 22em;
+	height: 460px;
 	padding-top: 30px;
 	padding-bottom: 20px;
 	margin-top: 2em;
@@ -293,7 +294,8 @@ input[type="radio"]:checked:before {
 
 .value h2 {
 	font-weight: 700;
-	font-size: 12px;
+	font-size: 16px;
+	opacity: 0.7;
 }
 
 .pixul-conv-container {
@@ -381,8 +383,15 @@ input[type="radio"]:checked:before {
 	display: flex;
 	flex-direction: column;
 	gap: 2em;
-	height: 300px;
+	max-height: 300px;
 	overflow-y: scroll;
+}
+
+.staked-list span {
+	align-self: center;
+	font-size: 1.2rem;
+	font-weight: 700;
+	opacity: 0.85;
 }
 
 .staked-list-item {
