@@ -20,6 +20,7 @@ import StakedItem from "./stakedItem";
 import Modal from "../../modal";
 import { toast } from "react-toastify";
 import useOnClickOutside from "../../../hooks/useOnClickOutSide";
+import { formatNumber } from "../../../utils";
 
 export type StakingInfo = {
   stakingId: number;
@@ -51,6 +52,13 @@ const PixulApp = () => {
   const [stakingInfoList, setStakingInfoList] = React.useState<StakingInfo[]>(
     []
   );
+  const [totalXPixulMigrated, setTotalXPixulMigrated] = React.useState<Number>(0);
+  const [totalXPixulLocked, setTotalXPixulLocked] = React.useState<Number>(0);
+  const [averageUnlockTime, setAverageUnlockTime] = React.useState<Number>(0);
+  const [averageAPR, setAverageAPR] = React.useState<Number>(0);
+
+
+
 
   const { active, account, library, connector, activate, deactivate } =
     useWeb3React();
@@ -65,7 +73,7 @@ const PixulApp = () => {
     console.log(234);
     const migratorContract = new library.eth.Contract(
       TokenMigratorABI,
-      "0xa08733b1ab4CF224fFBD1c3Bf43EEeaA3200cb2A"
+      "0x124F8ee27dfA9F5Ad05347250b58Ed4BA79227Fe"
     );
 
     const pixulTokenContract = new library.eth.Contract(
@@ -82,7 +90,7 @@ const PixulApp = () => {
       console.log(345);
       await xPixulTokenContract.methods
         .approve(
-          "0xa08733b1ab4CF224fFBD1c3Bf43EEeaA3200cb2A",
+          "0x124F8ee27dfA9F5Ad05347250b58Ed4BA79227Fe",
           web3.utils.toWei(fromInputValue.toString(), "ether")
         )
         .send({ from: account });
@@ -96,7 +104,7 @@ const PixulApp = () => {
       console.log(456);
       await pixulTokenContract.methods
         .approve(
-          "0xa08733b1ab4CF224fFBD1c3Bf43EEeaA3200cb2A",
+          "0x124F8ee27dfA9F5Ad05347250b58Ed4BA79227Fe",
           web3.utils.toWei(fromInputValue.toString(), "ether")
         )
         .send({ from: account });
@@ -109,12 +117,13 @@ const PixulApp = () => {
     }
 
     updateMigratorBalance();
+    updateTotalXPixulMigrated();
   };
 
   const stake = async () => {
     const stakingRewardsContract = new library.eth.Contract(
       StakingRewardsABI,
-      "0x07Cd91c1884440b73ECb4E4643B7bC671C43A1A6"
+      "0x405865d0EFE6c7D8fA79Ec2B5e48aB6D04a7592F"
     );
 
     const pixulTokenContract = new library.eth.Contract(
@@ -131,7 +140,7 @@ const PixulApp = () => {
 
     await xPixulTokenContract.methods
       .approve(
-        "0x07Cd91c1884440b73ECb4E4643B7bC671C43A1A6",
+        "0x405865d0EFE6c7D8fA79Ec2B5e48aB6D04a7592F",
         web3.utils.toWei(stakingInputValue.toString(), "ether")
       )
       .send({ from: account });
@@ -145,12 +154,15 @@ const PixulApp = () => {
 
     updateMigratorBalance();
     updateStakingList();
+    updateTotalXPixulLocked();
+    updateAverageAPR();
+    updateAverageUnlockTime();
   };
 
   async function getRewards(stakingId) {
     const stakingRewardsContract = new library.eth.Contract(
       StakingRewardsABI,
-      "0x07Cd91c1884440b73ECb4E4643B7bC671C43A1A6"
+      "0x405865d0EFE6c7D8fA79Ec2B5e48aB6D04a7592F"
     );
 
     console.log("reward staing Id" + stakingId);
@@ -160,12 +172,15 @@ const PixulApp = () => {
 
     updateMigratorBalance();
     updateStakingList();
+    updateTotalXPixulLocked();
+    updateAverageAPR();
+    updateAverageUnlockTime();
   }
 
   async function unStake(stakingId) {
     const stakingRewardsContract = new library.eth.Contract(
       StakingRewardsABI,
-      "0x07Cd91c1884440b73ECb4E4643B7bC671C43A1A6"
+      "0x405865d0EFE6c7D8fA79Ec2B5e48aB6D04a7592F"
     );
 
     console.log("unstake staing Id" + stakingId);
@@ -175,6 +190,9 @@ const PixulApp = () => {
 
     updateMigratorBalance();
     updateStakingList();
+    updateTotalXPixulLocked();
+    updateAverageAPR();
+    updateAverageUnlockTime();
   }
 
   //toggling all the states
@@ -232,7 +250,7 @@ const PixulApp = () => {
   async function updateStakingList() {
     const stakingRewardsContract = new library.eth.Contract(
       StakingRewardsABI,
-      "0x07Cd91c1884440b73ECb4E4643B7bC671C43A1A6"
+      "0x405865d0EFE6c7D8fA79Ec2B5e48aB6D04a7592F"
     );
 
     console.log(1);
@@ -259,6 +277,64 @@ const PixulApp = () => {
     setStakingInfoList(list);
   }
 
+  async function updateTotalXPixulMigrated() {
+    const migratorContract = new library.eth.Contract(
+      TokenMigratorABI,
+      "0x124F8ee27dfA9F5Ad05347250b58Ed4BA79227Fe"
+    );
+
+    const totalMigrated = await migratorContract.methods
+      .getTotalMigratedAmount()
+      .call({ from: account });
+    
+    setTotalXPixulMigrated(parseInt(web3.utils.fromWei(totalMigrated)));
+  }
+
+  async function updateTotalXPixulLocked() {
+    const stakingRewardsContract = new library.eth.Contract(
+      StakingRewardsABI,
+      "0x405865d0EFE6c7D8fA79Ec2B5e48aB6D04a7592F"
+    );
+
+    const totalLocked = await stakingRewardsContract.methods
+      .getTotalLockedAmount()
+      .call({ from: account });
+    
+    console.log('total unlocked: ', totalLocked);
+
+    setTotalXPixulLocked(parseInt(web3.utils.fromWei(totalLocked)));
+  }
+
+  async function updateAverageUnlockTime() {
+    const stakingRewardsContract = new library.eth.Contract(
+      StakingRewardsABI,
+      "0x405865d0EFE6c7D8fA79Ec2B5e48aB6D04a7592F"
+    );
+
+    const unlockTime = await stakingRewardsContract.methods
+      .averageUnlockTime()
+      .call({ from: account });
+    
+    console.log('average unlock time: ', unlockTime);
+
+    setAverageUnlockTime(unlockTime);
+  }
+
+  async function updateAverageAPR() {
+    const stakingRewardsContract = new library.eth.Contract(
+      StakingRewardsABI,
+      "0x405865d0EFE6c7D8fA79Ec2B5e48aB6D04a7592F"
+    );
+
+    const apr = await stakingRewardsContract.methods
+      .averageAPR()
+      .call({ from: account });
+    
+    console.log('average APR: ', apr);
+
+    setAverageAPR(Number((apr / 100).toFixed(2)));
+  }
+
   //changing background image
   React.useEffect(() => {
     document.querySelector(".main-wrapper").className = "main-wrapper xpixul";
@@ -271,6 +347,10 @@ const PixulApp = () => {
     if (account) {
       updateMigratorBalance();
       updateStakingList();
+      updateTotalXPixulMigrated();
+      updateTotalXPixulLocked();
+      updateAverageUnlockTime();
+      updateAverageAPR();
     }
   }, [account]);
 
@@ -378,7 +458,7 @@ const PixulApp = () => {
               {t("home.pixul_app.banner.banner_name")}
             </p>
             <p className="banner-stat">
-              <span>8.96%</span>
+              <span>{averageAPR + '%'}</span>
               <span className="banner-stat-small">
                 {t("home.pixul_app.banner.banner_stat")}
               </span>
@@ -394,7 +474,7 @@ const PixulApp = () => {
                 <span className="title">
                   {t("home.pixul_app.pixul_cards.pixul_card1")}
                 </span>
-                <span className="balance">970,400</span>
+                <span className="balance">{formatNumber(pixulBalance)}</span>
               </div>
             </div>
             <div className="pixul-card">
@@ -451,7 +531,7 @@ const PixulApp = () => {
                 <span className="title">
                   {t("home.pixul_app.pixul_cards.pixul_card2")}
                 </span>
-                <span className="balance">87,000</span>
+                <span className="balance">{formatNumber(xPixulBalance)}</span>
               </div>
             </div>
             <div className="pixul-card">
@@ -463,7 +543,7 @@ const PixulApp = () => {
                 <span className="title">
                   {t("home.pixul_app.pixul_cards.pixul_card3")}
                 </span>
-                <span className="balance">22,005,849</span>
+                <span className="balance">{formatNumber(totalXPixulMigrated)}</span>
               </div>
             </div>
             <div className="pixul-card">
@@ -518,7 +598,7 @@ const PixulApp = () => {
               </svg>
               <div className="pixul-card-text">
                 <span className="title">Total xPIXUL Locked</span>
-                <span className="balance">10,005,849</span>
+                <span className="balance">{formatNumber(totalXPixulLocked)}</span>
               </div>
             </div>
           </div>
@@ -767,26 +847,26 @@ const PixulApp = () => {
           <div className="pixul-stat">
             <h1>xPIXUL Stats</h1>
             <div className="values">
-              <div className="value">
-                <h2>Total PIXUL Locked</h2>
-                <p>-</p>
+              <div className="value mb-2">
+                <h2>Total xPIXUL Locked</h2>
+                <p>{formatNumber(totalXPixulLocked)} xPIXUL</p>
               </div>
-              <div className="value">
-                <h2>Total PIXUL Locked Value</h2>
+              {/* <div className="value">
+                <h2>Total xPIXUL Locked Value</h2>
                 <p>-</p>
-              </div>
-              <div className="value">
+              </div> */}
+              <div className="value mb-2">
                 <h2>Average Unlock Time (Days)</h2>
-                <p>-</p>
+                <p>{Math.floor(averageUnlockTime as any / 86400)} Days</p>
               </div>
-              <div className="value">
+              <div className="value mb-2">
                 <h2>Average APR</h2>
-                <p>-</p>
+                <p>{averageAPR + '%'}</p>
               </div>
-              <div className="value">
+              {/* <div className="value">
                 <h2>Next Distribution Block</h2>
                 <p>-</p>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
