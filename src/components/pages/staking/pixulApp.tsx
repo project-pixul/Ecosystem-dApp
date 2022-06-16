@@ -121,6 +121,8 @@ const PixulApp = () => {
   };
 
   const stake = async () => {
+
+    // console.log('stake type: ', stakeTiming);
     const stakingRewardsContract = new library.eth.Contract(
       StakingRewardsABI,
       "0x405865d0EFE6c7D8fA79Ec2B5e48aB6D04a7592F"
@@ -771,35 +773,35 @@ const PixulApp = () => {
                   onClick={stakeTimingChangeHandler}
                 >
                   <div className="time-frame">
-                    <input type="radio" name="time" value="0" defaultChecked />
+                    <input type="radio" name="time" value="0" checked={stakeTiming == 0} />
                     <label htmlFor="time">No Lock</label>
                   </div>
                   <div className="time-frame">
-                    <input type="radio" name="time" value="1" />
+                    <input type="radio" name="time" value="1"  checked={stakeTiming == 1} />
                     <label htmlFor="time">1 week</label>
                   </div>
                   <div className="time-frame">
-                    <input type="radio" name="time" value="2" />
+                    <input type="radio" name="time" value="2"  checked={stakeTiming == 2} />
                     <label htmlFor="time">1 month</label>
                   </div>
                   <div className="time-frame">
-                    <input type="radio" name="time" value="3" />
+                    <input type="radio" name="time" value="3"  checked={stakeTiming == 3} />
                     <label htmlFor="time">3 months</label>
                   </div>
                   <div className="time-frame">
-                    <input type="radio" name="time" value="4" />
+                    <input type="radio" name="time" value="4"  checked={stakeTiming == 4} />
                     <label htmlFor="time">6 months</label>
                   </div>
                   <div className="time-frame">
-                    <input type="radio" name="time" value="5" />
+                    <input type="radio" name="time" value="5"  checked={stakeTiming == 5} />
                     <label htmlFor="time">1 year</label>
                   </div>
                   <div className="time-frame">
-                    <input type="radio" name="time" value="6" />
+                    <input type="radio" name="time" value="6"  checked={stakeTiming == 6} />
                     <label htmlFor="time">2 years</label>
                   </div>
                   <div className="time-frame">
-                    <input type="radio" name="time" value="7" />
+                    <input type="radio" name="time" value="7"  checked={stakeTiming == 7} />
                     <label htmlFor="time">4 years</label>
                   </div>
                 </div>
