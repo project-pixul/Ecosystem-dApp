@@ -8,13 +8,14 @@ import { withTranslation, useTranslation } from "react-i18next";
 import { GiHamburgerMenu } from "react-icons/gi";
 
 import { useWeb3React } from "@web3-react/core";
-import { injected, walletconnect, walletlink } from "../web3/Connector";
+import { activateInjectedProvider, injected, walletconnect, walletlink } from "../web3/Connector";
 
 import "./shellNav.css";
 import Sidebar from "./sidebar";
 import { Docs, Farm, Pixul, Stake, XpixulMobile } from "./pages/home/svgs";
 
 import { connect, disconnect } from "../web3/connect";
+import WalletConnectModal from "./walletConnectModal";
 
 const sideBarItems = [
   { title: "Home", id: "home", url: "https://pixul.io" },
@@ -54,6 +55,7 @@ const ShellNav = (props: ShellNavProps) => {
   const collapseRef = React.createRef<any>();
   const [isSideBarOpen, setSideBarOpen] = React.useState<Boolean>(false);
   const { t } = useTranslation();
+  const [walletConnectModalState, setWalletConnectModalState] = React.useState<Boolean>(false);
 
   const toggleMenu = (e: any) => {
     if (window.innerWidth < 990) collapseRef.current.click();
@@ -65,14 +67,29 @@ const ShellNav = (props: ShellNavProps) => {
     });
   };
 
-  const connectWallet = async () => {
-    console.log('connect wallet');
-    await activate(injected);
+  const connectWallet = async (type = '') => {
+    console.log(type);
+    if (type == 'MetaMask') {
+      activateInjectedProvider("MetaMask");
+      await activate(injected);
+    } else if (type == 'CoinBase') {
+      await activate(walletlink);
+    } else if (type == 'WalletConnect') {
+      await activate(walletconnect)
+    } else {
+      await activate(injected);
+    }
   };
 
   const disconnectWallet = async () => {
     deactivate();
     localStorage.setItem("walletAddr", "");
+  };
+
+  const toggleWalletConnectModal = () => {
+    setWalletConnectModalState((prevState) => {
+      return !prevState;
+    });
   };
 
   React.useEffect(() => {
@@ -197,7 +214,7 @@ const ShellNav = (props: ShellNavProps) => {
                   <span onClick={() => disconnectWallet()}>{account}</span>
                 </>
               ) : (
-                <span onClick={() => connectWallet()}>Connect Wallet</span>
+                <span onClick={() => toggleWalletConnectModal()}>Connect Wallet</span>
               )}
             </div>
           </div>
@@ -230,6 +247,10 @@ const ShellNav = (props: ShellNavProps) => {
       </nav>
       {isSideBarOpen && (
         <Sidebar sidebarItems={sideBarItems} toggleMenu={toggleSideBar} />
+      )}
+
+      {walletConnectModalState && (
+        <WalletConnectModal invokeFn={connectWallet} setWalletConnectModalState={setWalletConnectModalState} />
       )}
     </>
   );

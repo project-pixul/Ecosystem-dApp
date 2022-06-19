@@ -8,7 +8,7 @@ import { useWeb3React, Web3ReactProvider } from "@web3-react/core";
 
 import web3 from "web3";
 
-import { injected, walletlink } from "../../../web3/Connector";
+import { activateInjectedProvider, injected, walletlink, walletconnect } from "../../../web3/Connector";
 import StakingRewardsABI from "../../../web3/abis/StakingRewards.json";
 import TokenMigratorABI from "../../../web3/abis/TokenMigrator.json";
 import PixulTokenABI from "../../../web3/abis/Pixul.json";
@@ -22,6 +22,7 @@ import { toast } from "react-toastify";
 import useOnClickOutside from "../../../hooks/useOnClickOutSide";
 import { formatNumber } from "../../../utils";
 import * as ethers from 'ethers';
+import WalletConnectModal from "../../walletConnectModal";
 
 export type StakingInfo = {
   stakingId: number;
@@ -37,6 +38,7 @@ const PixulApp = () => {
   const [stakingState, setStakingState] = React.useState(true);
   const [showInfo, setInfoState] = React.useState(false);
   const [modalState, setModalState] = React.useState(false);
+  const [walletConnectModalState, setWalletConnectModalState] = React.useState(false);
   const [modalPromiseState, setModalPromiseState] = React.useState<any>();
 
   const migrateRef = React.useRef<HTMLDivElement>();
@@ -69,8 +71,20 @@ const PixulApp = () => {
 
   useOnClickOutside(infoRef, setInfoState, "info");
 
-  const connectWallet = async () => {
-    await activate(injected);
+  
+
+  const connectWallet = async (type = '') => {
+    console.log(type);
+    if (type == 'MetaMask') {
+      activateInjectedProvider("MetaMask");
+      await activate(injected);
+    } else if (type == 'CoinBase') {
+      await activate(walletlink);
+    } else if (type == 'WalletConnect') {
+      await activate(walletconnect)
+    } else {
+      await activate(injected);
+    }
   };
 
   const migrate = async () => {
@@ -190,6 +204,13 @@ const PixulApp = () => {
 
   const toggleModal = () => {
     setModalState((prevState) => {
+      return !prevState;
+    });
+  };
+
+  const toggleWalletConnectModal = () => {
+    console.log('toggle wallet connect modal')
+    setWalletConnectModalState((prevState) => {
       return !prevState;
     });
   };
@@ -481,6 +502,7 @@ const PixulApp = () => {
           setModalPromiseState(() => {
             return stake;
           });
+          console.log('toggle modal');
           toggleModal();
         }}
       >
@@ -818,7 +840,7 @@ const PixulApp = () => {
               )
             )
             : (
-              <button className="connect-wallet" onClick={connectWallet}>
+              <button className="connect-wallet" onClick={() => toggleWalletConnectModal()}>
                 Connect Wallet
               </button>
             )}
@@ -965,7 +987,7 @@ const PixulApp = () => {
                   )
                   
                 ) : (
-                  <button className="connect-wallet" onClick={connectWallet}>
+                  <button className="connect-wallet" onClick={() => toggleWalletConnectModal()}>
                     Connect Wallet
                   </button>
                 )}
@@ -1022,6 +1044,10 @@ const PixulApp = () => {
       </div>
       {modalState && (
         <Modal invokeFn={modalPromiseState} setModalState={setModalState} />
+      )}
+
+      {walletConnectModalState && (
+        <WalletConnectModal invokeFn={connectWallet} setWalletConnectModalState={setWalletConnectModalState} />
       )}
     </>
   );
