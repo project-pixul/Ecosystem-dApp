@@ -18,4 +18,26 @@ export const walletlink = new WalletLinkConnector({
     appName: "web3-react-demo"
 });
 
+export const activateInjectedProvider = (providerName: 'MetaMask' | 'CoinBase') => {
+    const { ethereum } = window as any;
+
+    if (!ethereum?.providers) {
+        return undefined;
+    }
+
+    let provider;
+    switch (providerName) {
+        case 'CoinBase':
+            provider = ethereum.providers.find(({ isCoinbaseWallet }) => isCoinbaseWallet);
+            break;
+        case 'MetaMask':
+            provider = ethereum.providers.find(({ isMetaMask }) => isMetaMask);
+            break;
+    }
+
+    if (provider) {
+        ethereum.setSelectedProvider(provider);
+    }
+}
+
 
