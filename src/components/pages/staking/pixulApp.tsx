@@ -8,7 +8,7 @@ import { useWeb3React, Web3ReactProvider } from "@web3-react/core";
 
 import web3 from "web3";
 
-import { injected } from "../../../web3/Connector";
+import { injected, walletlink } from "../../../web3/Connector";
 import StakingRewardsABI from "../../../web3/abis/StakingRewards.json";
 import TokenMigratorABI from "../../../web3/abis/TokenMigrator.json";
 import PixulTokenABI from "../../../web3/abis/Pixul.json";
@@ -21,6 +21,7 @@ import Modal from "../../modal";
 import { toast } from "react-toastify";
 import useOnClickOutside from "../../../hooks/useOnClickOutSide";
 import { formatNumber } from "../../../utils";
+import * as ethers from 'ethers';
 
 export type StakingInfo = {
   stakingId: number;
@@ -56,6 +57,9 @@ const PixulApp = () => {
   const [totalXPixulLocked, setTotalXPixulLocked] = React.useState<Number>(0);
   const [averageUnlockTime, setAverageUnlockTime] = React.useState<Number>(0);
   const [averageAPR, setAverageAPR] = React.useState<Number>(0);
+  const [migratePixulAllowance, setMigratePixulAllowance] = React.useState<Number>(0);
+  const [migrateXPixulAllowance, setMigrateXPixulAllowance] = React.useState<Number>(0);
+  const [stakingAllowance, setStakingAllowance] = React.useState<Number>(0);
 
 
 
@@ -76,74 +80,42 @@ const PixulApp = () => {
       "0x124F8ee27dfA9F5Ad05347250b58Ed4BA79227Fe"
     );
 
-    const pixulTokenContract = new library.eth.Contract(
-      PixulTokenABI,
-      "0x46b055324ba9389543DD54432D03e6B37CeAAf69"
-    );
-
-    const xPixulTokenContract = new library.eth.Contract(
-      xPixulTokenABI,
-      "0x5C059Bcfd4312376f4AE0f0e331e3371029239cD"
-    );
-
+    //// staking to reward (xpixul to pixul)
     if (migrateState) {
       console.log(345);
-      await xPixulTokenContract.methods
-        .approve(
-          "0x124F8ee27dfA9F5Ad05347250b58Ed4BA79227Fe",
-          web3.utils.toWei(fromInputValue.toString(), "ether")
-        )
-        .send({ from: account });
-
       await migratorContract.methods
         .migrateFromStakingToReward(
           web3.utils.toWei(fromInputValue.toString(), "ether")
         )
         .send({ from: account });
+
+
+    //// reward to staking (pixul to xpixul)
     } else {
       console.log(456);
-      await pixulTokenContract.methods
-        .approve(
-          "0x124F8ee27dfA9F5Ad05347250b58Ed4BA79227Fe",
-          web3.utils.toWei(fromInputValue.toString(), "ether")
-        )
-        .send({ from: account });
-
       await migratorContract.methods
         .migrateFromRewardToStaking(
           web3.utils.toWei(fromInputValue.toString(), "ether")
         )
         .send({ from: account });
+
     }
 
     updateMigratorBalance();
     updateTotalXPixulMigrated();
+    updateMigrateXPixulAllowance();
+    updateMigratePixulAllowance();
+
+
   };
 
   const stake = async () => {
+
+    // console.log('stake type: ', stakeTiming);
     const stakingRewardsContract = new library.eth.Contract(
       StakingRewardsABI,
       "0x405865d0EFE6c7D8fA79Ec2B5e48aB6D04a7592F"
     );
-
-    const pixulTokenContract = new library.eth.Contract(
-      PixulTokenABI,
-      "0x46b055324ba9389543DD54432D03e6B37CeAAf69"
-    );
-
-    const xPixulTokenContract = new library.eth.Contract(
-      xPixulTokenABI,
-      "0x5C059Bcfd4312376f4AE0f0e331e3371029239cD"
-    );
-
-    console.log(stakeTiming);
-
-    await xPixulTokenContract.methods
-      .approve(
-        "0x405865d0EFE6c7D8fA79Ec2B5e48aB6D04a7592F",
-        web3.utils.toWei(stakingInputValue.toString(), "ether")
-      )
-      .send({ from: account });
 
     await stakingRewardsContract.methods
       .stake(
@@ -157,6 +129,7 @@ const PixulApp = () => {
     updateTotalXPixulLocked();
     updateAverageAPR();
     updateAverageUnlockTime();
+    updateStakingAllowance();
   };
 
   async function getRewards(stakingId) {
@@ -335,6 +308,93 @@ const PixulApp = () => {
     setAverageAPR(Number((apr / 100).toFixed(2)));
   }
 
+  async function updateMigratePixulAllowance() {
+    const pixulTokenContract = new library.eth.Contract(
+      PixulTokenABI,
+      "0x46b055324ba9389543DD54432D03e6B37CeAAf69"
+    );
+
+    const allowance = await pixulTokenContract.methods
+      .allowance(account, '0x124F8ee27dfA9F5Ad05347250b58Ed4BA79227Fe')
+      .call({ from: account });
+
+    console.log('pixul migrate allowance: ', parseInt(web3.utils.fromWei(allowance)));
+
+    setMigratePixulAllowance(parseInt(web3.utils.fromWei(allowance)))
+  }
+
+  async function updateMigrateXPixulAllowance() {
+    const xPixulTokenContract = new library.eth.Contract(
+      xPixulTokenABI,
+      "0x5C059Bcfd4312376f4AE0f0e331e3371029239cD"
+    );
+
+    const allowance = await xPixulTokenContract.methods
+      .allowance(account, '0x124F8ee27dfA9F5Ad05347250b58Ed4BA79227Fe')
+      .call({ from: account });
+
+    console.log('xpixul migrate allowance: ', parseInt(web3.utils.fromWei(allowance)));
+
+    setMigrateXPixulAllowance(parseInt(web3.utils.fromWei(allowance)))
+  }
+
+  async function updateStakingAllowance() {
+    const xPixulTokenContract = new library.eth.Contract(
+      xPixulTokenABI,
+      "0x5C059Bcfd4312376f4AE0f0e331e3371029239cD"
+    );
+
+    const allowance = await xPixulTokenContract.methods
+      .allowance(account, '0x405865d0EFE6c7D8fA79Ec2B5e48aB6D04a7592F')
+      .call({ from: account });
+
+    console.log('staking allowance: ', parseInt(web3.utils.fromWei(allowance)));
+
+    setStakingAllowance(parseInt(web3.utils.fromWei(allowance)))
+  }
+
+  async function approveMigratePixul() {
+    console.log('approve migrate pixul');
+    const pixulTokenContract = new library.eth.Contract(
+      PixulTokenABI,
+      "0x46b055324ba9389543DD54432D03e6B37CeAAf69"
+    );
+
+    await pixulTokenContract.methods
+    .approve("0x124F8ee27dfA9F5Ad05347250b58Ed4BA79227Fe", ethers.constants.MaxUint256)
+    .send({ from: account });
+
+    updateMigratePixulAllowance();
+  }
+
+  async function approveMigrateXPixul() {
+    console.log('approve migrate xpixul');
+    const xPixulTokenContract = new library.eth.Contract(
+      xPixulTokenABI,
+      "0x5C059Bcfd4312376f4AE0f0e331e3371029239cD"
+    );
+
+    await xPixulTokenContract.methods
+    .approve("0x124F8ee27dfA9F5Ad05347250b58Ed4BA79227Fe", ethers.constants.MaxUint256)
+    .send({ from: account });
+   
+    updateMigrateXPixulAllowance();
+  }
+
+  async function approveStaking() {
+    console.log('approve staking xpixul');
+    const xPixulTokenContract = new library.eth.Contract(
+      xPixulTokenABI,
+      "0x5C059Bcfd4312376f4AE0f0e331e3371029239cD"
+    );
+
+    await xPixulTokenContract.methods
+    .approve("0x405865d0EFE6c7D8fA79Ec2B5e48aB6D04a7592F", ethers.constants.MaxUint256)
+    .send({ from: account });
+   
+    updateStakingAllowance();
+  }
+
   //changing background image
   React.useEffect(() => {
     document.querySelector(".main-wrapper").className = "main-wrapper xpixul";
@@ -351,6 +411,10 @@ const PixulApp = () => {
       updateTotalXPixulLocked();
       updateAverageUnlockTime();
       updateAverageAPR();
+
+      updateMigratePixulAllowance();
+      updateMigrateXPixulAllowance();
+      updateStakingAllowance();
     }
   }, [account]);
 
@@ -391,6 +455,90 @@ const PixulApp = () => {
       unStake={() => unStake(stakingInfo.stakingId)}
     />
   ));
+
+  const migrateButton = () => {
+    return (
+      <button
+        className="connect-wallet"
+        onClick={() => {
+          setModalPromiseState(() => {
+            return migrate;
+          });
+          toggleModal();
+        }}
+      >
+        Migrate
+      </button>
+
+    )
+  }
+
+  const stakeButton = () => {
+    return (
+      <button
+        className="connect-wallet"
+        onClick={() => {
+          setModalPromiseState(() => {
+            return stake;
+          });
+          toggleModal();
+        }}
+      >
+        Stake
+      </button>
+
+    )
+  }
+
+  const approveMigratePixulButton = () => {
+    return (
+      <button
+        className="connect-wallet"
+        onClick={() => {
+          setModalPromiseState(() => {
+            return approveMigratePixul;
+          });
+          toggleModal();
+        }}
+      >
+        Enable Migrate
+      </button>
+    )
+  }
+
+  const approveMigrateXPixulButton = () => {
+    return (
+      <button
+        className="connect-wallet"
+        onClick={() => {
+          setModalPromiseState(() => {
+            return approveMigrateXPixul;
+          });
+          toggleModal();
+        }}
+      >
+        Enable Migrate
+      </button>
+    )
+  }
+
+  const approveStakingButton = () => {
+    return (
+      <button
+        className="connect-wallet"
+        onClick={() => {
+          setModalPromiseState(() => {
+            return approveStaking;
+          });
+          toggleModal();
+        }}
+      >
+        Enable Staking
+      </button>
+    )
+  }
+
+
 
   return (
     <>
@@ -652,18 +800,24 @@ const PixulApp = () => {
               setInputValue={setFromInputValue}
             />
             {account ? (
-              <button
-                className="connect-wallet"
-                onClick={() => {
-                  setModalPromiseState(() => {
-                    return migrate;
-                  });
-                  toggleModal();
-                }}
-              >
-                Migrate
-              </button>
-            ) : (
+              migrateState ? (
+                migrateXPixulAllowance && migrateXPixulAllowance > 0 ? (
+                  migrateButton()
+                ) :
+                (
+                  approveMigrateXPixulButton()
+                )
+              ) : 
+              (
+                migratePixulAllowance && migratePixulAllowance > 0 ? (
+                  migrateButton()
+                ) :
+                (
+                  approveMigratePixulButton()
+                )
+              )
+            )
+            : (
               <button className="connect-wallet" onClick={connectWallet}>
                 Connect Wallet
               </button>
@@ -771,50 +925,45 @@ const PixulApp = () => {
                   onClick={stakeTimingChangeHandler}
                 >
                   <div className="time-frame">
-                    <input type="radio" name="time" value="0" defaultChecked />
+                    <input type="radio" name="time" value="0" checked={stakeTiming == 0} />
                     <label htmlFor="time">No Lock</label>
                   </div>
                   <div className="time-frame">
-                    <input type="radio" name="time" value="1" />
+                    <input type="radio" name="time" value="1"  checked={stakeTiming == 1} />
                     <label htmlFor="time">1 week</label>
                   </div>
                   <div className="time-frame">
-                    <input type="radio" name="time" value="2" />
+                    <input type="radio" name="time" value="2"  checked={stakeTiming == 2} />
                     <label htmlFor="time">1 month</label>
                   </div>
                   <div className="time-frame">
-                    <input type="radio" name="time" value="3" />
+                    <input type="radio" name="time" value="3"  checked={stakeTiming == 3} />
                     <label htmlFor="time">3 months</label>
                   </div>
                   <div className="time-frame">
-                    <input type="radio" name="time" value="4" />
+                    <input type="radio" name="time" value="4"  checked={stakeTiming == 4} />
                     <label htmlFor="time">6 months</label>
                   </div>
                   <div className="time-frame">
-                    <input type="radio" name="time" value="5" />
+                    <input type="radio" name="time" value="5"  checked={stakeTiming == 5} />
                     <label htmlFor="time">1 year</label>
                   </div>
                   <div className="time-frame">
-                    <input type="radio" name="time" value="6" />
+                    <input type="radio" name="time" value="6"  checked={stakeTiming == 6} />
                     <label htmlFor="time">2 years</label>
                   </div>
                   <div className="time-frame">
-                    <input type="radio" name="time" value="7" />
+                    <input type="radio" name="time" value="7"  checked={stakeTiming == 7} />
                     <label htmlFor="time">4 years</label>
                   </div>
                 </div>
                 {account ? (
-                  <button
-                    className="connect-wallet"
-                    onClick={() => {
-                      setModalPromiseState(() => {
-                        return stake;
-                      });
-                      toggleModal();
-                    }}
-                  >
-                    Stake
-                  </button>
+                  stakingAllowance && stakingAllowance > 0 ? (
+                    stakeButton()
+                  ) : (
+                    approveStakingButton()
+                  )
+                  
                 ) : (
                   <button className="connect-wallet" onClick={connectWallet}>
                     Connect Wallet

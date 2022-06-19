@@ -8,7 +8,7 @@ import { withTranslation, useTranslation } from "react-i18next";
 import { GiHamburgerMenu } from "react-icons/gi";
 
 import { useWeb3React } from "@web3-react/core";
-import { injected } from "../web3/Connector";
+import { injected, walletconnect, walletlink } from "../web3/Connector";
 
 import "./shellNav.css";
 import Sidebar from "./sidebar";
@@ -66,6 +66,7 @@ const ShellNav = (props: ShellNavProps) => {
   };
 
   const connectWallet = async () => {
+    console.log('connect wallet');
     await activate(injected);
   };
 
@@ -82,7 +83,12 @@ const ShellNav = (props: ShellNavProps) => {
   }, []);
 
   React.useEffect(() => {
-    localStorage.setItem("walletAddr", account);
+    if (account) {
+      localStorage.setItem("walletAddr", account);
+    } else {
+      localStorage.removeItem("walletAddr");
+    }
+    
   }, [account]);
 
   const pages1 = props.pages.slice(0, 2);

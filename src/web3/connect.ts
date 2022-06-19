@@ -1,6 +1,7 @@
 import { injected } from './Connector';
 
 export async function connect(activate, account) {
+    console.log('connect');
     try {
         const w: any = window;
         // await w.ethereum.request({
