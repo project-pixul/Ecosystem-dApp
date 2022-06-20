@@ -402,7 +402,7 @@ input[type="radio"]:checked:before {
 	padding: 1.2em 0;
 	display: flex;
 	flex-direction: column;
-	gap: 1.5em;
+	gap: 0.8em;
 	padding-left: 20px;
 	padding-right: 18px;
 	justify-content: space-between;

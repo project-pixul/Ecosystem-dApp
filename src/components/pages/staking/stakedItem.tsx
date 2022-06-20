@@ -44,7 +44,17 @@ const stakedItem = (props: StakedItemProps) => {
           .toString()
           .replace(/\B(?=(\d{3})+(?!\d))/g, ",")} xPIXUL`}</span>
 
-        <span>{stakingPeriod[props.info.stakingtype]}</span>
+        <span>
+          {stakingPeriod[props.info.stakingtype]}
+        </span>
+      </div>
+
+      <div className="staked-item-data">
+        <span></span>
+
+        <span>
+          {props.info.stakingtype == 0 ? '2%' : '9%'}
+        </span>
       </div>
 
       <div className="staked-button-wrapper">
