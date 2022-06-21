@@ -7,11 +7,12 @@ import { toast } from "react-toastify";
 
 import web3 from "web3";
 
+
 export type StakingInfo = {
   stakingId: number;
   amount: number;
   starttime: number;
-  claimedCount: number;
+  claimedAmount: number;
   stakingtype: number;
 };
 
@@ -24,6 +25,9 @@ export type StakedItemProps = {
 const stakedItem = (props: StakedItemProps) => {
   const { active, account, library, connector, activate, deactivate } =
     useWeb3React();
+  
+  const aprs = [0.02, 0.17, 0.68, 2.2, 4.5, 9, 21, 41];
+
 
   const stakingPeriod = [
     "No lock",
@@ -53,7 +57,7 @@ const stakedItem = (props: StakedItemProps) => {
         <span></span>
 
         <span>
-          {props.info.stakingtype == 0 ? '2%' : '9%'}
+          {aprs[props.info.stakingtype] + '%'}
         </span>
       </div>
 
