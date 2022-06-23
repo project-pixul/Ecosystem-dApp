@@ -30,7 +30,7 @@ const WalletConnectModal = (props: ModalProps) => {
                     }}
                 >
                     <img className="d-inline-block w-12" src={imgMetamask}></img>
-                    <p className="d-inline-block pl-3 font-bold text-white">MetaMask Wallet</p>
+                    <p className="d-inline-block pl-3 font-bold text-white">Meta Mask Wallet</p>
                 </div>
 
                 <div className="wallet-option-container" 
@@ -40,7 +40,7 @@ const WalletConnectModal = (props: ModalProps) => {
                     }}
                 >
                     <img className="d-inline-block w-12" src={imgCoinbase}></img>
-                    <p className="d-inline-block pl-3 font-bold text-white">Coingbase Wallet</p>
+                    <p className="d-inline-block pl-3 font-bold text-white">Coinbase Wallet</p>
                 </div>
 
                 <div className="wallet-option-container" 
@@ -50,7 +50,7 @@ const WalletConnectModal = (props: ModalProps) => {
                     }}
                 >
                     <img className="d-inline-block w-12" src={imgWalletconnection}></img>
-                    <p className="d-inline-block pl-3 font-bold text-white">WalletConnect</p>
+                    <p className="d-inline-block pl-3 font-bold text-white">Wallet Connect</p>
                 </div>
             </div>      
         </div>
