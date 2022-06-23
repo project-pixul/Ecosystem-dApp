@@ -14,6 +14,7 @@ export type StakingInfo = {
   starttime: number;
   claimedAmount: number;
   stakingtype: number;
+  claimableAmount: number;
 };
 
 export type StakedItemProps = {
@@ -54,7 +55,11 @@ const stakedItem = (props: StakedItemProps) => {
       </div>
 
       <div className="staked-item-data">
-        <span></span>
+        <span>
+        {`${web3.utils
+          .fromWei(props.info.claimableAmount.toString(), "ether")
+          .toString()} xPIXUL Claimable`}
+        </span>
 
         <span>
           {aprs[props.info.stakingtype] + '%'}
