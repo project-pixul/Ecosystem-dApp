@@ -30,7 +30,7 @@ export type StakingInfo = {
   starttime: number;
   claimedAmount: number;
   stakingtype: number;
-
+  claimableAmount: number;
 };
 
 const PixulApp = () => {
@@ -129,7 +129,7 @@ const PixulApp = () => {
     // console.log('stake type: ', stakeTiming);
     const stakingRewardsContract = new library.eth.Contract(
       StakingRewardsABI,
-      "0x558C1D2b8eBB952DeD0C510bdE3AEB41b2552b23"
+      "0xf115F973A51644112C15d45330422ED77E58A9e9"
     );
 
     await stakingRewardsContract.methods
@@ -150,7 +150,7 @@ const PixulApp = () => {
   async function getRewards(stakingId) {
     const stakingRewardsContract = new library.eth.Contract(
       StakingRewardsABI,
-      "0x558C1D2b8eBB952DeD0C510bdE3AEB41b2552b23"
+      "0xf115F973A51644112C15d45330422ED77E58A9e9"
     );
 
     console.log("reward staing Id" + stakingId);
@@ -168,7 +168,7 @@ const PixulApp = () => {
   async function unStake(stakingId) {
     const stakingRewardsContract = new library.eth.Contract(
       StakingRewardsABI,
-      "0x558C1D2b8eBB952DeD0C510bdE3AEB41b2552b23"
+      "0xf115F973A51644112C15d45330422ED77E58A9e9"
     );
 
     console.log("unstake staing Id" + stakingId);
@@ -245,7 +245,7 @@ const PixulApp = () => {
   async function updateStakingList() {
     const stakingRewardsContract = new library.eth.Contract(
       StakingRewardsABI,
-      "0x558C1D2b8eBB952DeD0C510bdE3AEB41b2552b23"
+      "0xf115F973A51644112C15d45330422ED77E58A9e9"
     );
 
     console.log(1);
@@ -264,11 +264,13 @@ const PixulApp = () => {
         .stakingById(stakingId)
         .call({ from: account });
       
-
+      const claimableAmount = await stakingRewardsContract.methods
+        .claimableAmount(stakingId)
+        .call({ from: account });
 
       console.log(stakingInfo);
 
-      list.push(stakingInfo);
+      list.push({...stakingInfo, claimableAmount});
     }
 
     setStakingInfoList(list);
@@ -290,7 +292,7 @@ const PixulApp = () => {
   async function updateTotalXPixulLocked() {
     const stakingRewardsContract = new library.eth.Contract(
       StakingRewardsABI,
-      "0x558C1D2b8eBB952DeD0C510bdE3AEB41b2552b23"
+      "0xf115F973A51644112C15d45330422ED77E58A9e9"
     );
 
     const totalLocked = await stakingRewardsContract.methods
@@ -305,7 +307,7 @@ const PixulApp = () => {
   async function updateAverageUnlockTime() {
     const stakingRewardsContract = new library.eth.Contract(
       StakingRewardsABI,
-      "0x558C1D2b8eBB952DeD0C510bdE3AEB41b2552b23"
+      "0xf115F973A51644112C15d45330422ED77E58A9e9"
     );
 
     const unlockTime = await stakingRewardsContract.methods
@@ -320,7 +322,7 @@ const PixulApp = () => {
   async function updateAverageAPR() {
     const stakingRewardsContract = new library.eth.Contract(
       StakingRewardsABI,
-      "0x558C1D2b8eBB952DeD0C510bdE3AEB41b2552b23"
+      "0xf115F973A51644112C15d45330422ED77E58A9e9"
     );
 
     const apr = await stakingRewardsContract.methods
@@ -369,7 +371,7 @@ const PixulApp = () => {
     );
 
     const allowance = await xPixulTokenContract.methods
-      .allowance(account, '0x558C1D2b8eBB952DeD0C510bdE3AEB41b2552b23')
+      .allowance(account, '0xf115F973A51644112C15d45330422ED77E58A9e9')
       .call({ from: account });
 
     console.log('staking allowance: ', parseInt(web3.utils.fromWei(allowance)));
@@ -413,7 +415,7 @@ const PixulApp = () => {
     );
 
     await xPixulTokenContract.methods
-    .approve("0x558C1D2b8eBB952DeD0C510bdE3AEB41b2552b23", ethers.constants.MaxUint256)
+    .approve("0xf115F973A51644112C15d45330422ED77E58A9e9", ethers.constants.MaxUint256)
     .send({ from: account });
    
     updateStakingAllowance();
