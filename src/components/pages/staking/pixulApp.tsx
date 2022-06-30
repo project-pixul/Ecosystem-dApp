@@ -67,7 +67,7 @@ const PixulApp = () => {
 
 
 
-  const { active, account, library, connector, activate, deactivate } =
+  const { active, account, library, connector, activate, deactivate, chainId } =
     useWeb3React();
 
   useOnClickOutside(infoRef, setInfoState, "info");
@@ -92,7 +92,7 @@ const PixulApp = () => {
     console.log(234);
     const migratorContract = new library.eth.Contract(
       TokenMigratorABI,
-      "0x124F8ee27dfA9F5Ad05347250b58Ed4BA79227Fe"
+      "0xC078Bac9D7462428a185c3c2d67d86569855b3a4"
     );
 
     //// staking to reward (xpixul to pixul)
@@ -129,7 +129,7 @@ const PixulApp = () => {
     // console.log('stake type: ', stakeTiming);
     const stakingRewardsContract = new library.eth.Contract(
       StakingRewardsABI,
-      "0xf115F973A51644112C15d45330422ED77E58A9e9"
+      "0xae46b12F075d53ce17c2d79aF1f6eD729dd1828c"
     );
 
     await stakingRewardsContract.methods
@@ -150,7 +150,7 @@ const PixulApp = () => {
   async function getRewards(stakingId) {
     const stakingRewardsContract = new library.eth.Contract(
       StakingRewardsABI,
-      "0xf115F973A51644112C15d45330422ED77E58A9e9"
+      "0xae46b12F075d53ce17c2d79aF1f6eD729dd1828c"
     );
 
     console.log("reward staing Id" + stakingId);
@@ -168,7 +168,7 @@ const PixulApp = () => {
   async function unStake(stakingId) {
     const stakingRewardsContract = new library.eth.Contract(
       StakingRewardsABI,
-      "0xf115F973A51644112C15d45330422ED77E58A9e9"
+      "0xae46b12F075d53ce17c2d79aF1f6eD729dd1828c"
     );
 
     console.log("unstake staing Id" + stakingId);
@@ -220,7 +220,7 @@ const PixulApp = () => {
   async function updateMigratorBalance() {
     const pixulTokenContract = new library.eth.Contract(
       PixulTokenABI,
-      "0x46b055324ba9389543DD54432D03e6B37CeAAf69"
+      "0x5718aF2DD07cD76ab0606f66565275F6c29f132f"
     );
 
     const pixul_balance = await pixulTokenContract.methods
@@ -229,7 +229,7 @@ const PixulApp = () => {
 
     const xPixulTokenContract = new library.eth.Contract(
       xPixulTokenABI,
-      "0x5C059Bcfd4312376f4AE0f0e331e3371029239cD"
+      "0x5D8c6AEC4E1630E88Ab8fa882a74763AF5e4c96A"
     );
 
     const xpixul_balance = await xPixulTokenContract.methods
@@ -245,7 +245,7 @@ const PixulApp = () => {
   async function updateStakingList() {
     const stakingRewardsContract = new library.eth.Contract(
       StakingRewardsABI,
-      "0xf115F973A51644112C15d45330422ED77E58A9e9"
+      "0xae46b12F075d53ce17c2d79aF1f6eD729dd1828c"
     );
 
     console.log(1);
@@ -279,7 +279,7 @@ const PixulApp = () => {
   async function updateTotalXPixulMigrated() {
     const migratorContract = new library.eth.Contract(
       TokenMigratorABI,
-      "0x124F8ee27dfA9F5Ad05347250b58Ed4BA79227Fe"
+      "0xC078Bac9D7462428a185c3c2d67d86569855b3a4"
     );
 
     const totalMigrated = await migratorContract.methods
@@ -292,7 +292,7 @@ const PixulApp = () => {
   async function updateTotalXPixulLocked() {
     const stakingRewardsContract = new library.eth.Contract(
       StakingRewardsABI,
-      "0xf115F973A51644112C15d45330422ED77E58A9e9"
+      "0xae46b12F075d53ce17c2d79aF1f6eD729dd1828c"
     );
 
     const totalLocked = await stakingRewardsContract.methods
@@ -307,7 +307,7 @@ const PixulApp = () => {
   async function updateAverageUnlockTime() {
     const stakingRewardsContract = new library.eth.Contract(
       StakingRewardsABI,
-      "0xf115F973A51644112C15d45330422ED77E58A9e9"
+      "0xae46b12F075d53ce17c2d79aF1f6eD729dd1828c"
     );
 
     const unlockTime = await stakingRewardsContract.methods
@@ -322,7 +322,7 @@ const PixulApp = () => {
   async function updateAverageAPR() {
     const stakingRewardsContract = new library.eth.Contract(
       StakingRewardsABI,
-      "0xf115F973A51644112C15d45330422ED77E58A9e9"
+      "0xae46b12F075d53ce17c2d79aF1f6eD729dd1828c"
     );
 
     const apr = await stakingRewardsContract.methods
@@ -337,11 +337,11 @@ const PixulApp = () => {
   async function updateMigratePixulAllowance() {
     const pixulTokenContract = new library.eth.Contract(
       PixulTokenABI,
-      "0x46b055324ba9389543DD54432D03e6B37CeAAf69"
+      "0x5718aF2DD07cD76ab0606f66565275F6c29f132f"
     );
 
     const allowance = await pixulTokenContract.methods
-      .allowance(account, '0x124F8ee27dfA9F5Ad05347250b58Ed4BA79227Fe')
+      .allowance(account, '0xC078Bac9D7462428a185c3c2d67d86569855b3a4')
       .call({ from: account });
 
     console.log('pixul migrate allowance: ', parseInt(web3.utils.fromWei(allowance)));
@@ -352,11 +352,11 @@ const PixulApp = () => {
   async function updateMigrateXPixulAllowance() {
     const xPixulTokenContract = new library.eth.Contract(
       xPixulTokenABI,
-      "0x5C059Bcfd4312376f4AE0f0e331e3371029239cD"
+      "0x5D8c6AEC4E1630E88Ab8fa882a74763AF5e4c96A"
     );
 
     const allowance = await xPixulTokenContract.methods
-      .allowance(account, '0x124F8ee27dfA9F5Ad05347250b58Ed4BA79227Fe')
+      .allowance(account, '0xC078Bac9D7462428a185c3c2d67d86569855b3a4')
       .call({ from: account });
 
     console.log('xpixul migrate allowance: ', parseInt(web3.utils.fromWei(allowance)));
@@ -367,11 +367,11 @@ const PixulApp = () => {
   async function updateStakingAllowance() {
     const xPixulTokenContract = new library.eth.Contract(
       xPixulTokenABI,
-      "0x5C059Bcfd4312376f4AE0f0e331e3371029239cD"
+      "0x5D8c6AEC4E1630E88Ab8fa882a74763AF5e4c96A"
     );
 
     const allowance = await xPixulTokenContract.methods
-      .allowance(account, '0xf115F973A51644112C15d45330422ED77E58A9e9')
+      .allowance(account, '0xae46b12F075d53ce17c2d79aF1f6eD729dd1828c')
       .call({ from: account });
 
     console.log('staking allowance: ', parseInt(web3.utils.fromWei(allowance)));
@@ -383,11 +383,11 @@ const PixulApp = () => {
     console.log('approve migrate pixul');
     const pixulTokenContract = new library.eth.Contract(
       PixulTokenABI,
-      "0x46b055324ba9389543DD54432D03e6B37CeAAf69"
+      "0x5718aF2DD07cD76ab0606f66565275F6c29f132f"
     );
 
     await pixulTokenContract.methods
-    .approve("0x124F8ee27dfA9F5Ad05347250b58Ed4BA79227Fe", ethers.constants.MaxUint256)
+    .approve("0xC078Bac9D7462428a185c3c2d67d86569855b3a4", ethers.constants.MaxUint256)
     .send({ from: account });
 
     updateMigratePixulAllowance();
@@ -397,11 +397,11 @@ const PixulApp = () => {
     console.log('approve migrate xpixul');
     const xPixulTokenContract = new library.eth.Contract(
       xPixulTokenABI,
-      "0x5C059Bcfd4312376f4AE0f0e331e3371029239cD"
+      "0x5D8c6AEC4E1630E88Ab8fa882a74763AF5e4c96A"
     );
 
     await xPixulTokenContract.methods
-    .approve("0x124F8ee27dfA9F5Ad05347250b58Ed4BA79227Fe", ethers.constants.MaxUint256)
+    .approve("0xC078Bac9D7462428a185c3c2d67d86569855b3a4", ethers.constants.MaxUint256)
     .send({ from: account });
    
     updateMigrateXPixulAllowance();
@@ -411,11 +411,11 @@ const PixulApp = () => {
     console.log('approve staking xpixul');
     const xPixulTokenContract = new library.eth.Contract(
       xPixulTokenABI,
-      "0x5C059Bcfd4312376f4AE0f0e331e3371029239cD"
+      "0x5D8c6AEC4E1630E88Ab8fa882a74763AF5e4c96A"
     );
 
     await xPixulTokenContract.methods
-    .approve("0xf115F973A51644112C15d45330422ED77E58A9e9", ethers.constants.MaxUint256)
+    .approve("0xae46b12F075d53ce17c2d79aF1f6eD729dd1828c", ethers.constants.MaxUint256)
     .send({ from: account });
    
     updateStakingAllowance();
@@ -430,7 +430,9 @@ const PixulApp = () => {
   }, []);
 
   React.useEffect(() => {
-    if (account) {
+    if (account && chainId) {
+      console.log('account: ', account);
+      console.log('library: ', library);
       updateMigratorBalance();
       updateStakingList();
       updateTotalXPixulMigrated();
@@ -442,7 +444,7 @@ const PixulApp = () => {
       updateMigrateXPixulAllowance();
       updateStakingAllowance();
     }
-  }, [account]);
+  }, [account, chainId]);
 
   //Input change handlers
   const stakeTimingChangeHandler = ({ target }) => {

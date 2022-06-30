@@ -49,8 +49,10 @@ export type ShellNavProps = {
   pages: IShellPage[];
 };
 
+const [ DEFAULT_CHAIN_ID, DEFAULT_CHAIN_ID_HEX ]  = [1, '0x1'];
+
 const ShellNav = (props: ShellNavProps) => {
-  const { active, account, library, connector, activate, deactivate } =
+  const { active, account, library, connector, activate, deactivate, chainId } =
     useWeb3React();
   const collapseRef = React.createRef<any>();
   const [isSideBarOpen, setSideBarOpen] = React.useState<Boolean>(false);
@@ -107,6 +109,15 @@ const ShellNav = (props: ShellNavProps) => {
     }
     
   }, [account]);
+
+  React.useEffect(() => {
+    //// if chainid is default chainid, then switch to defuault chain
+    if (account && chainId !== DEFAULT_CHAIN_ID) {
+      if (window && window.ethereum) {
+        window.ethereum.request({method: 'wallet_switchEthereumChain', params: [{ chainId: DEFAULT_CHAIN_ID_HEX }]});
+      }
+    }
+  }, [chainId, account])
 
   const pages1 = props.pages.slice(0, 2);
   const pages2 = props.pages.slice(2, 7);
