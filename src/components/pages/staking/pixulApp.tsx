@@ -92,7 +92,7 @@ const PixulApp = () => {
     console.log(234);
     const migratorContract = new library.eth.Contract(
       TokenMigratorABI,
-      "0xC078Bac9D7462428a185c3c2d67d86569855b3a4"
+      "0x7CB3385B3Bc2dde2e638F099020bF83eCf773a01"
     );
 
     //// staking to reward (xpixul to pixul)
@@ -279,7 +279,7 @@ const PixulApp = () => {
   async function updateTotalXPixulMigrated() {
     const migratorContract = new library.eth.Contract(
       TokenMigratorABI,
-      "0xC078Bac9D7462428a185c3c2d67d86569855b3a4"
+      "0x7CB3385B3Bc2dde2e638F099020bF83eCf773a01"
     );
 
     const totalMigrated = await migratorContract.methods
@@ -341,7 +341,7 @@ const PixulApp = () => {
     );
 
     const allowance = await pixulTokenContract.methods
-      .allowance(account, '0xC078Bac9D7462428a185c3c2d67d86569855b3a4')
+      .allowance(account, '0x7CB3385B3Bc2dde2e638F099020bF83eCf773a01')
       .call({ from: account });
 
     console.log('pixul migrate allowance: ', parseInt(web3.utils.fromWei(allowance)));
@@ -356,7 +356,7 @@ const PixulApp = () => {
     );
 
     const allowance = await xPixulTokenContract.methods
-      .allowance(account, '0xC078Bac9D7462428a185c3c2d67d86569855b3a4')
+      .allowance(account, '0x7CB3385B3Bc2dde2e638F099020bF83eCf773a01')
       .call({ from: account });
 
     console.log('xpixul migrate allowance: ', parseInt(web3.utils.fromWei(allowance)));
@@ -387,7 +387,7 @@ const PixulApp = () => {
     );
 
     await pixulTokenContract.methods
-    .approve("0xC078Bac9D7462428a185c3c2d67d86569855b3a4", ethers.constants.MaxUint256)
+    .approve("0x7CB3385B3Bc2dde2e638F099020bF83eCf773a01", ethers.constants.MaxUint256)
     .send({ from: account });
 
     updateMigratePixulAllowance();
@@ -401,7 +401,7 @@ const PixulApp = () => {
     );
 
     await xPixulTokenContract.methods
-    .approve("0xC078Bac9D7462428a185c3c2d67d86569855b3a4", ethers.constants.MaxUint256)
+    .approve("0x7CB3385B3Bc2dde2e638F099020bF83eCf773a01", ethers.constants.MaxUint256)
     .send({ from: account });
    
     updateMigrateXPixulAllowance();
