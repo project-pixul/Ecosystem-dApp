@@ -4,7 +4,7 @@
     "about": "About",
     "swap": "Swap",
     "farm": "Farm",
-    "xpixul": "xPixul",
+    "xpixul": "Staking",
     "exchange": "Exchange",
     "bridge": "Bridge",
     "lottery": "Lottery",
@@ -33,7 +33,7 @@
       "farm_button": "Enter Farms",
       "xpixul_header": "xPIXUL",
       "xpixul_paragraph": "View your total amount you're earning and holding. View global voting and voting booth",
-      "xpixul_button": "Enter Farms",
+      "xpixul_button": "Enter Migrator",
       "dex_header": "DEX",
       "dex_paragraph": "Use our decentralized exchange to swap tokens on our multi-chain DEX",
       "dex_button": "Enter DEX"
