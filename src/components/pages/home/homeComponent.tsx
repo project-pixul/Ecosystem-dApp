@@ -140,7 +140,7 @@ const HomeComponent = () => {
                     <h2>{t("home.explore.xpixul_header")}</h2>
                     <p>{t("home.explore.xpixul_paragraph")}</p>
                   </div>
-                  <a href="#" className="btn">
+                  <a href="/xpixul" className="btn">
                     {t("home.explore.xpixul_button")}
                   </a>
                 </div>
