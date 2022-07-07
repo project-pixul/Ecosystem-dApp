@@ -99,20 +99,8 @@ const HomeComponent = () => {
 
           <div className="stat-container">
             <p className="stats">
-              <span>$0.015</span>
+              <span>$0.0037414</span>
               <span className="statname">{t("home.stat1")}</span>
-            </p>
-            <p className="stats">
-              <span>$50m</span>
-              <span className="statname">{t("home.stat2")}</span>
-            </p>
-            <p className="stats">
-              <span>$100m</span>
-              <span className="statname">{t("home.stat3")}</span>
-            </p>
-            <p className="stats">
-              <span>204</span>
-              <span className="statname">{t("home.stat4")}</span>
             </p>
           </div>
 
