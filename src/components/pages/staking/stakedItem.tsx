@@ -7,7 +7,6 @@ import { toast } from "react-toastify";
 
 import web3 from "web3";
 
-
 export type StakingInfo = {
   stakingId: number;
   amount: number;
@@ -26,9 +25,8 @@ export type StakedItemProps = {
 const stakedItem = (props: StakedItemProps) => {
   const { active, account, library, connector, activate, deactivate } =
     useWeb3React();
-  
-  const aprs = [0.02, 0.17, 0.68, 2.2, 4.5, 9, 21, 41];
 
+  const aprs = [0.02, 0.17, 0.68, 2.2, 4.5, 9, 21, 41];
 
   const stakingPeriod = [
     "No lock",
@@ -49,21 +47,17 @@ const stakedItem = (props: StakedItemProps) => {
           .toString()
           .replace(/\B(?=(\d{3})+(?!\d))/g, ",")} xPIXUL`}</span>
 
-        <span>
-          {stakingPeriod[props.info.stakingtype]}
-        </span>
+        <span>{stakingPeriod[props.info.stakingtype]}</span>
       </div>
 
       <div className="staked-item-data">
         <span>
-        {`${web3.utils
-          .fromWei(props.info.claimableAmount.toString(), "ether")
-          .toString()} xPIXUL Claimable`}
+          {`${web3.utils
+            .fromWei(props.info.claimableAmount.toString(), "ether")
+            .toString()} xPIXUL Claimable`}
         </span>
 
-        <span>
-          {aprs[props.info.stakingtype] + '%'}
-        </span>
+        <span>{aprs[props.info.stakingtype] + "%"}</span>
       </div>
 
       <div className="staked-button-wrapper">
